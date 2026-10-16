@@ -1,0 +1,30 @@
+ESTRESSE DE PICO — caso SP v2: plano escolhido (mais barato certificado), sem replanejar; 1.000 cenários comuns
+colunas: % dos planos que cumprem α = 0,90 | P_on média | P_on mínima
+
+MEDIUM
+  tempos: média (58,5%)
+    C-DETC    n=80  cumpre  80.0%  P média 0.927  mín 0.863
+    C-BUF90C  n=80  cumpre 100.0%  P média 0.989  mín 0.945
+    C-BUF95C  n=80  cumpre 100.0%  P média 0.997  mín 0.989
+    CAL       n=80  cumpre  96.2%  P média 0.973  mín 0.878
+    C-SIMC    n=80  cumpre  88.8%  P média 0.939  mín 0.859
+  tempos: pico da manhã (88,2%)
+    C-DETC    n=80  cumpre   2.5%  P média 0.132  mín 0.001
+    C-BUF90C  n=80  cumpre   0.0%  P média 0.339  mín 0.065
+    C-BUF95C  n=80  cumpre   1.2%  P média 0.590  mín 0.252
+    CAL       n=80  cumpre   0.0%  P média 0.262  mín 0.001
+    C-SIMC    n=80  cumpre   2.5%  P média 0.200  mín 0.002
+
+HIGH
+  tempos: média (58,5%)
+    C-DETC    n=77  cumpre  97.4%  P média 0.973  mín 0.888
+    C-BUF90C  n=80  cumpre  91.2%  P média 0.943  mín 0.886
+    C-BUF95C  n=80  cumpre 100.0%  P média 0.973  mín 0.916
+    CAL       n=80  cumpre  91.2%  P média 0.947  mín 0.874
+    C-SIMC    n=80  cumpre  98.8%  P média 0.973  mín 0.876
+  tempos: pico da manhã (88,2%)
+    C-DETC    n=77  cumpre  41.6%  P média 0.794  mín 0.350
+    C-BUF90C  n=80  cumpre   0.0%  P média 0.567  mín 0.325
+    C-BUF95C  n=80  cumpre   1.2%  P média 0.752  mín 0.507
+    CAL       n=80  cumpre   1.2%  P média 0.600  mín 0.239
+    C-SIMC    n=80  cumpre  36.2%  P média 0.794  mín 0.366

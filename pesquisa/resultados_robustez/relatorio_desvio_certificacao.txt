@@ -1,0 +1,14 @@
+DESVIO certificação (500) − fora da amostra (1.000), todas as soluções finais certificadas (results_c)
+método        soluções    média  p95 |desvio|   otimismo busca (média)
+C-DETC           13389  +0.0008        0.0190                       --
+C-BUF70C         18890  +0.0008        0.0170                       --
+C-BUF80C         20805  +0.0003        0.0150                       --
+C-BUF90C         25744  +0.0002        0.0150                       --
+C-BUF95C         27346  +0.0000        0.0130                       --
+C-SIMC           16434  +0.0009        0.0220                  +0.0036
+C-MOEADC         14339  +0.0008        0.0210                  +0.0044
+C-BUF90C95       11505  +0.0005        0.0100                       --
+C-BUF95C95       13240  +0.0004        0.0130                       --
+C-BUF99C95       13130  +0.0000        0.0040                       --
+C-SIMC95          7535  +0.0008        0.0140                  +0.0037
+máximo entre métodos: média +0.0009; p95 do desvio absoluto 0.0220

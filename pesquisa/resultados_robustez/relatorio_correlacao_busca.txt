@@ -1,0 +1,21 @@
+CORRELAÇÃO NA BUSCA (ρ = 0.5; 12 instâncias n=50 MEDIUM/HIGH × sementes 0–4; avaliação em 1000 cenários correlacionados)
+colunas: execuções | frente cumpre | escolha do decisor (mais barata certificada) cumpre | custo mínimo que cumpre (média)
+  MEDIUM
+    C-SIMC        n= 30 | 100.0% |  60.0% |   3786.0
+    C-BUF95C      n= 30 | 100.0% | 100.0% |   3684.6
+    C-SIMC-COR    n= 30 | 100.0% |  96.7% |   3669.1
+    C-BUF95C-COR  n= 30 | 100.0% | 100.0% |   3684.6
+  HIGH
+    C-SIMC        n= 30 | 100.0% |  66.7% |   3478.6
+    C-BUF95C      n= 30 | 100.0% | 100.0% |   3419.4
+    C-SIMC-COR    n= 30 | 100.0% |  80.0% |   3448.5
+    C-BUF95C-COR  n= 30 | 100.0% | 100.0% |   3419.4
+  TODOS
+    C-SIMC        n= 60 | 100.0% |  63.3% |   3632.3
+    C-BUF95C      n= 60 | 100.0% | 100.0% |   3552.0
+    C-SIMC-COR    n= 60 | 100.0% |  88.3% |   3558.8
+    C-BUF95C-COR  n= 60 | 100.0% | 100.0% |   3552.0
+  custo mínimo que cumpre, pareado por instância (média das sementes), Δ% contra C-SIMC-COR:
+    C-BUF95C-COR  n=12  mediana -0.03  média -0.16  p=0.240
+    C-SIMC        n=12  mediana +0.11  média +1.95  p=0.024
+    C-BUF95C      n=12  mediana -0.03  média -0.16  p=0.240

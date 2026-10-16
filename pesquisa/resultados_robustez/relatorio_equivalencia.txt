@@ -1,0 +1,18 @@
+EQUIVALÊNCIA (diferença relativa pareada por instância, %; HL = Hodges–Lehmann)
+
+Custo mínimo que cumpre, α=0.90, referência C-SIMC, margem ±0.5%
+  C-BUF95C      n=54  HL  +0.08  IC95 [ +0.00,  +0.23]  IC90 [ +0.00,  +0.21]  EQUIVALENTE
+  C-BUF90C      n=54  HL  +0.00  IC95 [ -0.07,  +0.12]  IC90 [ -0.04,  +0.11]  EQUIVALENTE
+  C-CAL-BEST    n=54  HL  -0.22  IC95 [ -0.42,  -0.10]  IC90 [ -0.39,  -0.11]  EQUIVALENTE
+  C-MOEADC      n=54  HL  +0.50  IC95 [ +0.31,  +0.75]  IC90 [ +0.35,  +0.71]  não demonstrada
+
+Custo mínimo que cumpre, α=0.95, referência C-SIMC95, margem ±0.5%
+  C-BUF95C95    n=54  HL  +0.00  IC95 [ -0.13,  +0.17]  IC90 [ -0.10,  +0.13]  EQUIVALENTE
+  C-CAL95-BEST  n=54  HL  -0.22  IC95 [ -0.49,  -0.08]  IC90 [ -0.44,  -0.08]  EQUIVALENTE
+
+Hipervolume das que cumprem, α=0.90, referência C-SIMC, sem teste de equivalência
+  C-BUF95C      n=54  HL  -2.32  IC95 [ -4.21,  +0.54]  IC90 [ -3.99,  -0.14]  --
+  C-BUF90C      n=54  HL  -1.33  IC95 [ -3.16,  +1.61]  IC90 [ -2.85,  +0.96]  --
+  C-BUF90       n=54  HL  -2.17  IC95 [ -3.98,  +0.05]  IC90 [ -3.68,  -0.44]  --
+  C-CAL-BEST    n=54  HL  -0.43  IC95 [ -1.56,  +1.44]  IC90 [ -1.38,  +1.04]  --
+  C-MOEADC      n=54  HL  -0.53  IC95 [ -1.03,  -0.01]  IC90 [ -0.96,  -0.08]  --

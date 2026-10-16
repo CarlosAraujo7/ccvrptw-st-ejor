@@ -1,0 +1,3 @@
+A {'p_ls': 0.2, 'n_gen': 200}: gap médio +5.22% (máx +9.65%), tempo médio 197 s  | por instância: +8.1, +0.9, +9.6, +2.2, +8.5, +2.0
+B {'p_ls': 1.0, 'n_gen': 200}: gap médio +3.54% (máx +7.87%), tempo médio 570 s  | por instância: +7.2, +0.3, +4.9, +0.6, +7.9, +0.3
+C {'p_ls': 0.2, 'n_gen': 500}: gap médio +4.57% (máx +8.38%), tempo médio 421 s  | por instância: +7.2, +0.8, +8.4, +1.1, +8.0, +1.9

@@ -1,0 +1,59 @@
+REFINAMENTO — visão do decisor (160 execuções em comum; avaliação em 1.000 cenários comuns; α = 0.9)
+
+método            cumpre  custo médio  perda média  CO2 médio
+SIM+C              93.8%       3195.4       6.307%      131.3
+BUF0.95+C         100.0%       3182.3       5.918%      129.0
+BUF0.95+R          98.1%       3182.0       5.568%      127.4
+BUF0.95+R-LCB     100.0%       3182.1       5.724%      128.2
+CAL                93.8%       3175.7       5.944%      128.7
+SIM+C+R            96.9%       3195.3       5.652%      128.5
+CAL+R              98.8%       3175.6       5.574%      127.1
+CAL+R-LCB          98.1%       3175.7       5.708%      127.7
+SIM4               91.2%       3184.9       6.277%      130.4
+SIM4+R             97.5%       3184.9       5.605%      127.5
+  MEDIUM: SIM+C 88.8%  BUF0.95+C 100.0%  BUF0.95+R 98.8%  BUF0.95+R-LCB 100.0%  CAL 96.2%  SIM+C+R 97.5%  CAL+R 98.8%  CAL+R-LCB 98.8%  SIM4 82.5%  SIM4+R 98.8%
+  HIGH: SIM+C 98.8%  BUF0.95+C 100.0%  BUF0.95+R 97.5%  BUF0.95+R-LCB 100.0%  CAL 91.2%  SIM+C+R 96.2%  CAL+R 98.8%  CAL+R-LCB 97.5%  SIM4 100.0%  SIM4+R 96.2%
+
+Pareado por instância (média das sementes) contra SIM+C: HL [IC 95%], Wilcoxon com Holm
+  custo (%):
+    BUF0.95+C        n=16  HL  -0.339  [ -0.481,  -0.206]  p_Holm=0.000275
+    BUF0.95+R        n=16  HL  -0.347  [ -0.489,  -0.211]  p_Holm=0.000275
+    BUF0.95+R-LCB    n=16  HL  -0.345  [ -0.484,  -0.211]  p_Holm=0.000275
+    CAL              n=16  HL  -0.498  [ -0.678,  -0.336]  p_Holm=0.000275
+    SIM+C+R          n=16  HL  -0.001  [ -0.008,  +0.000]  p_Holm=0.0168
+    CAL+R            n=16  HL  -0.508  [ -0.681,  -0.336]  p_Holm=0.000275
+    CAL+R-LCB        n=16  HL  -0.499  [ -0.678,  -0.336]  p_Holm=0.000275
+    SIM4             n=16  HL  -0.295  [ -0.357,  -0.260]  p_Holm=0.000275
+    SIM4+R           n=16  HL  -0.295  [ -0.357,  -0.260]  p_Holm=0.000275
+  perda de qualidade (p.p.):
+    BUF0.95+C        n=16  HL  -0.382  [ -0.535,  -0.259]  p_Holm=0.000275
+    BUF0.95+R        n=16  HL  -0.727  [ -0.948,  -0.565]  p_Holm=0.000275
+    BUF0.95+R-LCB    n=16  HL  -0.575  [ -0.726,  -0.427]  p_Holm=0.000275
+    CAL              n=16  HL  -0.375  [ -0.494,  -0.242]  p_Holm=0.000275
+    SIM+C+R          n=16  HL  -0.666  [ -0.826,  -0.520]  p_Holm=0.000275
+    CAL+R            n=16  HL  -0.751  [ -0.937,  -0.558]  p_Holm=0.000275
+    CAL+R-LCB        n=16  HL  -0.613  [ -0.755,  -0.439]  p_Holm=0.000275
+    SIM4             n=16  HL  -0.035  [ -0.135,  +0.075]  p_Holm=0.528
+    SIM4+R           n=16  HL  -0.742  [ -0.881,  -0.540]  p_Holm=0.000275
+  CO2 (%):
+    BUF0.95+C        n=16  HL  -1.568  [ -2.225,  -1.039]  p_Holm=0.000275
+    BUF0.95+R        n=16  HL  -2.681  [ -3.449,  -2.000]  p_Holm=0.000275
+    BUF0.95+R-LCB    n=16  HL  -2.180  [ -2.812,  -1.709]  p_Holm=0.000275
+    CAL              n=16  HL  -1.850  [ -2.376,  -1.327]  p_Holm=0.000275
+    SIM+C+R          n=16  HL  -1.928  [ -2.411,  -1.540]  p_Holm=0.000275
+    CAL+R            n=16  HL  -2.988  [ -3.692,  -2.226]  p_Holm=0.000275
+    CAL+R-LCB        n=16  HL  -2.524  [ -3.212,  -1.872]  p_Holm=0.000275
+    SIM4             n=16  HL  -0.755  [ -1.023,  -0.508]  p_Holm=0.000427
+    SIM4+R           n=16  HL  -2.819  [ -3.188,  -2.285]  p_Holm=0.000275
+
+Orçamento igual (4 buscas), pareado por instância: CAL+R contra SIM4+R; HL [IC 95%], Wilcoxon (p) e Holm nas 4 medidas
+    custo (%)      n=16  HL  -0.201  [ -0.356,  -0.036]  p=0.0131  p_Holm=0.0524
+    perda (p.p.)   n=16  HL  -0.024  [ -0.079,  +0.028]  p=0.404  p_Holm=0.526
+    CO2 (%)        n=16  HL  -0.157  [ -0.656,  +0.268]  p=0.193  p_Holm=0.526
+    P_oos (p.p.)   n=16  HL  +0.415  [ -0.295,  +0.850]  p=0.175  p_Holm=0.526
+
+Orçamento igual (4 buscas), pareado por instância: CAL contra SIM4; HL [IC 95%], Wilcoxon (p) e Holm nas 4 medidas
+    custo (%)      n=16  HL  -0.200  [ -0.356,  -0.036]  p=0.0131  p_Holm=0.0262
+    perda (p.p.)   n=16  HL  -0.325  [ -0.484,  -0.175]  p=0.000214  p_Holm=0.000854
+    CO2 (%)        n=16  HL  -1.051  [ -1.757,  -0.391]  p=0.00336  p_Holm=0.0101
+    P_oos (p.p.)   n=16  HL  +1.070  [ -1.865,  +3.730]  p=0.323  p_Holm=0.323

@@ -1,0 +1,50 @@
+ESCOLHA DO DECISOR: solução mais barata aprovada na certificação (500 cenários), avaliada em 1.000 cenários novos
+colunas: execuções | % com escolha | % escolha cumpre fora | P_on das escolhas que falham (média, mín) | variante LCB 95%: % com escolha, % cumpre, Δcusto% vs escolha
+
+α = 0.90
+  LOW
+    C-DETC      n=180 | 100.0% |  95.6% | falhas P_on média/mín 0.880 0.869 | LCB: escolha 100.0% cumpre  98.9% Δcusto vs escolha mediana +0.00 média +0.20
+    C-BUF90C    n=180 | 100.0% | 100.0% | falhas P_on média/mín   --    --  | LCB: escolha 100.0% cumpre 100.0% Δcusto vs escolha mediana +0.00 média +0.00
+    C-BUF95C    n=180 | 100.0% | 100.0% | falhas P_on média/mín   --    --  | LCB: escolha 100.0% cumpre 100.0% Δcusto vs escolha mediana +0.00 média +0.00
+    CAL         n=180 | 100.0% | 100.0% | falhas P_on média/mín   --    --  | LCB: escolha 100.0% cumpre 100.0% Δcusto vs escolha mediana +0.00 média +0.00
+    C-SIMC      n=180 | 100.0% |  96.1% | falhas P_on média/mín 0.883 0.874 | LCB: escolha 100.0% cumpre  99.4% Δcusto vs escolha mediana +0.00 média +0.08
+    C-MOEADC    n=180 | 100.0% |  98.3% | falhas P_on média/mín 0.880 0.875 | LCB: escolha 100.0% cumpre 100.0% Δcusto vs escolha mediana +0.00 média +0.21
+  MEDIUM
+    C-DETC      n=180 |  95.0% |  93.0% | falhas P_on média/mín 0.889 0.880 | LCB: escolha  92.8% cumpre  98.8% Δcusto vs escolha mediana +0.00 média +2.60
+    C-BUF90C    n=180 | 100.0% | 100.0% | falhas P_on média/mín   --    --  | LCB: escolha 100.0% cumpre 100.0% Δcusto vs escolha mediana +0.00 média +0.00
+    C-BUF95C    n=180 | 100.0% | 100.0% | falhas P_on média/mín   --    --  | LCB: escolha 100.0% cumpre 100.0% Δcusto vs escolha mediana +0.00 média +0.00
+    CAL         n=180 | 100.0% |  98.3% | falhas P_on média/mín 0.890 0.880 | LCB: escolha 100.0% cumpre 100.0% Δcusto vs escolha mediana +0.00 média +0.04
+    C-SIMC      n=180 | 100.0% |  95.0% | falhas P_on média/mín 0.888 0.870 | LCB: escolha 100.0% cumpre  98.9% Δcusto vs escolha mediana +0.00 média +0.32
+    C-MOEADC    n=180 | 100.0% |  97.2% | falhas P_on média/mín 0.883 0.870 | LCB: escolha 100.0% cumpre 100.0% Δcusto vs escolha mediana +0.00 média +0.60
+  HIGH
+    C-DETC      n=180 |  76.1% |  97.1% | falhas P_on média/mín 0.881 0.864 | LCB: escolha  73.3% cumpre 100.0% Δcusto vs escolha mediana +0.00 média +4.92
+    C-BUF90C    n=180 | 100.0% |  93.3% | falhas P_on média/mín 0.891 0.879 | LCB: escolha  98.3% cumpre  99.4% Δcusto vs escolha mediana +0.00 média +1.77
+    C-BUF95C    n=180 | 100.0% | 100.0% | falhas P_on média/mín   --    --  | LCB: escolha 100.0% cumpre 100.0% Δcusto vs escolha mediana +0.00 média +0.02
+    CAL         n=180 | 100.0% |  93.3% | falhas P_on média/mín 0.890 0.872 | LCB: escolha 100.0% cumpre 100.0% Δcusto vs escolha mediana +0.00 média +0.24
+    C-SIMC      n=180 | 100.0% |  91.7% | falhas P_on média/mín 0.889 0.876 | LCB: escolha  99.4% cumpre  97.2% Δcusto vs escolha mediana +0.00 média +2.06
+    C-MOEADC    n=180 | 100.0% |  92.2% | falhas P_on média/mín 0.888 0.870 | LCB: escolha  99.4% cumpre 100.0% Δcusto vs escolha mediana +0.00 média +1.78
+  TODOS
+    C-DETC      n=540 |  90.4% |  95.1% | falhas P_on média/mín 0.885 0.864 | LCB: escolha  88.7% cumpre  99.2% Δcusto vs escolha mediana +0.00 média +2.33
+    C-BUF90C    n=540 | 100.0% |  97.8% | falhas P_on média/mín 0.891 0.879 | LCB: escolha  99.4% cumpre  99.8% Δcusto vs escolha mediana +0.00 média +0.58
+    C-BUF95C    n=540 | 100.0% | 100.0% | falhas P_on média/mín   --    --  | LCB: escolha 100.0% cumpre 100.0% Δcusto vs escolha mediana +0.00 média +0.01
+    CAL         n=540 | 100.0% |  97.2% | falhas P_on média/mín 0.890 0.872 | LCB: escolha 100.0% cumpre 100.0% Δcusto vs escolha mediana +0.00 média +0.09
+    C-SIMC      n=540 | 100.0% |  94.3% | falhas P_on média/mín 0.887 0.870 | LCB: escolha  99.8% cumpre  98.5% Δcusto vs escolha mediana +0.00 média +0.82
+    C-MOEADC    n=540 | 100.0% |  95.9% | falhas P_on média/mín 0.886 0.870 | LCB: escolha  99.8% cumpre 100.0% Δcusto vs escolha mediana +0.00 média +0.86
+
+α = 0.95
+  LOW
+    C-BUF95C95  n= 90 | 100.0% | 100.0% | falhas P_on média/mín   --    --  | LCB: escolha 100.0% cumpre 100.0% Δcusto vs escolha mediana +0.00 média +0.00
+    CAL95       n= 90 | 100.0% | 100.0% | falhas P_on média/mín   --    --  | LCB: escolha 100.0% cumpre 100.0% Δcusto vs escolha mediana +0.00 média +0.00
+    C-SIMC95    n= 90 | 100.0% |  96.7% | falhas P_on média/mín 0.942 0.934 | LCB: escolha 100.0% cumpre 100.0% Δcusto vs escolha mediana +0.00 média +0.63
+  MEDIUM
+    C-BUF95C95  n= 90 | 100.0% | 100.0% | falhas P_on média/mín   --    --  | LCB: escolha 100.0% cumpre 100.0% Δcusto vs escolha mediana +0.00 média +0.00
+    CAL95       n= 90 | 100.0% | 100.0% | falhas P_on média/mín   --    --  | LCB: escolha 100.0% cumpre 100.0% Δcusto vs escolha mediana +0.00 média +0.01
+    C-SIMC95    n= 90 | 100.0% |  94.4% | falhas P_on média/mín 0.943 0.937 | LCB: escolha 100.0% cumpre 100.0% Δcusto vs escolha mediana +0.00 média +0.71
+  HIGH
+    C-BUF95C95  n= 90 | 100.0% |  95.6% | falhas P_on média/mín 0.942 0.938 | LCB: escolha  97.8% cumpre  98.9% Δcusto vs escolha mediana +0.00 média +0.45
+    CAL95       n= 90 | 100.0% |  92.2% | falhas P_on média/mín 0.940 0.932 | LCB: escolha 100.0% cumpre  98.9% Δcusto vs escolha mediana +0.00 média +0.25
+    C-SIMC95    n= 90 | 100.0% |  90.0% | falhas P_on média/mín 0.937 0.923 | LCB: escolha 100.0% cumpre  97.8% Δcusto vs escolha mediana +0.00 média +4.23
+  TODOS
+    C-BUF95C95  n=270 | 100.0% |  98.5% | falhas P_on média/mín 0.942 0.938 | LCB: escolha  99.3% cumpre  99.6% Δcusto vs escolha mediana +0.00 média +0.15
+    CAL95       n=270 | 100.0% |  97.4% | falhas P_on média/mín 0.940 0.932 | LCB: escolha 100.0% cumpre  99.6% Δcusto vs escolha mediana +0.00 média +0.09
+    C-SIMC95    n=270 | 100.0% |  93.7% | falhas P_on média/mín 0.940 0.923 | LCB: escolha 100.0% cumpre  99.3% Δcusto vs escolha mediana +0.00 média +1.85

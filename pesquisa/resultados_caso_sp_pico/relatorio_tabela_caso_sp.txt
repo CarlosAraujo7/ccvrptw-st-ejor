@@ -1,0 +1,19 @@
+CASO SÃO PAULO v2 — 80 execuções (instância × semente); α = 0.9; avaliação em 1.000 cenários comuns
+
+MEDIUM (40 execuções)
+  C-DET      frente cumpre  45.0%  escolha cumpre   nan% (n=0)  custo mín. que cumpre vs SIM+C: mediana +2.80% média +28.85% máx +117.62% (n=18)
+  C-DETC     frente cumpre 100.0%  escolha cumpre  85.0% (n=40)  custo mín. que cumpre vs SIM+C: mediana +0.82% média +6.37% máx +117.62% (n=40)
+  C-BUF90C   frente cumpre 100.0%  escolha cumpre 100.0% (n=40)  custo mín. que cumpre vs SIM+C: mediana -0.44% média -0.47% máx +0.68% (n=40)
+  C-BUF95C   frente cumpre 100.0%  escolha cumpre 100.0% (n=40)  custo mín. que cumpre vs SIM+C: mediana -0.28% média -0.35% máx +0.41% (n=40)
+  CAL        frente cumpre 100.0%  escolha cumpre  90.0% (n=40)  custo mín. que cumpre vs SIM+C: mediana -0.58% média -0.06% máx +21.47% (n=40)
+  C-SIMC     frente cumpre 100.0%  escolha cumpre  90.0% (n=40)  custo mín. que cumpre vs SIM+C: mediana +0.00% média +0.00% máx +0.00% (n=40)
+  preço (escolha do SIM+C vs mais barata do DET, medianas): P 0.617 → 0.933; custo +0.39%  perda +0.414 p.p.  CO2 +2.32%
+
+HIGH (40 execuções)
+  C-DET      frente cumpre  20.0%  escolha cumpre   nan% (n=0)  custo mín. que cumpre vs SIM+C: mediana +76.59% média +80.10% máx +181.39% (n=8)
+  C-DETC     frente cumpre  90.0%  escolha cumpre  97.2% (n=36)  custo mín. que cumpre vs SIM+C: mediana +2.38% média +9.01% máx +54.92% (n=36)
+  C-BUF90C   frente cumpre 100.0%  escolha cumpre  90.0% (n=40)  custo mín. que cumpre vs SIM+C: mediana -0.37% média -0.13% máx +4.36% (n=40)
+  C-BUF95C   frente cumpre 100.0%  escolha cumpre  97.5% (n=40)  custo mín. que cumpre vs SIM+C: mediana -0.40% média -0.37% máx +0.95% (n=40)
+  CAL        frente cumpre 100.0%  escolha cumpre  95.0% (n=40)  custo mín. que cumpre vs SIM+C: mediana -0.57% média -0.49% máx +0.95% (n=40)
+  C-SIMC     frente cumpre 100.0%  escolha cumpre  95.0% (n=40)  custo mín. que cumpre vs SIM+C: mediana +0.00% média +0.00% máx +0.00% (n=40)
+  preço (escolha do SIM+C vs mais barata do DET, medianas): P 0.282 → 0.972; custo +0.43%  perda +0.512 p.p.  CO2 +2.87%

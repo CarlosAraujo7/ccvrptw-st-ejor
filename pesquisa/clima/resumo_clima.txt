@@ -1,0 +1,12 @@
+Resumo climático do mês mais quente, 2011-2020 (NOAA ISD), hora local fixa
+sd(média diária): ASHRAE 2017 cap. 14 §3.2; RMSE: perfil normalizado vs. Tabela 6 do ASHRAE
+
+São Paulo (Congonhas)          mês  2  dias  283  Tmax  28.3  amplitude   8.1  sd(média diária) 2.29  pico às 13h  RMSE vs. ASHRAE T6 0.13
+Fortaleza (Pinto Martins)      mês 11  dias  300  Tmax  30.7  amplitude   5.1  sd(média diária) 0.60  pico às 12h  RMSE vs. ASHRAE T6 0.22
+Manaus (Eduardo Gomes)         mês  9  dias  299  Tmax  33.2  amplitude   9.9  sd(média diária) 1.69  pico às 14h  RMSE vs. ASHRAE T6 0.09
+Recife (Guararapes)            mês  3  dias  307  Tmax  30.3  amplitude   5.1  sd(média diária) 0.84  pico às 13h  RMSE vs. ASHRAE T6 0.15
+Rio de Janeiro (Galeão)        mês  2  dias  283  Tmax  32.6  amplitude   8.7  sd(média diária) 1.92  pico às 13h  RMSE vs. ASHRAE T6 0.08
+Porto Alegre (Salgado Filho)   mês  1  dias  310  Tmax  30.7  amplitude   9.3  sd(média diária) 2.01  pico às 14h  RMSE vs. ASHRAE T6 0.04
+Brasília                       dados insuficientes (0 dias)
+Curitiba (Afonso Pena)         mês  1  dias  310  Tmax  26.5  amplitude   9.1  sd(média diária) 2.06  pico às 14h  RMSE vs. ASHRAE T6 0.11
+Salvador                       dados insuficientes (0 dias)

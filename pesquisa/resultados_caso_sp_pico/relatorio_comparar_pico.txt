@@ -1,0 +1,30 @@
+PLANEJAR COM O TEMPO CERTO — plano escolhido executado no pico da manhã (instâncias SPP; 1.000 cenários comuns)
+colunas: % que cumpre α | P média | custo médio | perda média | CO2 médio; Δ = pico − médio (medianas pareadas)
+
+MEDIUM
+  C-DETC    planejado no médio  n=40  cumpre   2.5%  P 0.152  custo   3090.4  perda 6.887%  CO2 130.2
+  C-DETC    planejado no pico   n=40  cumpre  85.0%  P 0.937  custo   3132.5  perda 7.119%  CO2 132.3
+  C-DETC    Δ pico − médio: custo +0.24%  perda +0.155 p.p.  CO2 +1.74%
+  C-BUF95C  planejado no médio  n=40  cumpre   0.0%  P 0.551  custo   3022.8  perda 6.234%  CO2 124.6
+  C-BUF95C  planejado no pico   n=40  cumpre 100.0%  P 0.994  custo   3026.5  perda 6.450%  CO2 125.7
+  C-BUF95C  Δ pico − médio: custo +0.12%  perda +0.155 p.p.  CO2 +0.86%
+  CAL       planejado no médio  n=40  cumpre   0.0%  P 0.211  custo   3017.2  perda 6.293%  CO2 124.0
+  CAL       planejado no pico   n=40  cumpre  90.0%  P 0.962  custo   3017.0  perda 6.493%  CO2 125.1
+  CAL       Δ pico − médio: custo +0.00%  perda +0.135 p.p.  CO2 +0.52%
+  C-SIMC    planejado no médio  n=40  cumpre   2.5%  P 0.206  custo   3035.7  perda 6.731%  CO2 127.4
+  C-SIMC    planejado no pico   n=40  cumpre  90.0%  P 0.940  custo   3039.7  perda 6.810%  CO2 128.1
+  C-SIMC    Δ pico − médio: custo -0.00%  perda +0.089 p.p.  CO2 +0.67%
+
+HIGH
+  C-DETC    planejado no médio  n=35  cumpre  54.3%  P 0.825  custo   3461.2  perda 7.205%  CO2 136.3
+  C-DETC    planejado no pico   n=35  cumpre  97.1%  P 0.976  custo   3310.1  perda 7.252%  CO2 136.4
+  C-DETC    Δ pico − médio: custo +0.15%  perda -0.022 p.p.  CO2 +1.43%
+  C-BUF95C  planejado no médio  n=40  cumpre   0.0%  P 0.722  custo   3023.4  perda 6.490%  CO2 125.2
+  C-BUF95C  planejado no pico   n=40  cumpre  97.5%  P 0.965  custo   3025.4  perda 6.579%  CO2 126.0
+  C-BUF95C  Δ pico − médio: custo +0.00%  perda +0.106 p.p.  CO2 +0.59%
+  CAL       planejado no médio  n=40  cumpre   0.0%  P 0.590  custo   3018.6  perda 6.615%  CO2 124.9
+  CAL       planejado no pico   n=40  cumpre  95.0%  P 0.951  custo   3020.8  perda 6.633%  CO2 125.7
+  CAL       Δ pico − médio: custo +0.04%  perda +0.100 p.p.  CO2 +0.66%
+  C-SIMC    planejado no médio  n=40  cumpre  42.5%  P 0.805  custo   3034.3  perda 7.033%  CO2 128.2
+  C-SIMC    planejado no pico   n=40  cumpre  95.0%  P 0.969  custo   3037.6  perda 7.146%  CO2 128.5
+  C-SIMC    Δ pico − médio: custo +0.05%  perda +0.180 p.p.  CO2 +0.15%

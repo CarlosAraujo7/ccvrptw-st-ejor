@@ -1,0 +1,41 @@
+cff-version: 1.2.0
+message: "If you use this code or these instances, please cite the paper below."
+title: "CCVRPTW-ST: code and instances for cold-chain vehicle routing under temperature and travel-time uncertainty"
+type: software
+license: MIT
+authors:
+  - family-names: "da Silva"
+    given-names: "Pedro Henrique Ferreira"
+  - family-names: "Araújo"
+    given-names: "Carlos Vinicio Dantas"
+  - family-names: "Amaro Junior"
+    given-names: "Bonfim"
+  - family-names: "Franklin"
+    given-names: "Luis Antonio Viana"
+  - family-names: "Martins"
+    given-names: "Henrique de Almeida"
+  - family-names: "Dutra"
+    given-names: "Francisco Rian de Oliveira"
+  - family-names: "de Camargo"
+    given-names: "Raphael Yokoingawa"
+preferred-citation:
+  type: article
+  title: "Cold-chain vehicle routing under temperature and travel-time uncertainty: plan the quality, protect the punctuality"
+  authors:
+    - family-names: "da Silva"
+      given-names: "Pedro Henrique Ferreira"
+    - family-names: "Araújo"
+      given-names: "Carlos Vinicio Dantas"
+    - family-names: "Amaro Junior"
+      given-names: "Bonfim"
+    - family-names: "Franklin"
+      given-names: "Luis Antonio Viana"
+    - family-names: "Martins"
+      given-names: "Henrique de Almeida"
+    - family-names: "Dutra"
+      given-names: "Francisco Rian de Oliveira"
+    - family-names: "de Camargo"
+      given-names: "Raphael Yokoingawa"
+  journal: "European Journal of Operational Research"
+  year: 2026
+  notes: "Submitted; update volume, pages and DOI on publication."

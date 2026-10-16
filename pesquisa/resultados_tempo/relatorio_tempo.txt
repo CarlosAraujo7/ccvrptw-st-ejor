@@ -1,0 +1,8 @@
+MICROBENCHMARK DE TEMPO (HIGH, 18 instâncias × 2 sementes, 10 processos, ordem sorteada)
+método      n=25 relógio/CPU   n=50 relógio/CPU   n=100 relógio/CPU   (s, médias)
+C-DET         32.1/   31.5      58.4/   55.7     104.9/   99.8
+C-DETC        38.0/   33.1      56.6/   54.7     107.3/  101.7
+C-BUF90C      33.7/   32.4      58.8/   55.9     102.9/   97.3
+C-BUF95C      36.2/   33.0      57.6/   55.1     103.1/   98.3
+C-SIMC        33.6/   31.5      58.2/   55.3     113.4/  105.8
+C-MOEADC      34.1/   30.3      57.3/   53.8     109.2/  105.0

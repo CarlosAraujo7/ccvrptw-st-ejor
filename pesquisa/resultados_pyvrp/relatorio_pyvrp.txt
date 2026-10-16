@@ -1,0 +1,11 @@
+PyVRP 0.13.3, 3 sementes por instância; tempo por resolução {5: 5, 10: 5, 15: 10, 20: 10, 25: 30, 50: 60, 100: 120}; soluções inviáveis pela nossa regra: 0 de 174
+Validação do mapeamento (instâncias da validação exata):
+   n= 5  MILP    485.84   PyVRP    485.84
+   n=10  MILP    879.64   PyVRP    879.64
+   n=15  MILP   1464.02   PyVRP   1464.02
+   n=20  MILP   1281.15   PyVRP   1281.15
+
+Gap do custo mínimo da frente do DET (Split + BL) contra o melhor do PyVRP, por tamanho (C:\Pesquisas\CCVRPTW-ST\results_c\C-DET):
+   n= 25 (18 instâncias): melhor semente média +0.04% (máx +0.67%), média das sementes +0.13% (máx +0.86%)
+   n= 50 (18 instâncias): melhor semente média +0.15% (máx +0.79%), média das sementes +0.67% (máx +2.64%)
+   n=100 (18 instâncias): melhor semente média +1.54% (máx +4.12%), média das sementes +2.39% (máx +4.66%)

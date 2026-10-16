@@ -1,0 +1,398 @@
+{
+ "mix_pof": {
+  "meat": 0.5599742004925136,
+  "dairy": 0.2471014718208071,
+  "produce": 0.14607309826451534,
+  "frozen": 0.04685122942216405
+ },
+ "kg_pof": {
+  "meat": 30.741,
+  "dairy": 13.565172,
+  "produce": 8.019,
+  "frozen": 2.572
+ },
+ "instancias": [
+  {
+   "nome": "CCVRPTW-ST_SP1_050_MEDIUM",
+   "frota": 10,
+   "capacidade": 756.0,
+   "demanda": 5623.2,
+   "ida_media_min": 27.2,
+   "ida_max_min": 42.9,
+   "km_ida_media": 12.0,
+   "servico_medio_min": 44.4,
+   "programadas": 37,
+   "janelas_ajustadas": 0,
+   "dominante": "meat",
+   "categorias": {
+    "meat": 25,
+    "produce": 9,
+    "dairy": 15,
+    "frozen": 1
+   },
+   "porte": {
+    "05": 27,
+    "03": 8,
+    "01": 15
+   }
+  },
+  {
+   "nome": "CCVRPTW-ST_SP1_050_HIGH",
+   "frota": 10,
+   "capacidade": 756.0,
+   "demanda": 5623.2,
+   "ida_media_min": 27.2,
+   "ida_max_min": 42.9,
+   "km_ida_media": 12.0,
+   "servico_medio_min": 44.4,
+   "programadas": 37,
+   "janelas_ajustadas": 0,
+   "dominante": "meat",
+   "categorias": {
+    "meat": 25,
+    "produce": 9,
+    "dairy": 15,
+    "frozen": 1
+   },
+   "porte": {
+    "05": 27,
+    "03": 8,
+    "01": 15
+   }
+  },
+  {
+   "nome": "CCVRPTW-ST_SP1_100_MEDIUM",
+   "frota": 23,
+   "capacidade": 722.0,
+   "demanda": 11537.6,
+   "ida_media_min": 29.4,
+   "ida_max_min": 47.2,
+   "km_ida_media": 13.3,
+   "servico_medio_min": 47.5,
+   "programadas": 69,
+   "janelas_ajustadas": 0,
+   "dominante": "meat",
+   "categorias": {
+    "meat": 51,
+    "dairy": 27,
+    "produce": 14,
+    "frozen": 8
+   },
+   "porte": {
+    "05": 54,
+    "01": 31,
+    "03": 15
+   }
+  },
+  {
+   "nome": "CCVRPTW-ST_SP1_100_HIGH",
+   "frota": 23,
+   "capacidade": 722.0,
+   "demanda": 11537.6,
+   "ida_media_min": 29.4,
+   "ida_max_min": 47.2,
+   "km_ida_media": 13.3,
+   "servico_medio_min": 47.5,
+   "programadas": 69,
+   "janelas_ajustadas": 0,
+   "dominante": "meat",
+   "categorias": {
+    "meat": 51,
+    "dairy": 27,
+    "produce": 14,
+    "frozen": 8
+   },
+   "porte": {
+    "05": 54,
+    "01": 31,
+    "03": 15
+   }
+  },
+  {
+   "nome": "CCVRPTW-ST_SP2_050_MEDIUM",
+   "frota": 11,
+   "capacidade": 749.0,
+   "demanda": 5487.0,
+   "ida_media_min": 28.6,
+   "ida_max_min": 43.0,
+   "km_ida_media": 13.1,
+   "servico_medio_min": 49.1,
+   "programadas": 30,
+   "janelas_ajustadas": 0,
+   "dominante": "meat",
+   "categorias": {
+    "dairy": 17,
+    "meat": 21,
+    "produce": 9,
+    "frozen": 3
+   },
+   "porte": {
+    "05": 27,
+    "01": 15,
+    "03": 8
+   }
+  },
+  {
+   "nome": "CCVRPTW-ST_SP2_050_HIGH",
+   "frota": 11,
+   "capacidade": 749.0,
+   "demanda": 5487.0,
+   "ida_media_min": 28.6,
+   "ida_max_min": 43.0,
+   "km_ida_media": 13.1,
+   "servico_medio_min": 49.1,
+   "programadas": 30,
+   "janelas_ajustadas": 0,
+   "dominante": "meat",
+   "categorias": {
+    "dairy": 17,
+    "meat": 21,
+    "produce": 9,
+    "frozen": 3
+   },
+   "porte": {
+    "05": 27,
+    "01": 15,
+    "03": 8
+   }
+  },
+  {
+   "nome": "CCVRPTW-ST_SP2_100_MEDIUM",
+   "frota": 24,
+   "capacidade": 708.0,
+   "demanda": 12044.3,
+   "ida_media_min": 30.8,
+   "ida_max_min": 44.3,
+   "km_ida_media": 14.0,
+   "servico_medio_min": 45.8,
+   "programadas": 70,
+   "janelas_ajustadas": 0,
+   "dominante": "meat",
+   "categorias": {
+    "dairy": 26,
+    "meat": 58,
+    "frozen": 7,
+    "produce": 9
+   },
+   "porte": {
+    "01": 31,
+    "05": 54,
+    "03": 15
+   }
+  },
+  {
+   "nome": "CCVRPTW-ST_SP2_100_HIGH",
+   "frota": 24,
+   "capacidade": 708.0,
+   "demanda": 12044.3,
+   "ida_media_min": 30.8,
+   "ida_max_min": 44.3,
+   "km_ida_media": 14.0,
+   "servico_medio_min": 45.8,
+   "programadas": 70,
+   "janelas_ajustadas": 0,
+   "dominante": "meat",
+   "categorias": {
+    "dairy": 26,
+    "meat": 58,
+    "frozen": 7,
+    "produce": 9
+   },
+   "porte": {
+    "01": 31,
+    "05": 54,
+    "03": 15
+   }
+  },
+  {
+   "nome": "CCVRPTW-ST_SP3_050_MEDIUM",
+   "frota": 11,
+   "capacidade": 753.0,
+   "demanda": 6287.0,
+   "ida_media_min": 29.9,
+   "ida_max_min": 47.2,
+   "km_ida_media": 13.6,
+   "servico_medio_min": 47.2,
+   "programadas": 35,
+   "janelas_ajustadas": 0,
+   "dominante": "meat",
+   "categorias": {
+    "meat": 34,
+    "dairy": 13,
+    "produce": 3
+   },
+   "porte": {
+    "01": 15,
+    "05": 27,
+    "03": 8
+   }
+  },
+  {
+   "nome": "CCVRPTW-ST_SP3_050_HIGH",
+   "frota": 11,
+   "capacidade": 753.0,
+   "demanda": 6287.0,
+   "ida_media_min": 29.9,
+   "ida_max_min": 47.2,
+   "km_ida_media": 13.6,
+   "servico_medio_min": 47.2,
+   "programadas": 35,
+   "janelas_ajustadas": 0,
+   "dominante": "meat",
+   "categorias": {
+    "meat": 34,
+    "dairy": 13,
+    "produce": 3
+   },
+   "porte": {
+    "01": 15,
+    "05": 27,
+    "03": 8
+   }
+  },
+  {
+   "nome": "CCVRPTW-ST_SP3_100_MEDIUM",
+   "frota": 27,
+   "capacidade": 631.0,
+   "demanda": 11889.7,
+   "ida_media_min": 29.2,
+   "ida_max_min": 41.7,
+   "km_ida_media": 13.2,
+   "servico_medio_min": 45.1,
+   "programadas": 68,
+   "janelas_ajustadas": 0,
+   "dominante": "meat",
+   "categorias": {
+    "dairy": 24,
+    "meat": 60,
+    "produce": 9,
+    "frozen": 7
+   },
+   "porte": {
+    "03": 15,
+    "05": 54,
+    "01": 31
+   }
+  },
+  {
+   "nome": "CCVRPTW-ST_SP3_100_HIGH",
+   "frota": 27,
+   "capacidade": 631.0,
+   "demanda": 11889.7,
+   "ida_media_min": 29.2,
+   "ida_max_min": 41.7,
+   "km_ida_media": 13.2,
+   "servico_medio_min": 45.1,
+   "programadas": 68,
+   "janelas_ajustadas": 0,
+   "dominante": "meat",
+   "categorias": {
+    "dairy": 24,
+    "meat": 60,
+    "produce": 9,
+    "frozen": 7
+   },
+   "porte": {
+    "03": 15,
+    "05": 54,
+    "01": 31
+   }
+  },
+  {
+   "nome": "CCVRPTW-ST_SP4_050_MEDIUM",
+   "frota": 10,
+   "capacidade": 745.0,
+   "demanda": 5599.3,
+   "ida_media_min": 29.0,
+   "ida_max_min": 41.7,
+   "km_ida_media": 13.6,
+   "servico_medio_min": 46.1,
+   "programadas": 33,
+   "janelas_ajustadas": 0,
+   "dominante": "meat",
+   "categorias": {
+    "dairy": 12,
+    "produce": 9,
+    "meat": 28,
+    "frozen": 1
+   },
+   "porte": {
+    "05": 27,
+    "01": 15,
+    "03": 8
+   }
+  },
+  {
+   "nome": "CCVRPTW-ST_SP4_050_HIGH",
+   "frota": 10,
+   "capacidade": 745.0,
+   "demanda": 5599.3,
+   "ida_media_min": 29.0,
+   "ida_max_min": 41.7,
+   "km_ida_media": 13.6,
+   "servico_medio_min": 46.1,
+   "programadas": 33,
+   "janelas_ajustadas": 0,
+   "dominante": "meat",
+   "categorias": {
+    "dairy": 12,
+    "produce": 9,
+    "meat": 28,
+    "frozen": 1
+   },
+   "porte": {
+    "05": 27,
+    "01": 15,
+    "03": 8
+   }
+  },
+  {
+   "nome": "CCVRPTW-ST_SP4_100_MEDIUM",
+   "frota": 27,
+   "capacidade": 619.0,
+   "demanda": 11435.1,
+   "ida_media_min": 29.3,
+   "ida_max_min": 41.7,
+   "km_ida_media": 13.4,
+   "servico_medio_min": 56.0,
+   "programadas": 73,
+   "janelas_ajustadas": 0,
+   "dominante": "meat",
+   "categorias": {
+    "dairy": 23,
+    "produce": 14,
+    "meat": 58,
+    "frozen": 5
+   },
+   "porte": {
+    "05": 54,
+    "01": 31,
+    "03": 15
+   }
+  },
+  {
+   "nome": "CCVRPTW-ST_SP4_100_HIGH",
+   "frota": 27,
+   "capacidade": 619.0,
+   "demanda": 11435.1,
+   "ida_media_min": 29.3,
+   "ida_max_min": 41.7,
+   "km_ida_media": 13.4,
+   "servico_medio_min": 56.0,
+   "programadas": 73,
+   "janelas_ajustadas": 0,
+   "dominante": "meat",
+   "categorias": {
+    "dairy": 23,
+    "produce": 14,
+    "meat": 58,
+    "frozen": 5
+   },
+   "porte": {
+    "05": 54,
+    "01": 31,
+    "03": 15
+   }
+  }
+ ]
+}

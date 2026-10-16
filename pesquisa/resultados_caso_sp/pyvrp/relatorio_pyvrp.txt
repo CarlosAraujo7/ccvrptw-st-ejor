@@ -1,0 +1,6 @@
+PyVRP 0.13.3, 3 sementes por instância; tempo por resolução {5: 5, 10: 5, 15: 10, 20: 10, 25: 30, 50: 60, 100: 120}; soluções inviáveis pela nossa regra: 2 de 48
+(caso São Paulo: sem validação exata)
+
+Gap do custo mínimo da frente do DET (Split + BL) contra o melhor do PyVRP, por tamanho (C:\Pesquisas\CCVRPTW-ST\results_c_sp\C-DET):
+   n= 50 (8 instâncias): melhor semente média +0.05% (máx +0.11%), média das sementes +0.27% (máx +0.39%)
+   n=100 (8 instâncias): melhor semente média +2.57% (máx +4.19%), média das sementes +3.34% (máx +5.04%)

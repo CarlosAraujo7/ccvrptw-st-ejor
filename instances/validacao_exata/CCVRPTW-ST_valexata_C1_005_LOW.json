@@ -1,0 +1,237 @@
+{
+  "name": "CCVRPTW-ST_C1_005_LOW",
+  "family": "C1",
+  "size": 5,
+  "uncertainty_level": "low",
+  "depot": {
+    "id": 0,
+    "x": 40.0,
+    "y": 50.0,
+    "ready_time_min": 0.0,
+    "due_date_min": 960.0
+  },
+  "customers": [
+    {
+      "id": 1,
+      "x": 21.98,
+      "y": 31.29,
+      "demand_kg": 81.4,
+      "ready_time_min": 50.5,
+      "due_date_min": 112.9,
+      "service_time_min": 15.6,
+      "product_category": "dairy",
+      "product_description": "Laticinios (iogurte, queijo fresco, leite UHT refrigerado)",
+      "unit_value_BRL_kg": 18.0,
+      "load_value_BRL": 1465.2
+    },
+    {
+      "id": 2,
+      "x": 35.26,
+      "y": 79.73,
+      "demand_kg": 108.5,
+      "ready_time_min": 163.3,
+      "due_date_min": 250.6,
+      "service_time_min": 18.1,
+      "product_category": "frozen",
+      "product_description": "Congelados (frango, peixe, sorvetes)",
+      "unit_value_BRL_kg": 22.0,
+      "load_value_BRL": 2387.0
+    },
+    {
+      "id": 3,
+      "x": 30.66,
+      "y": 50.61,
+      "demand_kg": 180.9,
+      "ready_time_min": 105.4,
+      "due_date_min": 197.6,
+      "service_time_min": 18.2,
+      "product_category": "meat",
+      "product_description": "Carne bovina resfriada",
+      "unit_value_BRL_kg": 35.0,
+      "load_value_BRL": 6331.5
+    },
+    {
+      "id": 4,
+      "x": 15.57,
+      "y": 59.02,
+      "demand_kg": 26.3,
+      "ready_time_min": 123.8,
+      "due_date_min": 185.9,
+      "service_time_min": 14.5,
+      "product_category": "produce",
+      "product_description": "Hortifruti (folhosos, frutas tropicais, verduras)",
+      "unit_value_BRL_kg": 8.0,
+      "load_value_BRL": 210.4
+    },
+    {
+      "id": 5,
+      "x": 44.17,
+      "y": 81.89,
+      "demand_kg": 62.9,
+      "ready_time_min": 286.6,
+      "due_date_min": 383.3,
+      "service_time_min": 14.9,
+      "product_category": "meat",
+      "product_description": "Carne bovina resfriada",
+      "unit_value_BRL_kg": 35.0,
+      "load_value_BRL": 2201.5
+    }
+  ],
+  "fleet": {
+    "num_vehicles": 2,
+    "capacity_kg": 622.0,
+    "speed_km_h": 60.0,
+    "fixed_cost_BRL": 150.0,
+    "variable_cost_BRL_km": 2.5
+  },
+  "thermal_profile": {
+    "dominant_category": "meat",
+    "description": "Carne bovina resfriada",
+    "T_set_C": 2.0,
+    "T_max_C": 7.0,
+    "T_min_C": -1.5,
+    "Ea_J_mol": 75000.0,
+    "A0": 3323500000000.0,
+    "Q_min": 0.7,
+    "sigma_T_C": 0.5,
+    "sigma_t_pct": 0.05,
+    "uncertainty_label": "Baixa incerteza",
+    "validation": {
+      "k_at_Tset_1_per_h": 0.019188,
+      "k_at_Tmax_1_per_h": 0.034448,
+      "ratio_kmax_over_kset": 1.8,
+      "shelf_life_at_Tset_h_calculated": 240.0,
+      "shelf_life_at_Tmax_h_calculated": 133.7,
+      "shelf_life_at_Tset_h_literature": 240,
+      "max_route_h_to_reach_Qmin": 18.6,
+      "Q_after_8h_at_Tset": 0.8577,
+      "Q_after_16h_at_Tset": 0.7356,
+      "calibration_note": "A0 calibrado para k(T_set)*shelf_h = -ln(0.01); metodologia: A0 = [-ln(0.01)/shelf_h] / exp(-Ea/(R*T_K))"
+    },
+    "references": [
+      "Ndraha et al. (2018) Food Control 89:12-21",
+      "Giannakourou & Taoukis (2003) J. Food Sci. 68(1):201-209"
+    ],
+    "per_category": {
+      "produce": {
+        "T_set_C": 5.0,
+        "T_max_C": 10.0,
+        "Ea_J_mol": 55000.0,
+        "A0": 818570000.0,
+        "Q_min": 0.65,
+        "sigma_T_C": 0.5,
+        "validation": {
+          "k_at_Tset_1_per_h": 0.038376,
+          "k_at_Tmax_1_per_h": 0.058406,
+          "ratio_kmax_over_kset": 1.52,
+          "shelf_life_at_Tset_h_calculated": 120.0,
+          "shelf_life_at_Tmax_h_calculated": 78.8,
+          "shelf_life_at_Tset_h_literature": 120,
+          "max_route_h_to_reach_Qmin": 11.2,
+          "Q_after_8h_at_Tset": 0.7356,
+          "Q_after_16h_at_Tset": 0.5412,
+          "calibration_note": "A0 calibrado para k(T_set)*shelf_h = -ln(0.01); metodologia: A0 = [-ln(0.01)/shelf_h] / exp(-Ea/(R*T_K))"
+        }
+      },
+      "frozen": {
+        "T_set_C": -18.0,
+        "T_max_C": -15.0,
+        "Ea_J_mol": 105000.0,
+        "A0": 6.6881e+18,
+        "Q_min": 0.8,
+        "sigma_T_C": 0.5,
+        "validation": {
+          "k_at_Tset_1_per_h": 0.002132,
+          "k_at_Tmax_1_per_h": 0.00379,
+          "ratio_kmax_over_kset": 1.78,
+          "shelf_life_at_Tset_h_calculated": 2160.0,
+          "shelf_life_at_Tmax_h_calculated": 1215.2,
+          "shelf_life_at_Tset_h_literature": 2160,
+          "max_route_h_to_reach_Qmin": 104.7,
+          "Q_after_8h_at_Tset": 0.9831,
+          "Q_after_16h_at_Tset": 0.9665,
+          "calibration_note": "A0 calibrado para k(T_set)*shelf_h = -ln(0.01); metodologia: A0 = [-ln(0.01)/shelf_h] / exp(-Ea/(R*T_K))"
+        }
+      },
+      "meat": {
+        "T_set_C": 2.0,
+        "T_max_C": 7.0,
+        "Ea_J_mol": 75000.0,
+        "A0": 3323500000000.0,
+        "Q_min": 0.7,
+        "sigma_T_C": 0.5,
+        "validation": {
+          "k_at_Tset_1_per_h": 0.019188,
+          "k_at_Tmax_1_per_h": 0.034448,
+          "ratio_kmax_over_kset": 1.8,
+          "shelf_life_at_Tset_h_calculated": 240.0,
+          "shelf_life_at_Tmax_h_calculated": 133.7,
+          "shelf_life_at_Tset_h_literature": 240,
+          "max_route_h_to_reach_Qmin": 18.6,
+          "Q_after_8h_at_Tset": 0.8577,
+          "Q_after_16h_at_Tset": 0.7356,
+          "calibration_note": "A0 calibrado para k(T_set)*shelf_h = -ln(0.01); metodologia: A0 = [-ln(0.01)/shelf_h] / exp(-Ea/(R*T_K))"
+        }
+      },
+      "dairy": {
+        "T_set_C": 4.0,
+        "T_max_C": 8.0,
+        "Ea_J_mol": 62000.0,
+        "A0": 13290000000.0,
+        "Q_min": 0.75,
+        "sigma_T_C": 0.5,
+        "validation": {
+          "k_at_Tset_1_per_h": 0.027411,
+          "k_at_Tmax_1_per_h": 0.040195,
+          "ratio_kmax_over_kset": 1.47,
+          "shelf_life_at_Tset_h_calculated": 168.0,
+          "shelf_life_at_Tmax_h_calculated": 114.6,
+          "shelf_life_at_Tset_h_literature": 168,
+          "max_route_h_to_reach_Qmin": 10.5,
+          "Q_after_8h_at_Tset": 0.8031,
+          "Q_after_16h_at_Tset": 0.645,
+          "calibration_note": "A0 calibrado para k(T_set)*shelf_h = -ln(0.01); metodologia: A0 = [-ln(0.01)/shelf_h] / exp(-Ea/(R*T_K))"
+        }
+      }
+    }
+  },
+  "co2_params": {
+    "alpha_kg_per_km": 0.21,
+    "beta_kg_per_kWh": 0.092,
+    "P_refrigeration_kW": 3.5,
+    "references": [
+      "IPCC (2021) AR6 WGI Chapter 7",
+      "Ecoinvent v3.8 (2022) — transporte refrigerado"
+    ]
+  },
+  "horizon_minutes": 960.0,
+  "generation_metadata": {
+    "seed": 9005,
+    "family": "C",
+    "variant": 1,
+    "tw_width_min": 75.0,
+    "total_demand_kg": 460.0,
+    "num_customers": 5,
+    "depot_position": [
+      40.0,
+      50.0
+    ],
+    "category_distribution": {
+      "dairy": 1,
+      "frozen": 1,
+      "meat": 2,
+      "produce": 1
+    },
+    "solomon_reference": "Solomon (1987) Operations Research 35(2):254-265",
+    "arrhenius_references": [
+      "Ndraha et al. (2018) Food Control 89:12-21",
+      "Gwanpua et al. (2015) J. Food Engineering 148:2-12",
+      "Jedermann et al. (2014) Philos. Trans. R. Soc. A 372:20130302",
+      "ASHRAE Fundamentals Handbook (2017) Chapter 22"
+    ],
+    "co2_references": [
+      "IPCC (2021) AR6 WGI",
+      "Ecoinvent v3.8 (2022)"
+    ]
+  }
+}

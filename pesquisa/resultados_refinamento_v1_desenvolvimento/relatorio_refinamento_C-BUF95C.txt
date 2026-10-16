@@ -1,0 +1,7 @@
+REFINAMENTO POR SIMULAÇÃO a partir da escolha do decisor de C-BUF95C (360 execuções); avaliação em 1.000 cenários comuns
+  base (C-BUF95C)        cumpre  99.7%  P média 0.988  custo médio   4185.3  perda 3.591%  CO2 238.9
+  refinado               cumpre  95.0%  P média 0.961  custo médio   4146.1  perda 3.304%  CO2 237.1
+  SIM+C                  cumpre  95.6%  P média 0.964  custo médio   4192.2  perda 3.582%  CO2 239.1
+  refinado vs base       Δcusto mediana +0.00% média -0.68%  Δperda mediana -0.220 p.p.  ΔCO2 mediana -0.33%
+  refinado vs SIM+C      Δcusto mediana +0.00% média -0.66%  Δperda mediana -0.267 p.p.  ΔCO2 mediana -0.09%
+  tempo de CPU do refinamento: média 0.1 s por execução

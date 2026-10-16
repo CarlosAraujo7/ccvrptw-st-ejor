@@ -1,0 +1,33 @@
+SIM+C COM 100 CENÁRIOS NO CASO SP — 160 execuções; α = 0.9; 1.000 cenários comuns
+  SIM30      escolha cumpre  93.8%  custo   3195.4  perda 6.307%  CO2 131.3  (n=160)
+  SIM100     escolha cumpre  98.1%  custo   3194.9  perda 6.315%  CO2 131.3  (n=160)
+  BUF0.95+C  escolha cumpre 100.0%  custo   3182.3  perda 5.918%  CO2 129.0  (n=160)
+  CAL        escolha cumpre  93.8%  custo   3175.7  perda 5.953%  CO2 128.7  (n=160)
+  CAL+R      escolha cumpre  98.8%  custo   3175.6  perda 5.574%  CO2 127.1  (n=160)
+
+Plano escolhido, pareado por instância (média das sementes): método contra SIM100; HL [IC 95%]; Holm nas 4 medidas
+  SIM30:
+      custo (%)      n=16  HL  +0.037 [ -0.033,  +0.095]  p=0.274  p_Holm=0.823  (5 menores, 11 maiores)
+      perda (p.p.)   n=16  HL  -0.006 [ -0.108,  +0.090]  p=0.9  p_Holm=1  (8 menores, 8 maiores)
+      CO2 (%)        n=16  HL  +0.096 [ -0.303,  +0.384]  p=0.528  p_Holm=1  (5 menores, 11 maiores)
+      P_oos (p.p.)   n=16  HL  -0.618 [ -1.020,  -0.035]  p=0.0335  p_Holm=0.134  (12 menores, 4 maiores)
+  BUF0.95+C:
+      custo (%)      n=16  HL  -0.310 [ -0.473,  -0.154]  p=0.000763  p_Holm=0.00153  (13 menores, 3 maiores)
+      perda (p.p.)   n=16  HL  -0.382 [ -0.504,  -0.276]  p=6.1e-05  p_Holm=0.000244  (15 menores, 1 maiores)
+      CO2 (%)        n=16  HL  -1.573 [ -2.195,  -0.886]  p=0.000427  p_Holm=0.00128  (14 menores, 2 maiores)
+      P_oos (p.p.)   n=16  HL  +2.400 [ +0.645,  +4.505]  p=0.011  p_Holm=0.011  (4 menores, 12 maiores)
+  CAL:
+      custo (%)      n=16  HL  -0.498 [ -0.694,  -0.305]  p=6.1e-05  p_Holm=0.000183  (15 menores, 1 maiores)
+      perda (p.p.)   n=16  HL  -0.363 [ -0.468,  -0.246]  p=3.05e-05  p_Holm=0.000122  (16 menores, 0 maiores)
+      CO2 (%)        n=16  HL  -1.790 [ -2.417,  -1.172]  p=0.000153  p_Holm=0.000305  (15 menores, 1 maiores)
+      P_oos (p.p.)   n=16  HL  -0.135 [ -1.605,  +1.850]  p=0.706  p_Holm=0.706  (7 menores, 9 maiores)
+  CAL+R:
+      custo (%)      n=16  HL  -0.499 [ -0.695,  -0.306]  p=6.1e-05  p_Holm=0.000122  (15 menores, 1 maiores)
+      perda (p.p.)   n=16  HL  -0.756 [ -0.916,  -0.584]  p=3.05e-05  p_Holm=0.000122  (16 menores, 0 maiores)
+      CO2 (%)        n=16  HL  -2.930 [ -3.658,  -2.094]  p=3.05e-05  p_Holm=0.000122  (16 menores, 0 maiores)
+      P_oos (p.p.)   n=16  HL  -2.497 [ -3.535,  -1.340]  p=0.000305  p_Holm=0.000305  (14 menores, 2 maiores)
+
+Custo da solução mais barata que cumpre, por execução (mediana), relativo ao SIM100:
+  SIM30      mediana +0.02%  média +0.04%  (n=160)
+  BUF0.95+C  mediana -0.25%  média -0.32%  (n=160)
+  CAL        mediana -0.46%  média -0.46%  (n=160)

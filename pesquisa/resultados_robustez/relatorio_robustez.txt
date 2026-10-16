@@ -1,0 +1,30 @@
+1. ORÇAMENTO IGUAL (4 buscas cada; escolha pela certificação interna; avaliação fora da amostra, α=0,90)
+   SIM+C, melhor de 4       vs CAL: n=54  Δ% mediana +0.00  média -0.20  p=1.96e-01  p_Holm=1.96e-01  HL -0.05 IC95 [-0.14, +0.01]
+   BUF0.95+C, melhor de 4   vs CAL: n=54  Δ% mediana +0.00  média +0.10  p=3.54e-03  p_Holm=7.08e-03  HL +0.09 IC95 [+0.01, +0.24]
+   SIM+C, 1 busca           vs CAL: n=54  Δ% mediana +0.17  média +0.28  p=4.41e-05  p_Holm=1.32e-04  HL +0.22 IC95 [+0.10, +0.42]
+
+2-3. PONTUALIDADE DAS MESMAS FRENTES (n=50, 18 instâncias × 10 sementes): % de execuções com solução que cumpre α
+     e custo mínimo médio que cumpre — independente com δ = 0 / 5 / 15 min, e correlacionado (ρ=0,5, δ=5)
+   MEDIUM
+      C-DETC     ind_0:  56.7%   3646.4 | ind_5: 100.0%   3810.8 | ind_15: 100.0%   3730.6 | cor_5:  98.3%   4017.8
+      C-BUF90C   ind_0:  86.7%   3726.5 | ind_5: 100.0%   3667.7 | ind_15: 100.0%   3667.7 | cor_5: 100.0%   3667.7
+      C-BUF95C   ind_0: 100.0%   3695.4 | ind_5: 100.0%   3682.0 | ind_15: 100.0%   3682.0 | cor_5: 100.0%   3682.0
+      C-SIMC     ind_0:  68.3%   4220.1 | ind_5: 100.0%   3660.7 | ind_15: 100.0%   3656.1 | cor_5: 100.0%   3818.8
+      C-MOEADC   ind_0:  71.7%   4098.1 | ind_5: 100.0%   3676.8 | ind_15: 100.0%   3672.9 | cor_5: 100.0%   3777.9
+   HIGH
+      C-DETC     ind_0:  53.3%   3387.7 | ind_5:  71.7%   3935.3 | ind_15: 100.0%   4377.9 | cor_5:  65.0%   3726.5
+      C-BUF90C   ind_0:  56.7%   3404.5 | ind_5: 100.0%   3413.8 | ind_15: 100.0%   3395.8 | cor_5: 100.0%   3411.4
+      C-BUF95C   ind_0: 100.0%   3469.0 | ind_5: 100.0%   3417.8 | ind_15: 100.0%   3417.8 | cor_5: 100.0%   3417.8
+      C-SIMC     ind_0:  80.0%   4171.0 | ind_5: 100.0%   3428.2 | ind_15: 100.0%   3392.9 | cor_5: 100.0%   3506.3
+      C-MOEADC   ind_0:  70.0%   3836.1 | ind_5: 100.0%   3450.7 | ind_15: 100.0%   3414.5 | cor_5: 100.0%   3561.3
+   ind_0: C-BUF95C vs SIM+C  n=16  Δ% mediana -0.07  média -16.31
+   ind_0: C-DETC vs SIM+C  n=12  Δ% mediana -0.00  média +4.18
+   ind_5: C-BUF95C vs SIM+C  n=18  Δ% mediana -0.01  média +0.13
+   ind_5: C-DETC vs SIM+C  n=18  Δ% mediana +0.04  média +16.62
+   ind_15: C-BUF95C vs SIM+C  n=18  Δ% mediana +0.00  média +0.48
+   ind_15: C-DETC vs SIM+C  n=18  Δ% mediana +0.07  média +9.16
+   cor_5: C-BUF95C vs SIM+C  n=18  Δ% mediana -0.18  média -1.89
+   cor_5: C-DETC vs SIM+C  n=18  Δ% mediana +0.23  média +25.17
+
+4. DECOMPOSIÇÃO: fração da perda nominal devida a porta + resfriamento, sobre 40438 soluções finais (SIM+C e DET)
+   média 1.96%  mediana 1.96%  p95 2.85%  máx 3.86%
