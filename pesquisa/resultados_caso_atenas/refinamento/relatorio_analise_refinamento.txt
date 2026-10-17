@@ -1,0 +1,59 @@
+REFINAMENTO — visão do decisor (90 execuções em comum; avaliação em 1.000 cenários comuns; α = 0.9)
+
+método            cumpre  custo médio  perda média  CO2 médio
+SIM+C              97.8%       1271.2       6.103%       64.9
+BUF0.95+C         100.0%       1316.3       5.878%       66.8
+BUF0.95+R         100.0%       1314.2       5.873%       66.6
+BUF0.95+R-LCB     100.0%       1314.2       5.873%       66.6
+CAL               100.0%       1268.9       6.255%       64.9
+SIM+C+R            97.8%       1271.0       6.099%       64.9
+CAL+R             100.0%       1268.4       6.248%       64.8
+CAL+R-LCB         100.0%       1268.5       6.252%       64.9
+SIM4              100.0%       1251.4       6.347%       64.5
+SIM4+R            100.0%       1251.0       6.335%       64.5
+  MEDIUM: SIM+C nan%  BUF0.95+C nan%  BUF0.95+R nan%  BUF0.95+R-LCB nan%  CAL nan%  SIM+C+R nan%  CAL+R nan%  CAL+R-LCB nan%  SIM4 nan%  SIM4+R nan%
+  HIGH: SIM+C nan%  BUF0.95+C nan%  BUF0.95+R nan%  BUF0.95+R-LCB nan%  CAL nan%  SIM+C+R nan%  CAL+R nan%  CAL+R-LCB nan%  SIM4 nan%  SIM4+R nan%
+
+Pareado por instância (média das sementes) contra SIM+C: HL [IC 95%], Wilcoxon com Holm
+  custo (%):
+    BUF0.95+C        n= 9  HL  +3.890  [ +0.521,  +7.933]  p_Holm=0.0352
+    BUF0.95+R        n= 9  HL  +3.700  [ +0.497,  +7.364]  p_Holm=0.0352
+    BUF0.95+R-LCB    n= 9  HL  +3.700  [ +0.497,  +7.364]  p_Holm=0.0352
+    CAL              n= 9  HL  -0.107  [ -0.736,  +0.373]  p_Holm=1
+    SIM+C+R          n= 9  HL  +0.000  [ -0.046,  +0.000]  p_Holm=1
+    CAL+R            n= 9  HL  -0.143  [ -0.771,  +0.326]  p_Holm=1
+    CAL+R-LCB        n= 9  HL  -0.123  [ -0.766,  +0.327]  p_Holm=1
+    SIM4             n= 9  HL  -1.550  [ -3.450,  -0.273]  p_Holm=0.0352
+    SIM4+R           n= 9  HL  -1.550  [ -3.596,  -0.273]  p_Holm=0.0352
+  perda de qualidade (p.p.):
+    BUF0.95+C        n= 9  HL  -0.247  [ -0.611,  +0.219]  p_Holm=1
+    BUF0.95+R        n= 9  HL  -0.293  [ -0.639,  +0.186]  p_Holm=1
+    BUF0.95+R-LCB    n= 9  HL  -0.293  [ -0.639,  +0.186]  p_Holm=1
+    CAL              n= 9  HL  +0.071  [ -0.132,  +0.534]  p_Holm=1
+    SIM+C+R          n= 9  HL  +0.000  [ -0.010,  +0.000]  p_Holm=1
+    CAL+R            n= 9  HL  +0.084  [ -0.146,  +0.530]  p_Holm=1
+    CAL+R-LCB        n= 9  HL  +0.079  [ -0.142,  +0.530]  p_Holm=1
+    SIM4             n= 9  HL  +0.221  [ -0.042,  +0.572]  p_Holm=0.492
+    SIM4+R           n= 9  HL  +0.221  [ -0.059,  +0.535]  p_Holm=0.492
+  CO2 (%):
+    BUF0.95+C        n= 9  HL  +2.763  [ +0.326,  +6.496]  p_Holm=0.0352
+    BUF0.95+R        n= 9  HL  +2.616  [ +0.285,  +6.055]  p_Holm=0.0352
+    BUF0.95+R-LCB    n= 9  HL  +2.616  [ +0.285,  +6.055]  p_Holm=0.0352
+    CAL              n= 9  HL  -0.186  [ -0.850,  +0.999]  p_Holm=1
+    SIM+C+R          n= 9  HL  +0.000  [ -0.082,  +0.000]  p_Holm=1
+    CAL+R            n= 9  HL  -0.247  [ -0.870,  +0.872]  p_Holm=1
+    CAL+R-LCB        n= 9  HL  -0.233  [ -0.870,  +0.920]  p_Holm=1
+    SIM4             n= 9  HL  -0.583  [ -1.824,  +0.392]  p_Holm=0.586
+    SIM4+R           n= 9  HL  -0.595  [ -1.824,  +0.392]  p_Holm=0.586
+
+Orçamento igual (4 buscas), pareado por instância: CAL+R contra SIM4+R; HL [IC 95%], Wilcoxon (p) e Holm nas 4 medidas
+    custo (%)      n= 9  HL  +1.405  [ -0.291,  +3.686]  p=0.0742  p_Holm=0.223
+    perda (p.p.)   n= 9  HL  -0.093  [ -0.538,  +0.386]  p=0.652  p_Holm=0.652
+    CO2 (%)        n= 9  HL  +0.362  [ -0.845,  +2.791]  p=0.25  p_Holm=0.5
+    P_oos (p.p.)   n= 9  HL  +3.025  [ +1.485,  +4.825]  p=0.00391  p_Holm=0.0156
+
+Orçamento igual (4 buscas), pareado por instância: CAL contra SIM4; HL [IC 95%], Wilcoxon (p) e Holm nas 4 medidas
+    custo (%)      n= 9  HL  +1.433  [ -0.265,  +3.538]  p=0.0547  p_Holm=0.164
+    perda (p.p.)   n= 9  HL  -0.099  [ -0.580,  +0.350]  p=0.734  p_Holm=0.852
+    CO2 (%)        n= 9  HL  +0.411  [ -0.823,  +2.927]  p=0.426  p_Holm=0.852
+    P_oos (p.p.)   n= 9  HL  +3.795  [ +1.675,  +5.530]  p=0.00391  p_Holm=0.0156

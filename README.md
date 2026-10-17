@@ -28,13 +28,20 @@ It also proposes a simulation-based refinement of the chosen plan.
 | `src/thermal_route.py` | Route-dependent thermal model (door openings, pull-downs, Arrhenius kinetics) and scenario sampling |
 | `src/instance_generator.py` | Generator of the Solomon-style benchmark instances and thermal profiles |
 | `src/experiment_runner.py` | Runs methods × instances × seeds in parallel; method configurations in `ALGO_CONFIG` |
+| `src/tempo_dependente.py` | Time-dependent (FIFO, Ichoua–Gendreau–Potvin) travel times and arc-specific travel-time uncertainty; used only by instances with a `td` block |
 | `instances/generated/` | The 54 benchmark instances: families C1, C2, R1, R2, RC1, RC2; n = 25, 50, 100; LOW, MEDIUM, HIGH uncertainty |
 | `instances/validacao_exata/` | The 4 small instances solved exactly (n = 5 to 20) |
 | `instances/caso_sp/` | The 16 São Paulo instances built from public data (samples SP1–SP4; n = 50, 100; MEDIUM, HIGH) |
 | `instances/caso_sp_pico/` | The SP1/SP2 instances planned with the morning-peak congestion (8 instances) |
+| `instances/caso_sp_td/` | The 16 São Paulo instances with time-dependent travel times (hourly weekday congestion profile) |
+| `instances/caso_sp_media_operacao/` | The 16 São Paulo instances with the mean congestion of the operating hours (static) |
+| `instances/caso_atenas/` | The 9 Athens instances built from the operational data of a pharmaceutical distributor |
 | `pesquisa/` | Experiment and analysis scripts (see below) |
 | `pesquisa/clima/` | Processed hourly ambient-temperature profiles of seven Brazilian capitals (NOAA ISD, 2011–2020) |
 | `pesquisa/caso_sp/` | Pipeline of the São Paulo case and its public input data |
+| `pesquisa/caso_certh/` | Pipeline of the Athens case (operational data; the raw data are downloaded from Zenodo) |
+| `pesquisa/validar_teoria_buffer.py` | Empirical check of the properties of buffered plans (Lemma 1, Propositions 2–4 of the paper) |
+| `pesquisa/teste_tempo_dependente.py` | Tests of the time-dependent and arc-specific travel-time model |
 | `pesquisa/resultados_*/` | Summary outputs behind every number of the paper (per-run CSV files and text reports) |
 
 ### Instance format
@@ -43,6 +50,10 @@ Each instance is a JSON file with the fields `customers`, `depot`, `fleet`, `the
 `horizon_minutes`. Each customer has demand, time window, service time, thermal category and order value. The São
 Paulo instances also carry road-network matrices (`dist_matrix_km`, `time_matrix_min`) and the registry key of
 each store.
+
+Instances with a `td` block use `time_matrix_ff_min` (free-flow minutes) with the hourly factors
+`td.fator_hora` from the clock hour `td.hora_inicio`; an optional `td.cv_arco` gives the coefficient of variation of
+each arc, and `estacao_clima` selects the climate station. All other instances follow the static code path unchanged.
 
 ## Requirements
 
@@ -77,6 +88,20 @@ All commands are run from the repository root. Times refer to a 12-core desktop 
    ```
    powershell -ExecutionPolicy Bypass -File pesquisa/rodar_medicoes_maquina_livre.ps1
    ```
+6. **Time-dependent travel times** (São Paulo, 2 × 1,120 runs, then the comparison of planning models):
+   ```
+   python pesquisa/teste_tempo_dependente.py
+   powershell -ExecutionPolicy Bypass -File pesquisa/caso_sp/rodar_caso_sp_td.ps1
+   python pesquisa/caso_sp/comparar_td.py
+   ```
+7. **Athens case** (630 runs; download the data first, see below):
+   ```
+   powershell -ExecutionPolicy Bypass -File pesquisa/caso_certh/rodar_caso_atenas.ps1
+   ```
+8. **Properties of buffered plans** (Section 4.3 of the paper; Table S9):
+   ```
+   python pesquisa/validar_teoria_buffer.py
+   ```
 
 Every run is seeded. The out-of-sample evaluation uses 1,000 scenarios per instance, common to all methods and
 drawn from a fixed seed (`pesquisa/analisar_c.py`). The scripts write the LaTeX tables and figures to
@@ -90,6 +115,22 @@ The scripts in `pesquisa/caso_sp/` rebuild the instances in four steps:
 2. `geocodificar_cnpj.py` geocodes a random subset with Nominatim, under its usage policy (1 request/s, cached). A location is kept only with a matched house number. The cache and the result are included, so this step needs no new queries.
 3. `gerar_caso_sp.py` samples the stores, stratified by size class, and builds the instances. Road matrices come from OSRM, using the included raw responses, scaled by the TomTom congestion level. Receiving windows and unloading times come from a field survey of 39 supermarkets (Oliveira et al., 2016, *Transportes* 24(2)). The product mix comes from IBGE household-acquisition data (POF 2017–2018, SIDRA table 2393, included).
 4. `rodar_caso_sp.py` runs the methods; `tabela_caso_sp.py`, `estresse_pico.py`, `comparar_pico.py` and `simc100_sp.py` produce the reported analyses.
+
+## Time-dependent travel times in São Paulo
+
+`pesquisa/caso_sp/extrair_tomtom.py` reads the hourly weekday congestion profile of São Paulo from the public page of
+the TomTom Traffic Index 2025 (to be saved by the user; the page is not redistributed). `gerar_caso_sp_td.py` builds the
+time-dependent and operating-mean versions of the 16 instances from the OSRM responses. Following Ichoua, Gendreau
+and Potvin (2003), the speed of every arc is the free-flow speed divided by `1 + c(h)/100` in clock hour `h`.
+
+## The Athens case from operational data
+
+The data are those of Vrani et al. (2025), *Data in Brief* 61:111762, doi:10.1016/j.dib.2025.111762, published on
+Zenodo (doi:10.5281/zenodo.15672291, CC BY 4.0). Download `data.zip` to `pesquisa/caso_certh/dados_brutos/zenodo_15672291/`,
+extract it to `extraido/` and run `python -I pesquisa/caso_certh/gerar_caso_atenas.py`. Each arc gets the PERT mean of
+its optimistic, most likely and pessimistic travel times as nominal time and the PERT coefficient of variation in its
+own lognormal model. Fleet, product and costs are assumptions (see the paper). The climate of Athens comes from NOAA ISD
+station 16716199999 (`python pesquisa/clima/processar_isd.py <folder> resumo_clima_atenas.txt`).
 
 ## Raw results
 
@@ -118,6 +159,9 @@ See `CITATION.cff`. The bibliographic data will be updated on publication.
 | pico | peak |
 | rodar | run |
 | analisar | analyze |
+| tempo_dependente | time-dependent |
+| caso_atenas, caso_certh | Athens case (CERTH data) |
+| media_operacao | mean over the operating hours |
 | refinamento | refinement |
 | escolha do decisor | decision-maker's choice |
 | conformidade | compliance |

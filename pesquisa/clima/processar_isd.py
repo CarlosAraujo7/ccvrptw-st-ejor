@@ -39,6 +39,8 @@ ESTACOES = {
     '06260099999': ('De Bilt (NL)', 1),
     '08221099999': ('Madrid (Barajas)', 1),
     '72259003927': ('Dallas-Fort Worth (EUA)', -6),
+    # caso de Atenas (16/10/2026, Entrada 103): UTC+3 é a hora legal de verão (EEST), em vigor no mês mais quente
+    '16716199999': ('Atenas (Eleftherios Venizelos)', 3),
 }
 ASHRAE_T6 = [0.88, 0.92, 0.95, 0.98, 1.00, 0.98, 0.91, 0.74, 0.55, 0.38, 0.23, 0.13,
              0.05, 0.00, 0.00, 0.06, 0.14, 0.24, 0.39, 0.50, 0.59, 0.68, 0.75, 0.82]  # horas 1..24
@@ -73,7 +75,7 @@ def ler(estacao, pasta):
     return perfis
 
 
-def main(pasta):
+def main(pasta, resumo='resumo_clima.txt'):
     linhas = []
     for est, (nome, _) in ESTACOES.items():
         if not glob.glob(os.path.join(pasta, f'{est}_*.csv')):
@@ -105,9 +107,9 @@ def main(pasta):
     txt = ('Resumo climático do mês mais quente, 2011-2020 (NOAA ISD), hora local fixa\n'
            'sd(média diária): ASHRAE 2017 cap. 14 §3.2; RMSE: perfil normalizado vs. Tabela 6 do ASHRAE\n\n'
            + '\n'.join(linhas) + '\n')
-    open(os.path.join(OUT, 'resumo_clima.txt'), 'w', encoding='utf-8').write(txt)
+    open(os.path.join(OUT, resumo), 'w', encoding='utf-8').write(txt)
     print(txt)
 
 
 if __name__ == '__main__':
-    main(sys.argv[1])
+    main(sys.argv[1], *sys.argv[2:3])   # 2º argumento opcional: arquivo de resumo (padrão resumo_clima.txt)

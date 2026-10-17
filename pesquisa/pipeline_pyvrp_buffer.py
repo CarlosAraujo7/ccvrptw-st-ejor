@@ -229,7 +229,7 @@ def tabela_tex(tab, cumpre):
          r'Hodges--Lehmann estimate of the paired difference per instance (PyVRP plan minus reference; mean over seeds); $^*$: $p_{\mathrm{Holm}}<0.05$ '
          r'(Wilcoxon signed-rank test, Holm correction over the four measures). Complies: \% of chosen plans meeting $\alpha=0.90$ out of sample, '
          r'PyVRP plan / reference.}',
-         r'\label{tab:pyvrp-pipeline}', r'\small', r'\begin{tabular}{@{}l l r r r r@{}}', r'\toprule',
+         r'\label{tab:pyvrp-pipeline}', r'\small\setlength{\tabcolsep}{4pt}', r'\begin{tabular}{@{}l l r r r r@{}}', r'\toprule',
          r'Instances & Comparison & Cost (\%) & Quality loss (p.p.) & CO$_2$ (\%) & Complies (\%) \\', r'\midrule']
     for grupo, rot_g in (('benchmark', 'Benchmark'), ('caso SP', r'S\~ao Paulo')):
         primeiro = True

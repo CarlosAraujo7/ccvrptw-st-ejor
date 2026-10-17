@@ -1,0 +1,11 @@
+CASO SÃO PAULO v2 — 90 execuções (instância × semente); α = 0.9; avaliação em 1.000 cenários comuns
+
+DATA (90 execuções)
+  C-DET      frente cumpre 100.0%  escolha cumpre   nan% (n=0)  custo mín. que cumpre vs SIM+C: mediana +0.04% média -0.24% máx +17.93% (n=90)
+  C-DETC     frente cumpre 100.0%  escolha cumpre  91.1% (n=90)  custo mín. que cumpre vs SIM+C: mediana -0.02% média -0.85% máx +15.37% (n=90)
+  C-BUF90C   frente cumpre 100.0%  escolha cumpre 100.0% (n=90)  custo mín. que cumpre vs SIM+C: mediana +0.68% média +2.70% máx +20.80% (n=90)
+  C-BUF95C   frente cumpre 100.0%  escolha cumpre 100.0% (n=90)  custo mín. que cumpre vs SIM+C: mediana +0.90% média +3.80% máx +21.87% (n=90)
+  CAL        frente cumpre 100.0%  escolha cumpre 100.0% (n=90)  custo mín. que cumpre vs SIM+C: mediana -0.09% média -0.08% máx +17.51% (n=90)
+  C-SIMC     frente cumpre 100.0%  escolha cumpre  97.8% (n=90)  custo mín. que cumpre vs SIM+C: mediana +0.00% média +0.00% máx +0.00% (n=90)
+  CAL+R      escolha cumpre 100.0%  custo da escolha vs escolha do SIM+C (mediana) -0.11%
+  preço (escolha do SIM+C vs mais barata do DET, medianas): P 0.923 → 0.973; custo +0.23%  perda -0.144 p.p.  CO2 +0.45%

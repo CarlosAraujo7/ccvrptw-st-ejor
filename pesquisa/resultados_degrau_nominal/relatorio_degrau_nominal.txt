@@ -1,0 +1,45 @@
+ANÁLISE POST HOC — degrau nominal (DET+C) na escada do CAL; α = 0,90; 1.000 cenários comuns
+
+=== benchmark (results_c; 540 execuções, 54 instâncias) ===
+  escolha cumpre α: SIM+C 94.3%   CAL 97.2%   CAL0 95.7%   (CAL0 escolhe o degrau nominal em 15% das execuções)
+  CAL0 − SIM+C custo %     n=54  HL  -0.299 [ -0.389,  -0.168]  p=6.76e-08  p_Holm=5.41e-07
+  CAL0 − SIM+C perda p.p.  n=54  HL  +0.032 [ -0.013,  +0.079]  p=0.192  p_Holm=0.384
+  CAL0 − SIM+C CO2 %       n=54  HL  -0.265 [ -0.458,  -0.071]  p=0.000686  p_Holm=0.00343
+  CAL0 − SIM+C P_on p.p.   n=54  HL  +0.520 [ +0.115,  +1.295]  p=0.000219  p_Holm=0.00131
+  CAL0 − CAL   custo %     n=54  HL  -0.018 [ -0.037,  -0.002]  p=1.23e-05  p_Holm=8.6e-05
+  CAL0 − CAL   perda p.p.  n=54  HL  +0.000 [ -0.009,  +0.003]  p=1  p_Holm=1
+  CAL0 − CAL   CO2 %       n=54  HL  -0.019 [ -0.068,  +0.000]  p=0.00128  p_Holm=0.00514
+  CAL0 − CAL   P_on p.p.   n=54  HL  +0.000 [ -0.195,  +0.000]  p=0.00329  p_Holm=0.00986
+
+=== SP (results_c_sp; 160 execuções, 16 instâncias) ===
+  escolha cumpre α: SIM+C 93.8%   CAL 93.8%   CAL0 89.4%   (CAL0 escolhe o degrau nominal em 12% das execuções)
+  CAL0 − SIM+C custo %     n=16  HL  -0.526 [ -0.680,  -0.348]  p=3.05e-05  p_Holm=0.000244
+  CAL0 − SIM+C perda p.p.  n=16  HL  -0.359 [ -0.470,  -0.235]  p=3.05e-05  p_Holm=0.000244
+  CAL0 − SIM+C CO2 %       n=16  HL  -1.810 [ -2.245,  -1.361]  p=3.05e-05  p_Holm=0.000244
+  CAL0 − SIM+C P_on p.p.   n=16  HL  -0.242 [ -1.446,  +1.725]  p=0.706  p_Holm=1
+  CAL0 − CAL   custo %     n=16  HL  -0.009 [ -0.038,  +0.000]  p=0.018  p_Holm=0.0898
+  CAL0 − CAL   perda p.p.  n=16  HL  +0.000 [ -0.036,  +0.034]  p=0.866  p_Holm=1
+  CAL0 − CAL   CO2 %       n=16  HL  +0.000 [ +0.000,  +0.088]  p=0.612  p_Holm=1
+  CAL0 − CAL   P_on p.p.   n=16  HL  +0.000 [ -1.365,  +0.265]  p=0.499  p_Holm=1
+
+=== SP com horário (results_c_sp_td; 160 execuções, 16 instâncias) ===
+  escolha cumpre α: SIM+C 95.0%   CAL 95.6%   CAL0 95.0%   (CAL0 escolhe o degrau nominal em 4% das execuções)
+  CAL0 − SIM+C custo %     n=16  HL  -0.419 [ -0.536,  -0.313]  p=6.1e-05  p_Holm=0.000366
+  CAL0 − SIM+C perda p.p.  n=16  HL  -0.338 [ -0.471,  -0.229]  p=3.05e-05  p_Holm=0.000244
+  CAL0 − SIM+C CO2 %       n=16  HL  -1.955 [ -2.452,  -1.440]  p=3.05e-05  p_Holm=0.000244
+  CAL0 − SIM+C P_on p.p.   n=16  HL  -0.625 [ -2.610,  +0.920]  p=0.404  p_Holm=0.82
+  CAL0 − CAL   custo %     n=16  HL  +0.000 [ -0.014,  +0.000]  p=0.0679  p_Holm=0.339
+  CAL0 − CAL   perda p.p.  n=16  HL  +0.000 [ +0.000,  +0.041]  p=0.273  p_Holm=0.82
+  CAL0 − CAL   CO2 %       n=16  HL  +0.000 [ +0.000,  +0.073]  p=0.144  p_Holm=0.577
+  CAL0 − CAL   P_on p.p.   n=16  HL  +0.000 [ -0.475,  +0.000]  p=0.273  p_Holm=0.82
+
+=== Atenas (results_c_atenas; 90 execuções, 9 instâncias) ===
+  escolha cumpre α: SIM+C 97.8%   CAL 100.0%   CAL0 93.3%   (CAL0 escolhe o degrau nominal em 47% das execuções)
+  CAL0 − SIM+C custo %     n= 9  HL  -1.683 [ -3.080,  -0.246]  p=0.0195  p_Holm=0.0977
+  CAL0 − SIM+C perda p.p.  n= 9  HL  +0.219 [ -0.006,  +0.696]  p=0.0977  p_Holm=0.195
+  CAL0 − SIM+C CO2 %       n= 9  HL  -0.971 [ -1.627,  -0.251]  p=0.0195  p_Holm=0.0977
+  CAL0 − SIM+C P_on p.p.   n= 9  HL  +0.695 [ +0.240,  +1.700]  p=0.0391  p_Holm=0.117
+  CAL0 − CAL   custo %     n= 9  HL  -1.329 [ -2.869,  -0.183]  p=0.00391  p_Holm=0.0312
+  CAL0 − CAL   perda p.p.  n= 9  HL  +0.169 [ -0.023,  +0.321]  p=0.203  p_Holm=0.203
+  CAL0 − CAL   CO2 %       n= 9  HL  -0.504 [ -2.518,  -0.266]  p=0.00391  p_Holm=0.0312
+  CAL0 − CAL   P_on p.p.   n= 9  HL  -2.355 [ -2.945,  -1.625]  p=0.00391  p_Holm=0.0312

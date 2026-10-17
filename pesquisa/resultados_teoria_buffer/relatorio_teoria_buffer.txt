@@ -1,0 +1,48 @@
+
+===== benchmark (results_c) =====
+
+V1 — Prop. 1 (sanduíche Π π_j ≤ P_on ≤ min π_j, 1.000 cenários)
+  C-DETC    planos  488  limite inferior ok 100.0%  superior ok 100.0%  P mediana 0.994  Π π_j mediana 0.994  min π_j mediana 0.995  clientes críticos (π<0,999) mediana 1 de 50
+  C-BUF70C  planos  518  limite inferior ok 100.0%  superior ok 100.0%  P mediana 0.994  Π π_j mediana 0.994  min π_j mediana 0.996  clientes críticos (π<0,999) mediana 1 de 50
+  C-BUF80C  planos  539  limite inferior ok 100.0%  superior ok 100.0%  P mediana 0.997  Π π_j mediana 0.997  min π_j mediana 0.998  clientes críticos (π<0,999) mediana 1 de 50
+  C-BUF90C  planos  540  limite inferior ok 100.0%  superior ok 100.0%  P mediana 1.000  Π π_j mediana 1.000  min π_j mediana 1.000  clientes críticos (π<0,999) mediana 0 de 50
+  C-BUF95C  planos  540  limite inferior ok 100.0%  superior ok 100.0%  P mediana 1.000  Π π_j mediana 1.000  min π_j mediana 1.000  clientes críticos (π<0,999) mediana 0 de 50
+  C-SIMC    planos  540  limite inferior ok 100.0%  superior ok 100.0%  P mediana 0.979  Π π_j mediana 0.976  min π_j mediana 0.986  clientes críticos (π<0,999) mediana 1 de 50
+  CAL       planos  540  limite inferior ok 100.0%  superior ok 100.0%  P mediana 0.998  Π π_j mediana 0.998  min π_j mediana 0.999  clientes críticos (π<0,999) mediana 0 de 50
+
+V2 — Prop. 2 (cota de Cantelli por cliente, planos BUF)
+  C-BUF70C  clientes  29500  cota ≥ risco 100.0%  cota ≤ 0,001 em  49.1% (risco ≤ 0,001 em  96.1%)  risco máx. por plano: mediana 0.004, ≤ 1 − q em 100.0%
+  C-BUF80C  clientes  31400  cota ≥ risco 100.0%  cota ≤ 0,001 em  46.1% (risco ≤ 0,001 em  95.7%)  risco máx. por plano: mediana 0.002, ≤ 1 − q em 100.0%
+  C-BUF90C  clientes  31500  cota ≥ risco 100.0%  cota ≤ 0,001 em  46.3% (risco ≤ 0,001 em  96.6%)  risco máx. por plano: mediana 0.000, ≤ 1 − q em 100.0%
+  C-BUF95C  clientes  31500  cota ≥ risco 100.0%  cota ≤ 0,001 em  46.5% (risco ≤ 0,001 em  97.9%)  risco máx. por plano: mediana 0.000, ≤ 1 − q em 100.0%
+
+V3 — Prop. 3 e Lema 1 (Ĉ(q) = melhor de 10 sementes)
+  Ĉ não decrescente em DET ≤ 0,70 ≤ 0,80 ≤ 0,90 ≤ 0,95: 26/54 instâncias; Ĉ(0,95)/Ĉ(0,70) − 1: mediana 0.00%, máx. 4.14%
+  perda do CAL contra o melhor plano certificado conhecido (todas as sementes e métodos): mediana 0.16%, P90 1.34%
+  margem do melhor plano ≥ degrau do CAL (condição da Prop. 3) em 61.3% das execuções; perda mediana 0.00% quando vale e 0.41% quando não vale
+  margem uniforme dos planos escolhidos do SIM+C: q mediano 0.753 (P10 0.510, P90 1.000)
+  degrau escolhido pelo CAL: 0.70: 48%, 0.80: 20%, 0.90: 20%, 0.95: 13%
+
+===== SP (results_c_sp) =====
+
+V1 — Prop. 1 (sanduíche Π π_j ≤ P_on ≤ min π_j, 1.000 cenários)
+  C-DETC    planos  157  limite inferior ok 100.0%  superior ok 100.0%  P mediana 0.953  Π π_j mediana 0.954  min π_j mediana 0.960  clientes críticos (π<0,999) mediana 1 de 50
+  C-BUF70C  planos  159  limite inferior ok 100.0%  superior ok 100.0%  P mediana 0.932  Π π_j mediana 0.931  min π_j mediana 0.959  clientes críticos (π<0,999) mediana 3 de 50
+  C-BUF80C  planos  160  limite inferior ok 100.0%  superior ok 100.0%  P mediana 0.944  Π π_j mediana 0.944  min π_j mediana 0.973  clientes críticos (π<0,999) mediana 3 de 75
+  C-BUF90C  planos  160  limite inferior ok 100.0%  superior ok 100.0%  P mediana 0.978  Π π_j mediana 0.979  min π_j mediana 0.990  clientes críticos (π<0,999) mediana 3 de 75
+  C-BUF95C  planos  160  limite inferior ok 100.0%  superior ok 100.0%  P mediana 0.993  Π π_j mediana 0.993  min π_j mediana 0.997  clientes críticos (π<0,999) mediana 1 de 75
+  C-SIMC    planos  160  limite inferior ok 100.0%  superior ok 100.0%  P mediana 0.962  Π π_j mediana 0.962  min π_j mediana 0.967  clientes críticos (π<0,999) mediana 1 de 75
+  CAL       planos  160  limite inferior ok 100.0%  superior ok 100.0%  P mediana 0.964  Π π_j mediana 0.965  min π_j mediana 0.984  clientes críticos (π<0,999) mediana 3 de 75
+
+V2 — Prop. 2 (cota de Cantelli por cliente, planos BUF)
+  C-BUF70C  clientes  11900  cota ≥ risco 100.0%  cota ≤ 0,001 em  56.4% (risco ≤ 0,001 em  95.9%)  risco máx. por plano: mediana 0.041, ≤ 1 − q em 100.0%
+  C-BUF80C  clientes  12000  cota ≥ risco 100.0%  cota ≤ 0,001 em  54.1% (risco ≤ 0,001 em  95.2%)  risco máx. por plano: mediana 0.027, ≤ 1 − q em 100.0%
+  C-BUF90C  clientes  12000  cota ≥ risco 100.0%  cota ≤ 0,001 em  53.5% (risco ≤ 0,001 em  94.5%)  risco máx. por plano: mediana 0.011, ≤ 1 − q em 100.0%
+  C-BUF95C  clientes  12000  cota ≥ risco 100.0%  cota ≤ 0,001 em  53.3% (risco ≤ 0,001 em  96.2%)  risco máx. por plano: mediana 0.003, ≤ 1 − q em 100.0%
+
+V3 — Prop. 3 e Lema 1 (Ĉ(q) = melhor de 10 sementes)
+  Ĉ não decrescente em DET ≤ 0,70 ≤ 0,80 ≤ 0,90 ≤ 0,95: 2/16 instâncias; Ĉ(0,95)/Ĉ(0,70) − 1: mediana -0.26%, máx. 0.31%
+  perda do CAL contra o melhor plano certificado conhecido (todas as sementes e métodos): mediana 0.26%, P90 0.96%
+  margem do melhor plano ≥ degrau do CAL (condição da Prop. 3) em 52.5% das execuções; perda mediana 0.19% quando vale e 0.31% quando não vale
+  margem uniforme dos planos escolhidos do SIM+C: q mediano 0.539 (P10 0.520, P90 0.973)
+  degrau escolhido pelo CAL: 0.70: 16%, 0.80: 21%, 0.90: 32%, 0.95: 30%

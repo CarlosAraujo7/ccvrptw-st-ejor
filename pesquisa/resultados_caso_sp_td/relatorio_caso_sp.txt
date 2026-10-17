@@ -1,0 +1,150 @@
+Execuções reavaliadas: 1120 (K=1000 cenários comuns por instância, δ=5.0 min)
+
+C-CAL: execuções da escada usadas por instância×semente — média 1.00, distribuição {1: 160}
+A. Médias sobre instâncias (cada instância = média das sementes)
+   algoritmo          frac.cumpre P(pont.) méd  P máx inst. c/ alguma custo mín cumpre   HV cumpre  in−out q_oos−q_nom
+   C-BUF70C                 86.3%        0.936  0.979        16/16              3314.4   3.565e+04     nan     0.0939pp
+   C-BUF80C                 89.4%        0.941  0.980        16/16              3215.0   4.005e+04     nan     0.0860pp
+   C-BUF90C                 96.2%        0.964  0.990        16/16              3187.1   4.314e+04     nan     0.0800pp
+   C-BUF95C                100.0%        0.983  0.996        16/16              3185.2   4.317e+04     nan     0.0788pp
+   C-CAL                    86.3%        0.936  0.979        16/16              3314.4   3.565e+04     nan     0.0939pp
+   C-CAL-BEST               95.1%        0.957  0.988        16/16              3179.6   4.311e+04     nan     0.0812pp
+   C-DET                     4.6%        0.553  0.821        13/16              4593.3        9486     nan     0.0979pp
+   C-DETC                   88.1%        0.948  0.981        16/16              3448.4   2.752e+04     nan     0.1046pp
+   C-SIMC                   94.6%        0.960  0.999        16/16              3196.2   3.747e+04   0.008     0.0994pp
+
+B. Wilcoxon pareado — HV das soluções que cumprem α fora da amostra (n = instâncias, Holm)
+   C-BUF70C vs C-BUF80C                     n= 16 p= 5.80e-04 p_Holm= 1.10e-02 r=-0.897
+   C-BUF70C vs C-BUF90C                     n= 16 p= 1.31e-03 p_Holm= 1.97e-02 r=-0.853
+   C-BUF70C vs C-BUF95C                     n= 16 p= 7.63e-03 p_Holm= 9.16e-02 r=-0.735
+   C-BUF70C vs C-CAL                        n= 16 p=      nan p_Holm= 1.00e+00 r=+0.000
+   C-BUF70C vs C-CAL-BEST                   n= 16 p= 5.80e-04 p_Holm= 1.10e-02 r=-0.897
+   C-BUF70C vs C-DET                        n= 16 p= 3.05e-05 p_Holm= 1.10e-03 r=+1.000
+   C-BUF70C vs C-DETC                       n= 16 p= 3.05e-05 p_Holm= 1.10e-03 r=+1.000
+   C-BUF70C vs C-SIMC                       n= 16 p= 8.60e-01 p_Holm= 1.00e+00 r=+0.059
+   C-BUF80C vs C-BUF90C                     n= 16 p= 2.74e-01 p_Holm= 1.00e+00 r=-0.324
+   C-BUF80C vs C-BUF95C                     n= 16 p= 1.00e+00 p_Holm= 1.00e+00 r=+0.000
+   C-BUF80C vs C-CAL                        n= 16 p= 5.80e-04 p_Holm= 1.10e-02 r=+0.897
+   C-BUF80C vs C-CAL-BEST                   n= 16 p= 5.62e-01 p_Holm= 1.00e+00 r=-0.176
+   C-BUF80C vs C-DET                        n= 16 p= 3.05e-05 p_Holm= 1.10e-03 r=+1.000
+   C-BUF80C vs C-DETC                       n= 16 p= 3.05e-05 p_Holm= 1.10e-03 r=+1.000
+   C-BUF80C vs C-SIMC                       n= 16 p= 3.35e-02 p_Holm= 3.35e-01 r=+0.603
+   C-BUF90C vs C-BUF95C                     n= 16 p= 4.33e-01 p_Holm= 1.00e+00 r=+0.235
+   C-BUF90C vs C-CAL                        n= 16 p= 1.31e-03 p_Holm= 1.97e-02 r=+0.853
+   C-BUF90C vs C-CAL-BEST                   n= 16 p= 6.69e-01 p_Holm= 1.00e+00 r=+0.132
+   C-BUF90C vs C-DET                        n= 16 p= 3.05e-05 p_Holm= 1.10e-03 r=+1.000
+   C-BUF90C vs C-DETC                       n= 16 p= 3.05e-05 p_Holm= 1.10e-03 r=+1.000
+   C-BUF90C vs C-SIMC                       n= 16 p= 3.05e-05 p_Holm= 1.10e-03 r=+1.000
+   C-BUF95C vs C-CAL                        n= 16 p= 7.63e-03 p_Holm= 9.16e-02 r=+0.735
+   C-BUF95C vs C-CAL-BEST                   n= 16 p= 7.82e-01 p_Holm= 1.00e+00 r=+0.088
+   C-BUF95C vs C-DET                        n= 16 p= 3.05e-05 p_Holm= 1.10e-03 r=+1.000
+   C-BUF95C vs C-DETC                       n= 16 p= 3.05e-05 p_Holm= 1.10e-03 r=+1.000
+   C-BUF95C vs C-SIMC                       n= 16 p= 3.05e-05 p_Holm= 1.10e-03 r=+1.000
+   C-CAL vs C-CAL-BEST                      n= 16 p= 5.80e-04 p_Holm= 1.10e-02 r=-0.897
+   C-CAL vs C-DET                           n= 16 p= 3.05e-05 p_Holm= 1.10e-03 r=+1.000
+   C-CAL vs C-DETC                          n= 16 p= 3.05e-05 p_Holm= 1.10e-03 r=+1.000
+   C-CAL vs C-SIMC                          n= 16 p= 8.60e-01 p_Holm= 1.00e+00 r=+0.059
+   C-CAL-BEST vs C-DET                      n= 16 p= 3.05e-05 p_Holm= 1.10e-03 r=+1.000
+   C-CAL-BEST vs C-DETC                     n= 16 p= 3.05e-05 p_Holm= 1.10e-03 r=+1.000
+   C-CAL-BEST vs C-SIMC                     n= 16 p= 3.05e-05 p_Holm= 1.10e-03 r=+1.000
+   C-DET vs C-DETC                          n= 16 p= 3.05e-05 p_Holm= 1.10e-03 r=-1.000
+   C-DET vs C-SIMC                          n= 16 p= 3.05e-05 p_Holm= 1.10e-03 r=-1.000
+   C-DETC vs C-SIMC                         n= 16 p= 1.68e-03 p_Holm= 2.18e-02 r=-0.838
+
+B. Wilcoxon pareado — fração da frente que cumpre α fora da amostra (n = instâncias, Holm)
+   C-BUF70C vs C-BUF80C                     n= 16 p= 2.52e-01 p_Holm= 1.00e+00 r=-0.338
+   C-BUF70C vs C-BUF90C                     n= 16 p= 5.16e-03 p_Holm= 9.28e-02 r=-0.765
+   C-BUF70C vs C-BUF95C                     n= 16 p= 3.05e-05 p_Holm= 1.10e-03 r=-1.000
+   C-BUF70C vs C-CAL                        n= 16 p=      nan p_Holm= 1.00e+00 r=+0.000
+   C-BUF70C vs C-CAL-BEST                   n= 16 p= 1.01e-03 p_Holm= 2.11e-02 r=-0.868
+   C-BUF70C vs C-DET                        n= 16 p= 3.05e-05 p_Holm= 1.10e-03 r=+1.000
+   C-BUF70C vs C-DETC                       n= 16 p= 5.97e-01 p_Holm= 1.00e+00 r=-0.162
+   C-BUF70C vs C-SIMC                       n= 16 p= 4.27e-04 p_Holm= 1.03e-02 r=-0.912
+   C-BUF80C vs C-BUF90C                     n= 16 p= 5.77e-03 p_Holm= 9.28e-02 r=-0.868
+   C-BUF80C vs C-BUF95C                     n= 16 p= 1.47e-03 p_Holm= 2.80e-02 r=-1.000
+   C-BUF80C vs C-CAL                        n= 16 p= 2.52e-01 p_Holm= 1.00e+00 r=+0.338
+   C-BUF80C vs C-CAL-BEST                   n= 16 p= 1.55e-02 p_Holm= 1.86e-01 r=-0.676
+   C-BUF80C vs C-DET                        n= 16 p= 3.05e-05 p_Holm= 1.10e-03 r=+1.000
+   C-BUF80C vs C-DETC                       n= 16 p= 7.44e-01 p_Holm= 1.00e+00 r=+0.103
+   C-BUF80C vs C-SIMC                       n= 16 p= 1.93e-01 p_Holm= 1.00e+00 r=-0.382
+   C-BUF90C vs C-BUF95C                     n= 16 p= 2.77e-02 p_Holm= 3.05e-01 r=-1.000
+   C-BUF90C vs C-CAL                        n= 16 p= 5.16e-03 p_Holm= 9.28e-02 r=+0.765
+   C-BUF90C vs C-CAL-BEST                   n= 16 p= 1.93e-01 p_Holm= 1.00e+00 r=+0.382
+   C-BUF90C vs C-DET                        n= 16 p= 3.05e-05 p_Holm= 1.10e-03 r=+1.000
+   C-BUF90C vs C-DETC                       n= 16 p= 7.63e-03 p_Holm= 9.92e-02 r=+0.735
+   C-BUF90C vs C-SIMC                       n= 16 p= 2.11e-01 p_Holm= 1.00e+00 r=+0.368
+   C-BUF95C vs C-CAL                        n= 16 p= 3.05e-05 p_Holm= 1.10e-03 r=+1.000
+   C-BUF95C vs C-CAL-BEST                   n= 16 p= 3.05e-05 p_Holm= 1.10e-03 r=+1.000
+   C-BUF95C vs C-DET                        n= 16 p= 4.37e-04 p_Holm= 1.03e-02 r=+1.000
+   C-BUF95C vs C-DETC                       n= 16 p= 3.05e-05 p_Holm= 1.10e-03 r=+1.000
+   C-BUF95C vs C-SIMC                       n= 16 p= 3.05e-05 p_Holm= 1.10e-03 r=+1.000
+   C-CAL vs C-CAL-BEST                      n= 16 p= 1.01e-03 p_Holm= 2.11e-02 r=-0.868
+   C-CAL vs C-DET                           n= 16 p= 3.05e-05 p_Holm= 1.10e-03 r=+1.000
+   C-CAL vs C-DETC                          n= 16 p= 5.97e-01 p_Holm= 1.00e+00 r=-0.162
+   C-CAL vs C-SIMC                          n= 16 p= 4.27e-04 p_Holm= 1.03e-02 r=-0.912
+   C-CAL-BEST vs C-DET                      n= 16 p= 3.05e-05 p_Holm= 1.10e-03 r=+1.000
+   C-CAL-BEST vs C-DETC                     n= 16 p= 6.29e-03 p_Holm= 9.28e-02 r=+0.750
+   C-CAL-BEST vs C-SIMC                     n= 16 p= 4.64e-01 p_Holm= 1.00e+00 r=+0.221
+   C-DET vs C-DETC                          n= 16 p= 3.05e-05 p_Holm= 1.10e-03 r=-1.000
+   C-DET vs C-SIMC                          n= 16 p= 3.05e-05 p_Holm= 1.10e-03 r=-1.000
+   C-DETC vs C-SIMC                         n= 16 p= 5.16e-03 p_Holm= 9.28e-02 r=-0.765
+
+D. Por nível de incerteza (médias sobre execuções)
+   HIGH
+      C-BUF70C           frente que cumpre  85.1%  P(pont.) média 0.938  execuções com alguma que cumpre  80/80   custo mín (quando cumpre)   3438.9  gap in−out    nan  gap cert−out  0.005
+      C-BUF80C           frente que cumpre  82.7%  P(pont.) média 0.926  execuções com alguma que cumpre  80/80   custo mín (quando cumpre)   3245.4  gap in−out    nan  gap cert−out  0.004
+      C-BUF90C           frente que cumpre  92.4%  P(pont.) média 0.943  execuções com alguma que cumpre  80/80   custo mín (quando cumpre)   3191.0  gap in−out    nan  gap cert−out  0.001
+      C-BUF95C           frente que cumpre 100.0%  P(pont.) média 0.971  execuções com alguma que cumpre  80/80   custo mín (quando cumpre)   3186.8  gap in−out    nan  gap cert−out -0.000
+      C-CAL              frente que cumpre  85.1%  P(pont.) média 0.938  execuções com alguma que cumpre  80/80   custo mín (quando cumpre)   3438.9  gap in−out    nan  gap cert−out  0.005
+      C-CAL-BEST         frente que cumpre  93.5%  P(pont.) média 0.948  execuções com alguma que cumpre  80/80   custo mín (quando cumpre)   3183.9  gap in−out    nan  gap cert−out  0.001
+      C-DET              frente que cumpre   1.1%  P(pont.) média 0.391  execuções com alguma que cumpre  21/80   custo mín (quando cumpre)   3728.9  gap in−out    nan  gap cert−out    nan
+      C-DETC             frente que cumpre  90.7%  P(pont.) média 0.961  execuções com alguma que cumpre  75/80   custo mín (quando cumpre)   3568.9  gap in−out    nan  gap cert−out  0.002
+      C-SIMC             frente que cumpre  96.3%  P(pont.) média 0.973  execuções com alguma que cumpre  80/80   custo mín (quando cumpre)   3200.1  gap in−out  0.003  gap cert−out  0.001
+   MEDIUM
+      C-BUF70C           frente que cumpre  87.5%  P(pont.) média 0.934  execuções com alguma que cumpre  80/80   custo mín (quando cumpre)   3190.0  gap in−out    nan  gap cert−out  0.003
+      C-BUF80C           frente que cumpre  96.2%  P(pont.) média 0.956  execuções com alguma que cumpre  80/80   custo mín (quando cumpre)   3184.6  gap in−out    nan  gap cert−out  0.002
+      C-BUF90C           frente que cumpre 100.0%  P(pont.) média 0.986  execuções com alguma que cumpre  80/80   custo mín (quando cumpre)   3183.1  gap in−out    nan  gap cert−out  0.001
+      C-BUF95C           frente que cumpre 100.0%  P(pont.) média 0.995  execuções com alguma que cumpre  80/80   custo mín (quando cumpre)   3183.7  gap in−out    nan  gap cert−out  0.001
+      C-CAL              frente que cumpre  87.5%  P(pont.) média 0.934  execuções com alguma que cumpre  80/80   custo mín (quando cumpre)   3190.0  gap in−out    nan  gap cert−out  0.003
+      C-CAL-BEST         frente que cumpre  96.7%  P(pont.) média 0.966  execuções com alguma que cumpre  80/80   custo mín (quando cumpre)   3175.3  gap in−out    nan  gap cert−out  0.002
+      C-DET              frente que cumpre   8.1%  P(pont.) média 0.715  execuções com alguma que cumpre  50/80   custo mín (quando cumpre)   3331.1  gap in−out    nan  gap cert−out    nan
+      C-DETC             frente que cumpre  85.5%  P(pont.) média 0.936  execuções com alguma que cumpre  79/80   custo mín (quando cumpre)   3244.3  gap in−out    nan  gap cert−out  0.005
+      C-SIMC             frente que cumpre  93.0%  P(pont.) média 0.948  execuções com alguma que cumpre  80/80   custo mín (quando cumpre)   3192.4  gap in−out  0.012  gap cert−out  0.003
+
+C. Custo mínimo para cumprir α, pareado onde os dois cumprem (positivo = 1º mais caro)
+   C-BUF70C − C-BUF80C                      instâncias  16  diferença média     +99.5 BRL  mediana      +8.4
+   C-BUF70C − C-BUF90C                      instâncias  16  diferença média    +127.4 BRL  mediana      +8.4
+   C-BUF70C − C-BUF95C                      instâncias  16  diferença média    +129.2 BRL  mediana     +10.9
+   C-BUF70C − C-CAL                         instâncias  16  diferença média      +0.0 BRL  mediana      +0.0
+   C-BUF70C − C-CAL-BEST                    instâncias  16  diferença média    +134.9 BRL  mediana     +23.8
+   C-BUF70C − C-DET                         instâncias  13  diferença média   -1617.1 BRL  mediana   -1285.9
+   C-BUF70C − C-DETC                        instâncias  16  diferença média    -134.0 BRL  mediana     -14.5
+   C-BUF70C − C-SIMC                        instâncias  16  diferença média    +118.2 BRL  mediana     +14.9
+   C-BUF80C − C-BUF90C                      instâncias  16  diferença média     +27.9 BRL  mediana      +3.0
+   C-BUF80C − C-BUF95C                      instâncias  16  diferença média     +29.7 BRL  mediana      +1.9
+   C-BUF80C − C-CAL                         instâncias  16  diferença média     -99.5 BRL  mediana      -8.4
+   C-BUF80C − C-CAL-BEST                    instâncias  16  diferença média     +35.4 BRL  mediana      +9.5
+   C-BUF80C − C-DET                         instâncias  13  diferença média   -1644.9 BRL  mediana   -1289.9
+   C-BUF80C − C-DETC                        instâncias  16  diferença média    -233.5 BRL  mediana     -95.5
+   C-BUF80C − C-SIMC                        instâncias  16  diferença média     +18.7 BRL  mediana      -0.7
+   C-BUF90C − C-BUF95C                      instâncias  16  diferença média      +1.8 BRL  mediana      -0.1
+   C-BUF90C − C-CAL                         instâncias  16  diferença média    -127.4 BRL  mediana      -8.4
+   C-BUF90C − C-CAL-BEST                    instâncias  16  diferença média      +7.5 BRL  mediana      +4.8
+   C-BUF90C − C-DET                         instâncias  13  diferença média   -1665.5 BRL  mediana   -1290.5
+   C-BUF90C − C-DETC                        instâncias  16  diferença média    -261.4 BRL  mediana     -92.8
+   C-BUF90C − C-SIMC                        instâncias  16  diferença média      -9.2 BRL  mediana      -4.8
+   C-BUF95C − C-CAL                         instâncias  16  diferença média    -129.2 BRL  mediana     -10.9
+   C-BUF95C − C-CAL-BEST                    instâncias  16  diferença média      +5.7 BRL  mediana      +4.6
+   C-BUF95C − C-DET                         instâncias  13  diferença média   -1665.3 BRL  mediana   -1291.5
+   C-BUF95C − C-DETC                        instâncias  16  diferença média    -263.2 BRL  mediana     -98.6
+   C-BUF95C − C-SIMC                        instâncias  16  diferença média     -11.0 BRL  mediana      -5.4
+   C-CAL − C-CAL-BEST                       instâncias  16  diferença média    +134.9 BRL  mediana     +23.8
+   C-CAL − C-DET                            instâncias  13  diferença média   -1617.1 BRL  mediana   -1285.9
+   C-CAL − C-DETC                           instâncias  16  diferença média    -134.0 BRL  mediana     -14.5
+   C-CAL − C-SIMC                           instâncias  16  diferença média    +118.2 BRL  mediana     +14.9
+   C-CAL-BEST − C-DET                       instâncias  13  diferença média   -1672.0 BRL  mediana   -1294.2
+   C-CAL-BEST − C-DETC                      instâncias  16  diferença média    -268.9 BRL  mediana    -113.4
+   C-CAL-BEST − C-SIMC                      instâncias  16  diferença média     -16.7 BRL  mediana     -10.7
+   C-DET − C-DETC                           instâncias  13  diferença média   +1521.6 BRL  mediana   +1273.5
+   C-DET − C-SIMC                           instâncias  13  diferença média   +1658.6 BRL  mediana   +1289.2
+   C-DETC − C-SIMC                          instâncias  16  diferença média    +252.2 BRL  mediana     +85.9

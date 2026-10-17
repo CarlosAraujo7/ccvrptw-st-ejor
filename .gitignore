@@ -12,3 +12,7 @@ pesquisa/**/log_*.txt
 pesquisa/latex_ejor_c/tables/*.tex
 pesquisa/latex_ejor_c/figures/*
 !pesquisa/latex_ejor_c/**/.gitkeep
+# raw downloads of the time-dependent and Athens cases (TomTom page; CERTH data on Zenodo; NOAA ISD)
+pesquisa/caso_sp/dados_brutos/tomtom/
+pesquisa/caso_certh/dados_brutos/
+pesquisa/clima/dados_isd_brutos_atenas/

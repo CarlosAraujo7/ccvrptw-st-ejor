@@ -1,0 +1,4 @@
+Resumo climático do mês mais quente, 2011-2020 (NOAA ISD), hora local fixa
+sd(média diária): ASHRAE 2017 cap. 14 §3.2; RMSE: perfil normalizado vs. Tabela 6 do ASHRAE
+
+Atenas (Eleftherios Venizelos) mês  7  dias  309  Tmax  32.0  amplitude  10.0  sd(média diária) 1.86  pico às 15h  RMSE vs. ASHRAE T6 0.10

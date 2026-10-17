@@ -1,0 +1,121 @@
+{
+ "instancias": [
+  {
+   "nome": "CCVRPTW-ST_ATH1_078_DATA",
+   "frota": 6,
+   "demanda_kg": 1880.5,
+   "volume_m3": 9.02,
+   "cv_ref": 0.178,
+   "ida_media_min": 35.0,
+   "prazos": {
+    "300": 47,
+    "180": 15,
+    "360": 16
+   }
+  },
+  {
+   "nome": "CCVRPTW-ST_ATH2_063_DATA",
+   "frota": 5,
+   "demanda_kg": 1394.5,
+   "volume_m3": 5.23,
+   "cv_ref": 0.166,
+   "ida_media_min": 28.2,
+   "prazos": {
+    "300": 38,
+    "360": 11,
+    "180": 14
+   }
+  },
+  {
+   "nome": "CCVRPTW-ST_ATH3_067_DATA",
+   "frota": 5,
+   "demanda_kg": 687.6,
+   "volume_m3": 4.05,
+   "cv_ref": 0.141,
+   "ida_media_min": 27.0,
+   "prazos": {
+    "180": 10,
+    "300": 48,
+    "360": 9
+   }
+  },
+  {
+   "nome": "CCVRPTW-ST_ATH4_069_DATA",
+   "frota": 6,
+   "demanda_kg": 1689.4,
+   "volume_m3": 4.76,
+   "cv_ref": 0.141,
+   "ida_media_min": 34.7,
+   "prazos": {
+    "300": 48,
+    "180": 17,
+    "360": 4
+   }
+  },
+  {
+   "nome": "CCVRPTW-ST_ATH5_075_DATA",
+   "frota": 6,
+   "demanda_kg": 1270.2,
+   "volume_m3": 4.45,
+   "cv_ref": 0.138,
+   "ida_media_min": 28.8,
+   "prazos": {
+    "300": 47,
+    "180": 16,
+    "360": 12
+   }
+  },
+  {
+   "nome": "CCVRPTW-ST_ATH6_077_DATA",
+   "frota": 5,
+   "demanda_kg": 1301.4,
+   "volume_m3": 4.59,
+   "cv_ref": 0.121,
+   "ida_media_min": 28.2,
+   "prazos": {
+    "360": 11,
+    "300": 52,
+    "180": 14
+   }
+  },
+  {
+   "nome": "CCVRPTW-ST_ATH7_066_DATA",
+   "frota": 6,
+   "demanda_kg": 1034.6,
+   "volume_m3": 3.69,
+   "cv_ref": 0.129,
+   "ida_media_min": 29.8,
+   "prazos": {
+    "300": 48,
+    "180": 14,
+    "360": 4
+   }
+  },
+  {
+   "nome": "CCVRPTW-ST_ATH8_074_DATA",
+   "frota": 6,
+   "demanda_kg": 1095.4,
+   "volume_m3": 3.21,
+   "cv_ref": 0.115,
+   "ida_media_min": 29.5,
+   "prazos": {
+    "300": 53,
+    "360": 7,
+    "180": 14
+   }
+  },
+  {
+   "nome": "CCVRPTW-ST_ATH9_084_DATA",
+   "frota": 6,
+   "demanda_kg": 1301.5,
+   "volume_m3": 5.32,
+   "cv_ref": 0.111,
+   "ida_media_min": 29.7,
+   "prazos": {
+    "300": 48,
+    "360": 12,
+    "180": 24
+   }
+  }
+ ]
+}

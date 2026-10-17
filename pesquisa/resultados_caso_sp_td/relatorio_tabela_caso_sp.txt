@@ -1,0 +1,21 @@
+CASO SÃO PAULO v2 — 160 execuções (instância × semente); α = 0.9; avaliação em 1.000 cenários comuns
+
+MEDIUM (80 execuções)
+  C-DET      frente cumpre  62.5%  escolha cumpre   nan% (n=0)  custo mín. que cumpre vs SIM+C: mediana +9.58% média +21.49% máx +131.40% (n=50)
+  C-DETC     frente cumpre  98.8%  escolha cumpre  86.1% (n=79)  custo mín. que cumpre vs SIM+C: mediana +0.37% média +1.52% máx +12.47% (n=79)
+  C-BUF90C   frente cumpre 100.0%  escolha cumpre 100.0% (n=80)  custo mín. que cumpre vs SIM+C: mediana -0.31% média -0.27% máx +3.15% (n=80)
+  C-BUF95C   frente cumpre 100.0%  escolha cumpre 100.0% (n=80)  custo mín. que cumpre vs SIM+C: mediana -0.21% média -0.24% máx +3.42% (n=80)
+  CAL        frente cumpre 100.0%  escolha cumpre  96.2% (n=80)  custo mín. que cumpre vs SIM+C: mediana -0.47% média -0.48% máx +2.79% (n=80)
+  C-SIMC     frente cumpre 100.0%  escolha cumpre  92.5% (n=80)  custo mín. que cumpre vs SIM+C: mediana +0.00% média +0.00% máx +0.00% (n=80)
+  CAL+R      escolha cumpre  95.0%  custo da escolha vs escolha do SIM+C (mediana) -0.47%
+  preço (escolha do SIM+C vs mais barata do DET, medianas): P 0.711 → 0.929; custo +0.19%  perda +0.375 p.p.  CO2 +2.03%
+
+HIGH (80 execuções)
+  C-DET      frente cumpre  26.2%  escolha cumpre   nan% (n=0)  custo mín. que cumpre vs SIM+C: mediana +86.88% média +75.63% máx +136.84% (n=21)
+  C-DETC     frente cumpre  93.8%  escolha cumpre  96.0% (n=75)  custo mín. que cumpre vs SIM+C: mediana +2.27% média +11.09% máx +151.95% (n=75)
+  C-BUF90C   frente cumpre 100.0%  escolha cumpre  93.8% (n=80)  custo mín. que cumpre vs SIM+C: mediana -0.12% média -0.22% máx +4.12% (n=80)
+  C-BUF95C   frente cumpre 100.0%  escolha cumpre 100.0% (n=80)  custo mín. que cumpre vs SIM+C: mediana -0.16% média -0.33% máx +0.64% (n=80)
+  CAL        frente cumpre 100.0%  escolha cumpre  95.0% (n=80)  custo mín. que cumpre vs SIM+C: mediana -0.33% média -0.42% máx +0.62% (n=80)
+  C-SIMC     frente cumpre 100.0%  escolha cumpre  97.5% (n=80)  custo mín. que cumpre vs SIM+C: mediana +0.00% média +0.00% máx +0.00% (n=80)
+  CAL+R      escolha cumpre  96.2%  custo da escolha vs escolha do SIM+C (mediana) -0.36%
+  preço (escolha do SIM+C vs mais barata do DET, medianas): P 0.388 → 0.991; custo +0.28%  perda +0.675 p.p.  CO2 +2.36%

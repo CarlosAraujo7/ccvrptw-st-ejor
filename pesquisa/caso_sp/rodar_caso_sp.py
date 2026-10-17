@@ -33,6 +33,27 @@ if os.environ.get('CCVRP_SP_VARIANTE') == 'pico':
     INST_DIR = os.path.join(BASE, 'instances', 'caso_sp_pico')
     RES = os.path.join(BASE, 'results_c_sp_pico')
     OUT = os.path.join(BASE, 'pesquisa', 'resultados_caso_sp_pico')
+# Variante com tempos de viagem dependentes do horário (16/10/2026, Entrada 101; src/tempo_dependente.py):
+#   CCVRP_SP_VARIANTE=td  →  instances/caso_sp_td, results_c_sp_td, pesquisa/resultados_caso_sp_td
+#   (CCVRP_SP_INST_DIR / CCVRP_SP_RES sobrepõem as pastas, para testes)
+if os.environ.get('CCVRP_SP_VARIANTE') == 'td':
+    INST_DIR = os.path.join(BASE, 'instances', 'caso_sp_td')
+    RES = os.path.join(BASE, 'results_c_sp_td')
+    OUT = os.path.join(BASE, 'pesquisa', 'resultados_caso_sp_td')
+#   CCVRP_SP_VARIANTE=media  →  instances/caso_sp_media_operacao (estático, fator médio das horas de
+#   operação do mesmo perfil horário), results_c_sp_media, pesquisa/resultados_caso_sp_media
+if os.environ.get('CCVRP_SP_VARIANTE') == 'media':
+    INST_DIR = os.path.join(BASE, 'instances', 'caso_sp_media_operacao')
+    RES = os.path.join(BASE, 'results_c_sp_media')
+    OUT = os.path.join(BASE, 'pesquisa', 'resultados_caso_sp_media')
+#   CCVRP_SP_VARIANTE=atenas  →  instances/caso_atenas (dados operacionais de um operador logístico de Atenas,
+#   pesquisa/caso_certh; Entrada 103), results_c_atenas, pesquisa/resultados_caso_atenas
+if os.environ.get('CCVRP_SP_VARIANTE') == 'atenas':
+    INST_DIR = os.path.join(BASE, 'instances', 'caso_atenas')
+    RES = os.path.join(BASE, 'results_c_atenas')
+    OUT = os.path.join(BASE, 'pesquisa', 'resultados_caso_atenas')
+INST_DIR = os.environ.get('CCVRP_SP_INST_DIR', INST_DIR)
+RES = os.environ.get('CCVRP_SP_RES', RES)
 METODOS = ['C-DET', 'C-DETC', 'C-BUF70C', 'C-BUF80C', 'C-BUF90C', 'C-BUF95C', 'C-SIMC']
 SEMENTES = 10
 
@@ -46,6 +67,12 @@ def aplicar_matrizes():
     original = ns.build_matrices
 
     def bm(inst):
+        if 'td' in inst:                 # tempos dependentes do horário: comprimentos em fluxo livre + perfil
+            import tempo_dependente as tdm   # (+ CV próprio de cada arco, quando a instância o traz)
+            cva = inst['td'].get('cv_arco')
+            return inst['dist_matrix_km'], tdm.MatrizTD(inst['time_matrix_ff_min'], inst['td']['fator_hora'],
+                                                        inst['td']['hora_inicio'], cv_arco=cva,
+                                                        cv_ref=inst['thermal_profile']['sigma_t_pct'] if cva else None)
         if 'time_matrix_min' in inst:
             return inst['dist_matrix_km'], inst['time_matrix_min']
         return original(inst)
@@ -63,7 +90,7 @@ def _worker(task):
 def rodar(workers):
     import experiment_runner as er
     tarefas = []
-    for f in sorted(glob.glob(os.path.join(INST_DIR, 'CCVRPTW-ST_SP*.json'))):
+    for f in sorted(glob.glob(os.path.join(INST_DIR, 'CCVRPTW-ST_*.json'))):
         nome = os.path.basename(f)[:-5]
         for alg in METODOS:
             cfg = er.ALGO_CONFIG[alg]; out_dir = os.path.join(RES, alg)

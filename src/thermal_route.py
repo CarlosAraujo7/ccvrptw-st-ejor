@@ -42,6 +42,8 @@ from typing import Dict, List, Optional
 
 import numpy as np
 
+import tempo_dependente as td
+
 R_GAS = 8.314
 
 # Parâmetros físicos (fonte em cada linha)
@@ -76,8 +78,9 @@ def sortear_cenarios(inst: dict, K: int, rng: np.random.Generator, n_zones: int 
                      estacao: str = CLIMA_PADRAO, tempo_viagem: bool = False) -> dict:
     """K cenários: dia de temperatura externa, multiplicadores de porta, normais do termostato
     e, se tempo_viagem, multiplicadores lognormais (média 1) do tempo de cada trecho, indexados
-    pelo cliente de DESTINO do trecho (CV = thermal_profile.sigma_t_pct da instância)."""
-    cl = carregar_clima(estacao)
+    pelo cliente de DESTINO do trecho (CV = thermal_profile.sigma_t_pct da instância).
+    Uma instância pode trazer a própria estação de clima ('estacao_clima'; caso de Atenas, Entrada 103)."""
+    cl = carregar_clima(inst.get('estacao_clima', estacao))
     n = len(inst['customers'])
     cv = DOOR_CV.get(_nivel(inst), 0.30)
     s2 = np.log(1.0 + cv * cv)
@@ -96,7 +99,7 @@ def _lognormal_media1(rng, cv, shape):
 
 
 def cenario_nominal(inst: dict, n_zones: int = 1, estacao: str = CLIMA_PADRAO) -> dict:
-    cl = carregar_clima(estacao)
+    cl = carregar_clima(inst.get('estacao_clima', estacao))   # estação própria da instância (caso de Atenas)
     n = len(inst['customers'])
     return {'amb': cl['nominal'][None, :], 'door': np.ones((1, n + 1)),
             'eps': np.zeros((1, n + 1, max(1, n_zones)))}
@@ -140,21 +143,27 @@ def route_quality(route: List[int], inst: dict, ttime, scen: dict,
     # Cronograma por cenário (sem 'tt' no cenário: o nominal, idêntico ao decoder).
     # Chegada cedo espera a janela; chegada tarde é atendida mesmo assim
     # (janela flexível) e o atraso fica registrado em `late` (minutos).
-    nodes = [0] + route
-    tl0 = np.array([ttime[nodes[j]][nodes[j + 1]] for j in range(m)])               # min
-    tl = tl0[None, :] * scen['tt'][:, route] if 'tt' in scen else np.repeat(tl0[None, :], K, 0)
-    ready = np.array([cust[c - 1]['ready_time_min'] for c in route])
-    due = np.array([cust[c - 1]['due_date_min'] for c in route])
     st = np.array([cust[c - 1]['service_time_min'] for c in route]) / 60.0           # h
-    wait = np.zeros((K, m)); t_srv = np.zeros((K, m)); late = np.zeros((K, m))
-    t = np.full(K, float(t0_min))   # saída do depósito (min); 0 = comportamento anterior
-    for j in range(m):
-        t = t + tl[:, j]
-        late[:, j] = np.maximum(0.0, t - due[j])
-        w = np.maximum(0.0, ready[j] - t)
-        t = t + w
-        wait[:, j], t_srv[:, j] = w / 60.0, t / 60.0
-        t = t + st[j] * 60.0
+    if isinstance(ttime, td.MatrizTD):
+        # tempos dependentes do horário (Entrada 101): o tempo de cada trecho depende da saída; o relógio
+        # da instância é o da matriz (hora de início da operação; 6 h no caso SP, 8 h no de Atenas)
+        tl, wait, t_srv, late = td.cronograma(route, inst, ttime, K, scen.get('tt'), t0_min)
+        t_start_h = ttime.hora_inicio
+    else:
+        nodes = [0] + route
+        tl0 = np.array([ttime[nodes[j]][nodes[j + 1]] for j in range(m)])               # min
+        tl = tl0[None, :] * scen['tt'][:, route] if 'tt' in scen else np.repeat(tl0[None, :], K, 0)
+        ready = np.array([cust[c - 1]['ready_time_min'] for c in route])
+        due = np.array([cust[c - 1]['due_date_min'] for c in route])
+        wait = np.zeros((K, m)); t_srv = np.zeros((K, m)); late = np.zeros((K, m))
+        t = np.full(K, float(t0_min))   # saída do depósito (min); 0 = comportamento anterior
+        for j in range(m):
+            t = t + tl[:, j]
+            late[:, j] = np.maximum(0.0, t - due[j])
+            w = np.maximum(0.0, ready[j] - t)
+            t = t + w
+            wait[:, j], t_srv[:, j] = w / 60.0, t / 60.0
+            t = t + st[j] * 60.0
     tl = tl / 60.0                                                                   # h
     hora = (t_srv + t_start_h) % 24.0
     Ta = _amb_at(scen['amb'], hora)                                                  # K×m

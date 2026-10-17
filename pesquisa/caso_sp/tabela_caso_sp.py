@@ -28,6 +28,19 @@ if os.environ.get('CCVRP_SP_VARIANTE') == 'pico':      # variante do pico (15/10
     RES = os.path.join(BASE, 'results_c_sp_pico')
     OUT = os.path.join(BASE, 'pesquisa', 'resultados_caso_sp_pico')
     TAB = os.path.join(BASE, 'pesquisa', 'latex_ejor_c', 'tables', 'tab_caso_sp_pico.tex')
+# variantes de 16/10/2026 (Entradas 101 e 103): tempos dependentes do horário e caso de Atenas
+VAR = os.environ.get('CCVRP_SP_VARIANTE', '')
+if VAR in ('td', 'atenas'):
+    _p = {'td': ('results_c_sp_td', 'resultados_caso_sp_td', 'tab_caso_sp_td.tex'),
+          'atenas': ('results_c_atenas', 'resultados_caso_atenas', 'tab_caso_atenas.tex')}[VAR]
+    RES = os.path.join(BASE, _p[0]); OUT = os.path.join(BASE, 'pesquisa', _p[1])
+    TAB = os.path.join(BASE, 'pesquisa', 'latex_ejor_c', 'tables', _p[2])
+ROTULO = {'': (r'S\~ao Paulo case', 'tab:sp'),
+          'pico': (r'S\~ao Paulo case, planned with the morning-peak congestion', 'tab:sp-pico'),
+          'td': (r'S\~ao Paulo case with time-dependent travel times', 'tab:sp-td'),
+          'atenas': (r'Athens case, operational data of a pharmaceutical distributor', 'tab:ath')}[
+    VAR if VAR in ('pico', 'td', 'atenas') else '']
+NIVEL_TXT = {'MEDIUM': 'Medium uncertainty', 'HIGH': 'High uncertainty', 'DATA': 'Uncertainty from the data'}
 ALPHA = 0.90
 ESCADA = ['C-BUF70C', 'C-BUF80C', 'C-BUF90C', 'C-BUF95C']
 LINHAS = ['C-DET', 'C-DETC', 'C-BUF90C', 'C-BUF95C', 'CAL', 'C-SIMC']
@@ -70,7 +83,8 @@ def main():
             ref[(x['instance'], x['seed'])] = x
     rel = [f'CASO SÃO PAULO v2 — {len(chaves)} execuções (instância × semente); α = {ALPHA}; avaliação em 1.000 cenários comuns']
     tab = {}
-    for nivel in ('MEDIUM', 'HIGH'):
+    niveis = [n for n in ('MEDIUM', 'HIGH', 'DATA') if any(k[0].endswith(n) for k in chaves)]
+    for nivel in niveis:
         ks = [k for k in chaves if k[0].endswith(nivel)]
         rel.append(f'\n{nivel} ({len(ks)} execuções)')
         for a in LINHAS + (['CAL+R'] if ref else []):
@@ -112,18 +126,20 @@ def main():
     def f(x, fmt):
         return '--' if x is None or not np.isfinite(x) else fmt % x
     L = [r'\begin{table}[htbp]', r'\centering',
-         r'\caption{S\~ao Paulo case' + (r', planned with the morning-peak congestion' if 'pico' in RES else '')
+         r'\caption{' + ROTULO[0]
          + f' ({len({i for i, _ in chaves})} instances $\\times$ 10 seeds; ' + r'$\alpha=0.90$; evaluation on 1{,}000 common scenarios). '
          r'Front: \% of runs whose front contains an out-of-sample-compliant solution. Chosen: \% of runs whose chosen plan (cheapest '
          r'certified) complies. Cost: median cost of the cheapest compliant solution relative to \mSIM{} in the same run (\%; for '
          r'\mCAL{}+R, cost of the chosen plan relative to the chosen plan of \mSIM{}).}',
-         r'\label{tab:sp-pico}' if 'pico' in RES else r'\label{tab:sp}', r'\small', r'\begin{tabular}{@{}l rrr rrr@{}}', r'\toprule',
-         r' & \multicolumn{3}{c}{Medium uncertainty} & \multicolumn{3}{c}{High uncertainty} \\',
-         r'\cmidrule(lr){2-4}\cmidrule(l){5-7}',
-         r'Method & Front & Chosen & Cost & Front & Chosen & Cost \\', r'\midrule']
+         r'\label{' + ROTULO[1] + '}', r'\small', r'\begin{tabular}{@{}l ' + ' '.join(['rrr'] * len(niveis)) + r'@{}}',
+         r'\toprule',
+         ' & ' + ' & '.join(r'\multicolumn{3}{c}{' + NIVEL_TXT[n] + '}' for n in niveis) + r' \\',
+         ''.join(r'\cmidrule(' + ('lr' if i < len(niveis) - 1 else 'l') + '){' + f'{2 + 3 * i}-{4 + 3 * i}' + '}'
+                 for i in range(len(niveis))),
+         'Method & ' + ' & '.join(['Front & Chosen & Cost'] * len(niveis)) + r' \\', r'\midrule']
     for a in LINHAS + (['CAL+R'] if ref else []):
         cel = []
-        for nivel in ('MEDIUM', 'HIGH'):
+        for nivel in niveis:
             fo, eo, dc, _ = tab[(nivel, a)]
             cel += [f(fo, '%.0f'), f(eo, '%.0f'), '--' if a == 'C-SIMC' else f(dc, '%+.2f')]
         L.append(NOME[a] + ' & ' + ' & '.join(cel) + r' \\')

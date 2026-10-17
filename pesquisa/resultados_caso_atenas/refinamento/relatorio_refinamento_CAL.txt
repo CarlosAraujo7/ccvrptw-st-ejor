@@ -1,0 +1,7 @@
+REFINAMENTO POR SIMULAÇÃO a partir da escolha do decisor de CAL (90 execuções); avaliação em 1.000 cenários comuns
+  base (CAL)             cumpre 100.0%  P média 0.993  custo médio   1268.9  perda 6.255%  CO2 64.9
+  refinado               cumpre 100.0%  P média 0.987  custo médio   1268.4  perda 6.248%  CO2 64.8
+  SIM+C                  cumpre  97.8%  P média 0.961  custo médio   1271.2  perda 6.103%  CO2 64.9
+  refinado vs base       Δcusto mediana +0.00% média -0.04%  Δperda mediana +0.000 p.p.  ΔCO2 mediana +0.00%
+  refinado vs SIM+C      Δcusto mediana -0.11% média -0.11%  Δperda mediana +0.139 p.p.  ΔCO2 mediana -0.20%
+  tempo de CPU do refinamento: média 0.0 s por execução

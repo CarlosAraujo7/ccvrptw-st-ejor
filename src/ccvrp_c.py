@@ -52,6 +52,7 @@ import numpy as np
 from scipy.stats import norm
 
 import nsga2_simheuristic as ns
+import tempo_dependente as td
 import thermal_route as tr
 
 DELTA_MIN = 5.0      # tolerância de atraso (min), decisão D2
@@ -105,6 +106,8 @@ class IndividualC(ns.Individual):
 def delta_max(route: List[int], inst: dict, ttime) -> float:
     """Maior adiamento da saída que não cria atraso no plano nem aumenta a duração
     (folga para frente; Savelsbergh 1992 [VERIFICAR]): min(F0, espera total)."""
+    if td.eh_td(ttime):          # tempos dependentes do horário (Entrada 101)
+        return td.delta_max(route, inst, ttime)
     cust = inst['customers']
     t = 0.0; prev = 0; cumw = 0.0; F0 = math.inf
     for c in route:
@@ -119,6 +122,8 @@ def delta_max(route: List[int], inst: dict, ttime) -> float:
 
 def duracao(route: List[int], inst: dict, ttime, t0: float) -> float:
     """Duração (min) da rota saindo em t0, com retorno ao depósito."""
+    if td.eh_td(ttime):
+        return td.duracao(route, inst, ttime, t0)
     cust = inst['customers']
     t = t0; prev = 0
     for c in route:
@@ -138,6 +143,8 @@ def pontual_rota(route: List[int], inst: dict, ttime, tt: np.ndarray,
                  t0: float, delta_tol: float = DELTA_MIN) -> np.ndarray:
     """Por cenário (K,): True se nenhum cliente da rota chega com atraso > delta_tol.
     tt: multiplicadores K×(n+1) indexados pelo cliente de DESTINO do trecho."""
+    if td.eh_td(ttime):
+        return td.pontual_rota(route, inst, ttime, tt, t0, delta_tol)
     cust = inst['customers']
     K = tt.shape[0]
     t = np.full(K, float(t0)); ok = np.ones(K, dtype=bool); prev = 0
@@ -178,9 +185,12 @@ class Contexto:
         self.decoder, self.p_ls = decoder, p_ls
         self.dist, self.ttime = ns.build_matrices(inst)
         cv = inst['thermal_profile'].get('sigma_t_pct', 0.0)
+        self.td = td.eh_td(self.ttime)   # tempos dependentes do horário (Entrada 101): só com o Split
+        assert not self.td or decoder == 'split', 'tempos dependentes do horário exigem o decoder Split'
         if buffer_q:
             m = multiplicador_quantil(cv, buffer_q)
-            self.ttime_plan = [[x * m for x in row] for row in self.ttime]
+            self.ttime_plan = (self.ttime.escalada(m) if self.td
+                               else [[x * m for x in row] for row in self.ttime])
         else:
             self.ttime_plan = self.ttime
         self.use_multizone, self.n_zones = use_multizone, n_zones
@@ -202,7 +212,10 @@ class Contexto:
         self.viz = [[]] + [sorted((j for j in range(1, n + 1) if j != i), key=lambda j: self.dist[i][j])[:k_viz]
                            for i in range(1, n + 1)]
         # clientes que nem sozinhos cabem na janela (planejamento): o Split os deixa de fora
-        self.sozinho_inviavel = {i for i in range(1, n + 1) if self.ttime_plan[0][i] > self.due[i]}
+        if self.td:
+            self.sozinho_inviavel = {i for i in range(1, n + 1) if self.ttime_plan.chegada(0, i, 0.0) > self.due[i]}
+        else:
+            self.sozinho_inviavel = {i for i in range(1, n + 1) if self.ttime_plan[0][i] > self.due[i]}
 
 
 def split_decode(chrom: List[int], ctx: Contexto) -> Tuple[List[List[int]], bool]:
@@ -211,6 +224,8 @@ def split_decode(chrom: List[int], ctx: Contexto) -> Tuple[List[List[int]], bool
     por programação dinâmica em grafo acíclico. Usa os tempos de PLANEJAMENTO
     (com folga, nas variantes BUF). Clientes inviáveis sozinhos ficam de fora
     (feasible=False), como no decoder original."""
+    if ctx.td:
+        return td.split_decode(chrom, ctx)
     perm = [c for c in chrom if c not in ctx.sozinho_inviavel]
     n = len(perm); tt = ctx.ttime_plan; D = ctx.dist
     V = [math.inf] * (n + 1); P = [-1] * (n + 1); V[0] = 0.0
@@ -240,6 +255,8 @@ def split_decode(chrom: List[int], ctx: Contexto) -> Tuple[List[List[int]], bool
 
 
 def _rota_viavel(r: List[int], ctx: Contexto) -> bool:
+    if ctx.td:
+        return td.viavel(r, ctx)
     load = 0.0; t = 0.0; prev = 0; tt = ctx.ttime_plan
     for c in r:
         load += ctx.dem[c]
