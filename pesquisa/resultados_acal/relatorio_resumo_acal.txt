@@ -1,0 +1,33 @@
+ACAL (uma busca) e ACAL+R contra SIM+C (uma busca), pareado por instância; HL [Holm sobre 6 testes por conjunto]
+
+=== benchmark (v2) ===  cumpre: ACAL 97.2%, SIM+C 94.3%, ACAL+R 97.5%, SIM+C (mesmas execuções do +R) 93.3%
+  ACAL    custo  n=54  HL  -0.001%   p=0.675  p_Holm=1
+  ACAL    perda  n=54  HL  -0.046pp  p=0.00838  p_Holm=0.0419
+  ACAL    CO2    n=54  HL  -0.009%   p=0.615  p_Holm=1
+  ACAL+R  custo  n=36  HL  +0.000%   p=0.879  p_Holm=1
+  ACAL+R  perda  n=36  HL  -0.244pp  p=3.04e-06  p_Holm=1.82e-05
+  ACAL+R  CO2    n=36  HL  -0.151%   p=0.0197  p_Holm=0.0789
+
+=== SP ===  cumpre: ACAL 93.8%, SIM+C 93.8%, ACAL+R 96.9%, SIM+C (mesmas execuções do +R) 93.8%
+  ACAL    custo  n=16  HL  -0.327%   p=3.05e-05  p_Holm=0.000183
+  ACAL    perda  n=16  HL  -0.481pp  p=9.16e-05  p_Holm=0.000183
+  ACAL    CO2    n=16  HL  -1.853%   p=6.1e-05  p_Holm=0.000183
+  ACAL+R  custo  n=16  HL  -0.329%   p=3.05e-05  p_Holm=0.000183
+  ACAL+R  perda  n=16  HL  -0.805pp  p=3.05e-05  p_Holm=0.000183
+  ACAL+R  CO2    n=16  HL  -2.765%   p=3.05e-05  p_Holm=0.000183
+
+=== SP com horário ===  cumpre: ACAL 95.6%, SIM+C 95.0%, ACAL+R 98.1%, SIM+C (mesmas execuções do +R) 95.0%
+  ACAL    custo  n=16  HL  -0.225%   p=0.00269  p_Holm=0.00537
+  ACAL    perda  n=16  HL  -0.449pp  p=3.05e-05  p_Holm=0.000183
+  ACAL    CO2    n=16  HL  -1.605%   p=3.05e-05  p_Holm=0.000183
+  ACAL+R  custo  n=16  HL  -0.232%   p=0.00269  p_Holm=0.00537
+  ACAL+R  perda  n=16  HL  -0.821pp  p=3.05e-05  p_Holm=0.000183
+  ACAL+R  CO2    n=16  HL  -2.696%   p=3.05e-05  p_Holm=0.000183
+
+=== Atenas ===  cumpre: ACAL 96.7%, SIM+C 97.8%, ACAL+R 97.8%, SIM+C (mesmas execuções do +R) 97.8%
+  ACAL    custo  n= 9  HL  -0.512%   p=0.129  p_Holm=0.645
+  ACAL    perda  n= 9  HL  +0.156pp  p=0.426  p_Holm=1
+  ACAL    CO2    n= 9  HL  +0.075%   p=0.82  p_Holm=1
+  ACAL+R  custo  n= 9  HL  -0.596%   p=0.0742  p_Holm=0.445
+  ACAL+R  perda  n= 9  HL  +0.162pp  p=0.426  p_Holm=1
+  ACAL+R  CO2    n= 9  HL  +0.006%   p=1  p_Holm=1

@@ -42,6 +42,7 @@ Variantes (experiment_runner, runner 'nsga2c'):
         usual na prática. Executa com os tempos reais.
 """
 
+import copy
 import math
 import random
 import time
@@ -581,6 +582,23 @@ def _init_pop(ctx: Contexto, pop_size: int, rng_py: random.Random) -> List[Indiv
     return pop
 
 
+ULTIMO_Q_HIST: List = []   # trajetória (geração, nível, P checada) da última busca com buffer_adapt
+
+
+def _mudar_buffer(ctx: 'Contexto', q: float) -> None:
+    """Troca o nível do buffer de planejamento no meio da busca (calibração dentro de uma busca, Entrada 109):
+    novos tempos de planejamento, clientes inviáveis sozinhos e caches por rota (que dependem de Δmax)."""
+    cv = ctx.inst['thermal_profile'].get('sigma_t_pct', 0.0)
+    m = multiplicador_quantil(cv, q)
+    ctx.ttime_plan = ctx.ttime.escalada(m) if ctx.td else [[x * m for x in row] for row in ctx.ttime]
+    n = len(ctx.inst['customers'])
+    if ctx.td:
+        ctx.sozinho_inviavel = {i for i in range(1, n + 1) if ctx.ttime_plan.chegada(0, i, 0.0) > ctx.due[i]}
+    else:
+        ctx.sozinho_inviavel = {i for i in range(1, n + 1) if ctx.ttime_plan[0][i] > ctx.due[i]}
+    ctx.c_plano.clear(); ctx.c_q.clear(); ctx.c_on.clear()
+
+
 def run_nsga2_c(inst: dict, pop_size: int = ns.POP_SIZE, n_gen: int = ns.N_GEN, seed: int = 0,
                 mc_rel: int = 0, buffer_q: Optional[float] = None, alpha: float = ALPHA,
                 delta_tol: float = DELTA_MIN, use_multizone: bool = False, n_zones: int = 1,
@@ -588,7 +606,9 @@ def run_nsga2_c(inst: dict, pop_size: int = ns.POP_SIZE, n_gen: int = ns.N_GEN, 
                 hv_ref_point: Optional[Tuple] = None, verbose: bool = False, mc_cert: int = 0,
                 decoder: str = 'firstfit', p_ls: float = 0.0,
                 cinetica_por_cliente: Optional[bool] = None, m_L: Optional[float] = None,
-                m_U: Optional[float] = None, gamma: Optional[float] = None):
+                m_U: Optional[float] = None, gamma: Optional[float] = None,
+                buffer_adapt: Optional[dict] = None):
+    global ULTIMO_Q_HIST
     rng_py = random.Random(seed)
     ctx = Contexto(inst, seed, mc_rel, buffer_q, alpha, delta_tol, use_multizone, n_zones,
                    estacao, t_start_h, decoder=decoder, p_ls=p_ls, cinetica_por_cliente=cinetica_por_cliente,
@@ -597,6 +617,16 @@ def run_nsga2_c(inst: dict, pop_size: int = ns.POP_SIZE, n_gen: int = ns.N_GEN, 
     pop = _init_pop(ctx, pop_size, rng_py)
     arquivo: Dict = {}   # rank-1 que cumprem a restrição na busca (para certificação)
     hv_hist = []; t0 = time.time()
+    if buffer_adapt:     # calibração dentro de uma busca (17/10/2026, Entrada 109)
+        assert buffer_q, 'buffer_adapt exige buffer_q (nível inicial)'
+        z = float(norm.ppf(buffer_q)); q_atual = buffer_q
+        cv_inst = inst['thermal_profile'].get('sigma_t_pct', 0.0)
+        q_piso = buffer_adapt['qmin']
+        if q_piso == 'nominal':      # piso = nível nominal (multiplicador 1): q = Φ(s/2)
+            q_piso = float(norm.cdf(math.sqrt(math.log(1.0 + cv_inst * cv_inst)) / 2))
+        z_min, z_max = float(norm.ppf(q_piso)), float(norm.ppf(buffer_adapt['qmax']))
+        rng_chk = np.random.default_rng(seed + 15485863)
+        ULTIMO_Q_HIST = [(0, round(q_atual, 4), None)]
     for gen in range(1, n_gen + 1):
         for front in ns.fast_nondominated_sort(pop):
             ns.crowding_distance_assign(front)
@@ -635,6 +665,28 @@ def run_nsga2_c(inst: dict, pop_size: int = ns.POP_SIZE, n_gen: int = ns.N_GEN, 
             for x in pop:
                 if x.rank == 1 and x.viol == 0.0 and x.feasible:
                     arquivo.setdefault(_assinatura(x, use_multizone, n_cat), x)
+        if buffer_adapt and gen % buffer_adapt['G'] == 0 and gen < n_gen:
+            # simula o plano mais barato da frente em cenários novos e move o nível um passo em z
+            cands = [x for x in pop if x.rank == 1 and x.feasible and x.viol == 0.0]
+            if cands:
+                x = min(cands, key=lambda y: y.f_cost)
+                tt_chk = tr._lognormal_media1(rng_chk, cv_inst, (buffer_adapt['M'], len(inst['customers']) + 1))
+                on = np.ones(buffer_adapt['M'], dtype=bool)
+                for r, d0 in zip(x.routes, x.partida):
+                    on &= pontual_rota(r, inst, ctx.ttime, tt_chk, d0, ctx.delta_tol)
+                p = float(on.mean())
+                if p >= buffer_adapt['hi']:
+                    z = max(z_min, z - buffer_adapt['dz'])
+                elif p < buffer_adapt['lo']:
+                    z = min(z_max, z + buffer_adapt['dz'])
+                q_novo = float(norm.cdf(z))
+                if abs(q_novo - q_atual) > 1e-12:
+                    _mudar_buffer(ctx, q_novo)
+                    pop = [copy.copy(y) for y in pop]    # cópias: o arquivo guarda os planos do nível anterior
+                    for y in pop:
+                        evaluate_c(y, ctx)
+                    q_atual = q_novo
+                ULTIMO_Q_HIST.append((gen, round(q_atual, 4), round(p, 4)))
         if gen % 10 == 0 or gen == n_gen:
             pf = [x for x in pop if x.rank == 1]
             hv_hist.append((gen, ns.compute_hypervolume(pf, ref_point=hv_ref_point)))

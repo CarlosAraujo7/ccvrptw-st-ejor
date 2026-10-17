@@ -1,0 +1,11 @@
+CALIBRAÇÃO PREDITIVA (PCAL) — piloto construtivo com 20 planos por nível e 200 cenários; alvo α⁺ = 0.935; avaliação offline nos 1.000 cenários comuns
+
+=== v1 (desenvolvimento): 54 instâncias, 540 execuções ===
+  regra                    buscas  cumpre sem escolha | vs SIM+C: custo HL   perda HL   CO2 HL  (p custo)
+  SIM+C                      1.00   96.5%           0 |   +0.000%   +0.000pp  +0.000%  (1)
+  SIM2 (melhor de 2)         2.00   94.6%           0 |   -0.443%   +0.017pp  -0.383%  (1.6e-09)
+  BUF0.90+C                  1.00   97.2%           0 |   +0.027%   -0.003pp  +0.134%  (0.44)
+  BUF0.95+C                  1.00   99.8%           0 |   +0.094%   +0.021pp  +0.210%  (0.048)
+  CAL (4 degraus)            4.00   96.1%           0 |   -0.606%   +0.002pp  -0.392%  (7.3e-09)
+  PCAL (1 busca)             1.00   96.1%           8 |   +0.330%   +0.047pp  +0.305%  (5.3e-05)
+  nível previsto: C-BUF70C 8%, C-BUF80C 14%, C-BUF90C 13%, C-BUF95C 46%, C-DETC 19%; CPU do piloto: média 0.4 s por instância e semente

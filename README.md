@@ -28,6 +28,7 @@ It also proposes a simulation-based refinement of the chosen plan.
 | `src/thermal_route.py` | Route-dependent thermal model (door openings, pull-downs, Arrhenius kinetics) and scenario sampling |
 | `src/instance_generator.py` | Generator of the Solomon-style benchmark instances and thermal profiles |
 | `src/experiment_runner.py` | Runs methods × instances × seeds in parallel; method configurations in `ALGO_CONFIG` |
+| `src/ccvrp_c.py` (`buffer_adapt`) | Calibration of the buffer level within a single search (ACAL); off by default |
 | `src/tempo_dependente.py` | Time-dependent (FIFO, Ichoua–Gendreau–Potvin) travel times and arc-specific travel-time uncertainty; used only by instances with a `td` block |
 | `instances/generated/` | The 54 benchmark instances: families C1, C2, R1, R2, RC1, RC2; n = 25, 50, 100; LOW, MEDIUM, HIGH uncertainty |
 | `instances/validacao_exata/` | The 4 small instances solved exactly (n = 5 to 20) |
@@ -102,6 +103,14 @@ All commands are run from the repository root. Times refer to a 12-core desktop 
    ```
    python pesquisa/validar_teoria_buffer.py
    ```
+9. **Calibration within a single search** (ACAL, Section 6.12; Table S19; 114 development and 950 test runs):
+   ```
+   python pesquisa/rodar_acal.py --fase dev --workers 10
+   powershell -ExecutionPolicy Bypass -File pesquisa/rodar_acal_teste.ps1
+   python pesquisa/resumo_acal.py
+   ```
+   `pesquisa/calibracao_preditiva*.py` document a rejected alternative (predicting the buffer level before the
+   search with constructive pilots), which did not beat a fixed buffer on the development set.
 
 Every run is seeded. The out-of-sample evaluation uses 1,000 scenarios per instance, common to all methods and
 drawn from a fixed seed (`pesquisa/analisar_c.py`). The scripts write the LaTeX tables and figures to

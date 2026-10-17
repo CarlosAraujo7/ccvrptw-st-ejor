@@ -1,0 +1,19 @@
+CALIBRAÇÃO DENTRO DE UMA BUSCA (ACAL) — fase dev; escolha = certificada mais barata; 1.000 cenários comuns
+
+=== desenvolvimento — benchmark (v2) ===
+  C-ACALC-A: cumpre 100.0% (sem escolha 0); custo vs SIM+C: mediana -0.00%; custo vs BUF0.90+C: mediana +0.00%; custo vs CAL: mediana +0.19%
+      nível final: mediana 0.539, P10 0.520, P90 0.922
+  C-ACALC-B: cumpre 100.0% (sem escolha 0); custo vs SIM+C: mediana -0.01%; custo vs BUF0.90+C: mediana -0.01%; custo vs CAL: mediana +0.10%
+      nível final: mediana 0.579, P10 0.520, P90 0.919
+
+=== desenvolvimento — SP ===
+  C-ACALC-A: cumpre 100.0% (sem escolha 0); custo vs SIM+C: mediana -0.22%; custo vs BUF0.90+C: mediana -0.01%; custo vs CAL: mediana +0.09%
+      nível final: mediana 0.752, P10 0.649, P90 0.900
+  C-ACALC-B: cumpre 100.0% (sem escolha 0); custo vs SIM+C: mediana -0.24%; custo vs BUF0.90+C: mediana +0.01%; custo vs CAL: mediana +0.13%
+      nível final: mediana 0.816, P10 0.703, P90 0.933
+
+=== desenvolvimento — Atenas ===
+  C-ACALC-A: cumpre 100.0% (sem escolha 0); custo vs SIM+C: mediana +0.30%; custo vs BUF0.90+C: mediana -1.52%; custo vs CAL: mediana +0.23%
+      nível final: mediana 0.644, P10 0.528, P90 0.649
+  C-ACALC-B: cumpre 100.0% (sem escolha 0); custo vs SIM+C: mediana +0.23%; custo vs BUF0.90+C: mediana -1.73%; custo vs CAL: mediana +0.02%
+      nível final: mediana 0.535, P10 0.528, P90 0.644

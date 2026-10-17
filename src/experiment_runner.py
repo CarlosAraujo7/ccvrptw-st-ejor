@@ -284,6 +284,16 @@ for _rot, _cp in (('G05', {'gamma': 0.00675}), ('G2', {'gamma': 0.027}),
     ALGO_CONFIG[f'C-SIMC-{_rot}'] = {**ALGO_CONFIG['C-SIMC'],
                                      'c_params': {**ALGO_CONFIG['C-SIMC'].get('c_params', {}), **_cp},
                                      'label': f'Caminho C: simheurística + certificação, sensibilidade B2 {_rot}'}
+# Calibração dentro de uma busca (17/10/2026, diário Entrada 109; análise de fraquezas A1): o nível do buffer começa
+# em 0,90 e, a cada G gerações, o plano mais barato da frente é simulado em M cenários novos; acima de 'hi' o nível
+# desce um passo dz em z, abaixo de 'lo' sobe. O arquivo guarda os planos de todos os níveis; certificação final igual.
+# A e B são as variantes do desenvolvimento; a escolhida vira C-ACALC (fixada antes do teste).
+_ACAL = {'A': {'G': 20, 'M': 200, 'lo': 0.92, 'hi': 0.96, 'dz': 0.30, 'qmin': 'nominal', 'qmax': 0.99},
+         'B': {'G': 10, 'M': 200, 'lo': 0.92, 'hi': 0.97, 'dz': 0.25, 'qmin': 'nominal', 'qmax': 0.99}}
+for _r, _ba in _ACAL.items():
+    ALGO_CONFIG[f'C-ACALC-{_r}'] = {'runner': 'nsga2c', 'mc_samples': 0,
+                                   'c_params': {'buffer_q': 0.90, 'mc_cert': 500, 'buffer_adapt': _ba},
+                                   'label': f'Caminho C: buffer calibrado dentro da busca ({_r}) + certificação'}
 # Todas as variantes do Caminho C passam a usar o decoder Split + busca local
 # (p_ls = 0,2). O piloto F3 (Entradas 74, results_c_piloto/) usou o decoder
 # first-fit — o c_params gravado em cada _metrics.json registra a diferença.
@@ -499,6 +509,8 @@ def _worker(task: dict) -> dict:
             'busca_local_delta': sys.modules['ccvrp_c'].BUSCA_LOCAL_DELTA if runner in ('nsga2c', 'moeadc') else None,
             # Entrada 85: eliminação de rotas na busca local
             'eliminar_rotas':    sys.modules['ccvrp_c'].ELIMINAR_ROTAS if runner in ('nsga2c', 'moeadc') else None,
+            # Entrada 109: trajetória do nível do buffer na calibração dentro da busca (só nessas execuções)
+            **({'q_hist': sys.modules['ccvrp_c'].ULTIMO_Q_HIST} if c_params.get('buffer_adapt') else {}),
             'n_cumprem_chance':  (sum(1 for x in pareto if getattr(x, 'viol', 0.0) == 0.0)
                                   if c_params.get('mc_rel') else None),
             'elapsed_s':         round(time.time() - t0, 2),
