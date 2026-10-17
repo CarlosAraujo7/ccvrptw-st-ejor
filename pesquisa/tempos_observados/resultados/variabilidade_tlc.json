@@ -1,0 +1,63 @@
+{
+ "fonte": "NYC TLC Yellow Taxi Trip Records, 2024-03 e 2024-10 (dias úteis)",
+ "viagens_brutas": 7416336,
+ "cv_entre_dias": {
+  "celulas": 17271,
+  "mediana": 0.12252512152588092,
+  "p10": 0.027587659533937166,
+  "p90": 0.2049564122111998
+ },
+ "viagens_validas_em_celulas": 3944145,
+ "celulas": 30594,
+ "min_viagens_por_celula": 30,
+ "cv_celula": {
+  "mediana": 0.26215375544182384,
+  "p10": 0.1837108141407268,
+  "p90": 0.3616931491115952,
+  "ponderada_viagens": 0.280628553066738
+ },
+ "cv_por_duracao": {
+  "0-10 min": {
+   "celulas": 6274,
+   "cv_mediana": 0.2925466469871177
+  },
+  "10-20 min": {
+   "celulas": 13752,
+   "cv_mediana": 0.26538865874350126
+  },
+  "20-40 min": {
+   "celulas": 8661,
+   "cv_mediana": 0.24943102643839113
+  },
+  "40-120 min": {
+   "celulas": 1907,
+   "cv_mediana": 0.19865437535343236
+  }
+ },
+ "forma_z": {
+  "assimetria": 0.2620280827449073,
+  "curtose_excesso": 0.5067761520949414,
+  "p_acima_1645": 0.05441001788727341,
+  "p_acima_2326": 0.015212929544933059,
+  "p_abaixo_m1645": 0.03998686660860592
+ },
+ "quantil_emp_sobre_lognormal": {
+  "0.95": {
+   "mediana": 0.9986907573015952,
+   "p10": 0.9611318822174193,
+   "p90": 1.035119484514011,
+   "celulas": 3000
+  },
+  "0.99": {
+   "mediana": 1.0149509900994027,
+   "p10": 0.9492353036662972,
+   "p90": 1.0989421369659123,
+   "celulas": 3000
+  }
+ },
+ "fator_dia": {
+  "fracao_variancia": 0.10719287643520742,
+  "n_dia_hora": 1032,
+  "desvio_efeito": 0.07833187674096302
+ }
+}

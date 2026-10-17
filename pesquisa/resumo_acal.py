@@ -66,7 +66,7 @@ def main():
             res[(nm, rot)] = (e, pa)
         def cel(nm, rot):
             e, pa = res[(nm, rot)]
-            return f'{e + 0.0:+.2f}' + ('$^*$' if pa < 0.05 else '')
+            return f'{round(e, 2) + 0.0:+.2f}' + ('$^*$' if pa < 0.05 else '')
         linhas_tab.append(f"{ROT[c]} & {cumpre['SIM+C']:.0f} & {cumpre['ACAL']:.0f} & {cel('ACAL', 'custo')} & {cel('ACAL', 'perda')} & "
                           f"{cel('ACAL', 'CO2')} & {cumpre.get('ACAL+R', float('nan')):.0f} & {cel('ACAL+R', 'custo')} & "
                           f"{cel('ACAL+R', 'perda')} & {cel('ACAL+R', 'CO2')} " + r'\\')

@@ -16,3 +16,5 @@ pesquisa/latex_ejor_c/figures/*
 pesquisa/caso_sp/dados_brutos/tomtom/
 pesquisa/caso_certh/dados_brutos/
 pesquisa/clima/dados_isd_brutos_atenas/
+# raw NYC TLC trip records (downloaded from the official TLC site; see README)
+pesquisa/tempos_observados/dados_brutos/

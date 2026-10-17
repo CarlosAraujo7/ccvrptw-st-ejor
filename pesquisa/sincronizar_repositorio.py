@@ -21,11 +21,14 @@ ARQUIVOS = [
     'src/experiment_runner.py', 'pesquisa/rodar_acal.py', 'pesquisa/avaliar_acal.py', 'pesquisa/resumo_acal.py',
     'pesquisa/rodar_acal_teste.ps1', 'pesquisa/calibracao_preditiva_base.py', 'pesquisa/calibracao_preditiva.py',
     'pesquisa/calibracao_preditiva_dev.py', 'pesquisa/refinamento_simulacao.py',
+    # tempos de viagem observados (17/10/2026, Entrada 113)
+    'pesquisa/tempos_observados/analisar_tlc.py', 'pesquisa/tempos_observados/reavaliar_observado.py',
+    'pesquisa/tempos_observados/recertificar_observado.py', 'pesquisa/tempos_observados/tabela_observado.py',
 ]
 PASTAS = ['instances/caso_sp_td', 'instances/caso_sp_media_operacao', 'instances/caso_atenas',
           'pesquisa/resultados_caso_sp_td', 'pesquisa/resultados_caso_sp_media', 'pesquisa/resultados_caso_atenas',
           'pesquisa/resultados_teoria_buffer', 'pesquisa/resultados_degrau_nominal', 'pesquisa/resultados_acal',
-          'pesquisa/resultados_calibracao_preditiva']
+          'pesquisa/resultados_calibracao_preditiva', 'pesquisa/tempos_observados/resultados']
 IGNORAR = ('.bak', '__pycache__', 'log_')
 
 

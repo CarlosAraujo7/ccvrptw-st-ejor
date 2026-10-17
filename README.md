@@ -141,6 +141,16 @@ its optimistic, most likely and pessimistic travel times as nominal time and the
 own lognormal model. Fleet, product and costs are assumptions (see the paper). The climate of Athens comes from NOAA ISD
 station 16716199999 (`python pesquisa/clima/processar_isd.py <folder> resumo_clima_atenas.txt`).
 
+## Observed travel times
+
+`pesquisa/tempos_observados/` checks the travel-time model against the public trip records of the New York City Taxi and
+Limousine Commission (yellow taxis, March and October 2024; Section 6.13 of the paper). Download
+`yellow_tripdata_2024-03.parquet`, `yellow_tripdata_2024-10.parquet` and `taxi_zone_lookup.csv` from the TLC trip record
+page (https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page) to `pesquisa/tempos_observados/dados_brutos/nyc_tlc/`,
+install `pyarrow`, and run `python -I pesquisa/tempos_observados/analisar_tlc.py`, then `reavaliar_observado.py`,
+`recertificar_observado.py` and `tabela_observado.py`. The standardized samples used for resampling are included in
+`pesquisa/tempos_observados/resultados/amostras_tlc.npz`.
+
 ## Raw results
 
 The raw outputs of every run (final fronts, certified probabilities, out-of-sample evaluations; about 550 MB) are

@@ -7,6 +7,7 @@
 | São Paulo instances (`instances/caso_sp`, `instances/caso_sp_pico`), OSRM responses and Nominatim cache (`pesquisa/caso_sp/dados_brutos/osrm`, `.../nominatim`) | Open Database License (ODbL 1.0) | © OpenStreetMap contributors; routes computed with OSRM; geocoding by Nominatim |
 | Athens instances (`instances/caso_atenas`) | CC BY 4.0 | Derived from Vrani, Apostolidis, Kapoutsis & Kosmatopoulos (2025), *Data in Brief* 61:111762, data on Zenodo, doi:10.5281/zenodo.15672291 (CC BY 4.0); fleet, product and costs are assumptions of this study |
 | Time-dependent São Paulo instances (`instances/caso_sp_td`, `instances/caso_sp_media_operacao`) | Open Database License (ODbL 1.0) | As the São Paulo instances; hourly congestion factors quoted from the TomTom Traffic Index 2025 |
+| Observed travel-time samples and summaries (`pesquisa/tempos_observados/resultados`) | Derived from public data | New York City Taxi and Limousine Commission, TLC Trip Record Data (yellow taxis, 2024); the raw records are not redistributed |
 | Store register extract (`pesquisa/caso_sp/dados_brutos/cnpj/*.csv`) | Open government data | Receita Federal do Brasil, open CNPJ data, reference month 2026-10 |
 | Household food acquisition (`pesquisa/caso_sp/dados_brutos/ibge`) | Open government data | IBGE, Pesquisa de Orçamentos Familiares 2017–2018, SIDRA table 2393 |
 
