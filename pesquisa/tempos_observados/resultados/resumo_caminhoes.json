@@ -1,0 +1,116 @@
+{
+ "benchmark (média e alta)": {
+  "C-DETC": {
+   "original": 74.67532467532467,
+   "recertificada": 97.83393501805054,
+   "com_plano": 89.93506493506493,
+   "dcusto": 0.0
+  },
+  "C-BUF90C": {
+   "original": 71.11111111111111,
+   "recertificada": 96.65551839464884,
+   "com_plano": 83.05555555555556,
+   "dcusto": 0.0
+  },
+  "C-BUF95C": {
+   "original": 87.22222222222223,
+   "recertificada": 98.48942598187311,
+   "com_plano": 91.94444444444444,
+   "dcusto": 0.0
+  },
+  "CAL": {
+   "original": 64.16666666666667,
+   "recertificada": 96.71641791044776,
+   "com_plano": 93.05555555555556,
+   "dcusto": 0.0
+  },
+  "C-SIMC": {
+   "original": 56.388888888888886,
+   "recertificada": 93.45794392523365,
+   "com_plano": 89.16666666666667,
+   "dcusto": 0.0
+  },
+  "ACAL": {
+   "original": 53.05555555555556,
+   "recertificada": 94.35215946843853,
+   "com_plano": 83.61111111111111,
+   "dcusto": 0.0
+  }
+ },
+ "SP": {
+  "C-DETC": {
+   "original": 59.87261146496815,
+   "recertificada": 88.19444444444444,
+   "com_plano": 91.71974522292994,
+   "dcusto": 0.0
+  },
+  "C-BUF90C": {
+   "original": 66.875,
+   "recertificada": 88.96551724137932,
+   "com_plano": 90.625,
+   "dcusto": 0.0
+  },
+  "C-BUF95C": {
+   "original": 85.0,
+   "recertificada": 95.59748427672956,
+   "com_plano": 99.375,
+   "dcusto": 0.0
+  },
+  "CAL": {
+   "original": 61.25000000000001,
+   "recertificada": 92.5,
+   "com_plano": 100.0,
+   "dcusto": 0.0
+  },
+  "C-SIMC": {
+   "original": 73.75,
+   "recertificada": 94.375,
+   "com_plano": 100.0,
+   "dcusto": 0.0
+  },
+  "ACAL": {
+   "original": 35.625,
+   "recertificada": 81.13207547169812,
+   "com_plano": 99.375,
+   "dcusto": 0.32562232317752127
+  }
+ },
+ "SP com horário": {
+  "C-DETC": {
+   "original": 66.88311688311688,
+   "recertificada": 87.5,
+   "com_plano": 93.5064935064935,
+   "dcusto": 0.0
+  },
+  "C-BUF90C": {
+   "original": 60.0,
+   "recertificada": 86.98630136986301,
+   "com_plano": 91.25,
+   "dcusto": 0.0
+  },
+  "C-BUF95C": {
+   "original": 78.75,
+   "recertificada": 88.60759493670885,
+   "com_plano": 98.75,
+   "dcusto": 0.0
+  },
+  "CAL": {
+   "original": 49.375,
+   "recertificada": 85.0,
+   "com_plano": 100.0,
+   "dcusto": 0.0
+  },
+  "C-SIMC": {
+   "original": 74.375,
+   "recertificada": 90.625,
+   "com_plano": 100.0,
+   "dcusto": 0.0
+  },
+  "ACAL": {
+   "original": 33.125,
+   "recertificada": 77.07006369426752,
+   "com_plano": 98.125,
+   "dcusto": 0.14166727540336765
+  }
+ }
+}

@@ -1,0 +1,51 @@
+{
+ "fonte": "DT-CARGO (Balke & Adenaw 2023), tracks.csv, 54 caminhões pesados, set/2021-abr/2022",
+ "trechos_brutos": 101826,
+ "viagens_validas_em_pares": 6036,
+ "pares": 176,
+ "min_viagens_por_par": 10,
+ "duracao_mediana_min": 41.76439166666667,
+ "distancia_mediana_km": 24.404,
+ "cv_par": {
+  "mediana": 0.20805365803787615,
+  "p10": 0.0812104029534145,
+  "p90": 0.7526217040530394,
+  "ponderada_viagens": 0.5986385725562594
+ },
+ "cv_por_duracao": {
+  "0-15 min": {
+   "pares": 4,
+   "cv_mediana": 0.4848573765211192
+  },
+  "15-30 min": {
+   "pares": 32,
+   "cv_mediana": 0.2965926923394737
+  },
+  "30-60 min": {
+   "pares": 66,
+   "cv_mediana": 0.21892548061942924
+  },
+  "60-600 min": {
+   "pares": 74,
+   "cv_mediana": 0.14439639470181448
+  }
+ },
+ "forma_z": {
+  "assimetria": 1.4164913822445586,
+  "curtose_excesso": 8.882208600111577,
+  "p_acima_1645": 0.06461232604373758,
+  "p_acima_2326": 0.02286282306163022
+ },
+ "quantil_emp_sobre_lognormal": {
+  "0.95": {
+   "mediana": 0.9884482833386103,
+   "p10": 0.8342087578884554,
+   "p90": 1.039798089722666
+  },
+  "0.99": {
+   "mediana": 0.9492128628272161,
+   "p10": 0.8166586728353731,
+   "p90": 1.0486862447149221
+  }
+ }
+}

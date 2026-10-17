@@ -36,6 +36,7 @@ It also proposes a simulation-based refinement of the chosen plan.
 | `instances/caso_sp_pico/` | The SP1/SP2 instances planned with the morning-peak congestion (8 instances) |
 | `instances/caso_sp_td/` | The 16 São Paulo instances with time-dependent travel times (hourly weekday congestion profile) |
 | `instances/caso_sp_media_operacao/` | The 16 São Paulo instances with the mean congestion of the operating hours (static) |
+| `instances/escala/` | The 24 scale instances (C1-RC2; n = 200 and 400; MEDIUM and HIGH), same generator as the benchmark |
 | `instances/caso_atenas/` | The 9 Athens instances built from the operational data of a pharmaceutical distributor |
 | `pesquisa/` | Experiment and analysis scripts (see below) |
 | `pesquisa/clima/` | Processed hourly ambient-temperature profiles of seven Brazilian capitals (NOAA ISD, 2011–2020) |
@@ -150,6 +151,10 @@ page (https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page) to `pesquisa
 install `pyarrow`, and run `python -I pesquisa/tempos_observados/analisar_tlc.py`, then `reavaliar_observado.py`,
 `recertificar_observado.py` and `tabela_observado.py`. The standardized samples used for resampling are included in
 `pesquisa/tempos_observados/resultados/amostras_tlc.npz`.
+
+The truck trips come from the DT-CARGO data (Balke & Adenaw, 2023): download `input/public/tracks.csv` from
+https://github.com/TUMFTM/dt-cargo to `pesquisa/tempos_observados/dados_brutos/dt_cargo/` and run
+`python -I pesquisa/tempos_observados/analisar_dtcargo.py` and `reavaliar_caminhoes.py`.
 
 ## Raw results
 
