@@ -156,6 +156,14 @@ The truck trips come from the DT-CARGO data (Balke & Adenaw, 2023): download `in
 https://github.com/TUMFTM/dt-cargo to `pesquisa/tempos_observados/dados_brutos/dt_cargo/` and run
 `python -I pesquisa/tempos_observados/analisar_dtcargo.py` and `reavaliar_caminhoes.py`.
 
+## Larger instances
+
+`pesquisa/escala/` runs the scale test of Section 6.14 (24 instances with 200 and 400 customers in `instances/escala/`,
+three seeds): `rodar_escala.ps1` runs SIM+C, the four buffer rungs of CAL and ACAL with our engine (432 runs), the PyVRP
+pipeline (216 solves, 4 and 8 min each) and the refinement; `python pesquisa/escala/analisar_escala.py` writes
+`pesquisa/resultados_escala/relatorio_escala.txt`, `resumo_escala.json` and Table 9 of the paper. The design and the
+hypotheses were fixed before the runs.
+
 ## Raw results
 
 The raw outputs of every run (final fronts, certified probabilities, out-of-sample evaluations; about 550 MB) are
