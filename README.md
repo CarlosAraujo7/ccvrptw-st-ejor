@@ -164,6 +164,14 @@ pipeline (216 solves, 4 and 8 min each) and the refinement; `python pesquisa/esc
 `pesquisa/resultados_escala/relatorio_escala.txt`, `resumo_escala.json` and Table 9 of the paper. The design and the
 hypotheses were fixed before the runs.
 
+## Certification against a lower confidence bound
+
+`python pesquisa/rodar_regra_lcb.py` repeats the refinement in all five sets with the plan chosen by the stricter rule
+(cheapest plan with certified punctuality at least α + 1.645·√(α(1−α)/500); option `--regra lcb` of
+`refinamento_simulacao.py`, whose default path is unchanged) and writes `refinamento_<start>_lcb.json` next to the
+point-rule results. `python pesquisa/regra_lcb.py` compares both rules (Table S18 of the supplementary material;
+`pesquisa/resultados_regra_lcb/`), and `python pesquisa/figura_sintese.py` draws Figure 1 of the paper.
+
 ## Raw results
 
 The raw outputs of every run (final fronts, certified probabilities, out-of-sample evaluations; about 550 MB) are

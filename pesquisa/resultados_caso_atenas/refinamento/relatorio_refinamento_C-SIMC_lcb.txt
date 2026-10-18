@@ -1,0 +1,7 @@
+REFINAMENTO POR SIMULAÇÃO a partir da escolha do decisor de C-SIMC_lcb (90 execuções); avaliação em 1.000 cenários comuns
+  base (C-SIMC_lcb)      cumpre  98.9%  P média 0.969  custo médio   1280.2  perda 5.909%  CO2 65.1
+  refinado               cumpre  98.9%  P média 0.969  custo médio   1280.2  perda 5.909%  CO2 65.1
+  SIM+C                  cumpre  98.9%  P média 0.969  custo médio   1280.2  perda 5.909%  CO2 65.1
+  refinado vs base       Δcusto mediana +0.00% média -0.00%  Δperda mediana +0.000 p.p.  ΔCO2 mediana +0.00%
+  refinado vs SIM+C      Δcusto mediana +0.00% média -0.00%  Δperda mediana +0.000 p.p.  ΔCO2 mediana +0.00%
+  tempo de CPU do refinamento: média 0.0 s por execução

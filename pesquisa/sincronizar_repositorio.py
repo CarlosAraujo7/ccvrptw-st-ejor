@@ -28,12 +28,15 @@ ARQUIVOS = [
     # escala (Entrada 114)
     'pesquisa/escala/gerar_escala.py', 'pesquisa/escala/rodar_escala.py', 'pesquisa/escala/rodar_escala.ps1',
     'pesquisa/escala/analisar_escala.py',      # análise (18/10/2026, Entrada 116)
+    # regra LCB e figura-síntese (18/10/2026, Entrada 117)
+    'pesquisa/regra_lcb.py', 'pesquisa/rodar_regra_lcb.py', 'pesquisa/figura_sintese.py',
 ]
 PASTAS = ['instances/caso_sp_td', 'instances/caso_sp_media_operacao', 'instances/caso_atenas',
           'pesquisa/resultados_caso_sp_td', 'pesquisa/resultados_caso_sp_media', 'pesquisa/resultados_caso_atenas',
           'pesquisa/resultados_teoria_buffer', 'pesquisa/resultados_degrau_nominal', 'pesquisa/resultados_acal',
           'pesquisa/resultados_calibracao_preditiva', 'pesquisa/tempos_observados/resultados', 'instances/escala',
-          'pesquisa/resultados_escala']
+          'pesquisa/resultados_escala', 'pesquisa/resultados_regra_lcb', 'pesquisa/resultados_refinamento',
+          'pesquisa/resultados_caso_sp/refinamento']   # o LaTeX gerado fica fora do repositório (.gitignore)
 IGNORAR = ('.bak', '__pycache__', 'log_')
 
 

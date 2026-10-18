@@ -183,13 +183,18 @@ def avaliar_oos(R, D, inst_nome, ctx):
     return float(on.mean()), float(1 - (acc / tot).mean())
 
 
-def escolha_decisor(path_sol, path_oos):
+def escolha_decisor(path_sol, path_oos, regra='pontual'):
+    """Escolha do decisor: a certificada mais barata. Regra 'lcb' (18/10/2026, Entrada 117): a mais barata com
+    P_cert >= ALVO_CERT_LCB; se nenhuma atingir, a mais pontual entre as certificadas em α (lcb_ok = False)."""
     S = json.load(open(path_sol, encoding='utf-8')); O = {o['sol_id']: o for o in json.load(open(path_oos, encoding='utf-8'))['solutions']}
     cert = [s for s in S if s['feasible'] and (s.get('p_cert') or 0) >= ALPHA]
     if not cert:
         return None
-    s = min(cert, key=lambda s: s['f1_cost_BRL']); o = O[s['sol_id']]
-    return dict(s=s, f1=s['f1_cost_BRL'], p_oos=o['p_on'], q_oos=o['q_oos'], f3=s['f3_co2_kg'], p_cert=s['p_cert'])
+    forte = [s for s in cert if s['p_cert'] >= (ALVO_CERT_LCB if regra == 'lcb' else ALPHA)]
+    s = min(forte, key=lambda s: s['f1_cost_BRL']) if forte else max(cert, key=lambda s: (s['p_cert'], -s['f1_cost_BRL']))
+    o = O[s['sol_id']]
+    return dict(s=s, f1=s['f1_cost_BRL'], p_oos=o['p_on'], q_oos=o['q_oos'], f3=s['f3_co2_kg'], p_cert=s['p_cert'],
+                lcb_ok=bool(forte))
 
 
 def main():
@@ -201,6 +206,8 @@ def main():
     ap.add_argument('--partida', default='C-BUF95C')
     ap.add_argument('--saida', default=os.path.join(BASE, 'pesquisa', 'resultados_refinamento'))
     ap.add_argument('--caso-sp', action='store_true', help='instâncias do caso São Paulo (matrizes viárias)')
+    ap.add_argument('--regra', choices=['pontual', 'lcb'], default='pontual',
+                    help="escolha do ponto de partida: 'lcb' = certificada mais barata com P_cert >= LCB (Entrada 117)")
     a = ap.parse_args()
     inst_dir = os.path.join(BASE, 'instances', 'generated')
     if a.caso_sp:
@@ -225,15 +232,16 @@ def main():
                 for deg in ESCADA:
                     arq = os.path.join(RD, deg, f'{nome}__{deg}__seed{sd}_solutions.json')
                     if os.path.exists(arq):
-                        e = escolha_decisor(arq, arq.replace('_solutions.json', '_oosC.json'))
+                        e = escolha_decisor(arq, arq.replace('_solutions.json', '_oosC.json'), a.regra)
                         if e:
                             cands.append(e)
-                esc = min(cands, key=lambda e: e['f1']) if cands else None
+                ok = [e for e in cands if e['lcb_ok']]
+                esc = (min(ok, key=lambda e: e['f1']) if ok else max(cands, key=lambda e: (e['p_cert'], -e['f1']))) if cands else None
             else:
                 arq = os.path.join(RD, a.partida, f'{nome}__{a.partida}__seed{sd}_solutions.json')
                 if not os.path.exists(arq):
                     continue
-                esc = escolha_decisor(arq, arq.replace('_solutions.json', '_oosC.json'))
+                esc = escolha_decisor(arq, arq.replace('_solutions.json', '_oosC.json'), a.regra)
             if esc is None:
                 continue
             tt_ref = tr._lognormal_media1(np.random.default_rng(31337 + 97 * sd + sum(map(ord, nome))), cv, (K_REF, n + 1))
@@ -250,6 +258,8 @@ def main():
             linha = dict(instance=nome, seed=sd, nivel=niv,
                          base_f1=esc['f1'], base_p_oos=esc['p_oos'], base_q_oos=esc['q_oos'], base_f3=esc['f3'],
                          ref_f1=f1, ref_p_cert=p_cert, ref_p_oos=p_oos, ref_q_oos=q_oos, ref_f3=f3, cpu_s=t_ref)
+            if a.regra == 'lcb':
+                linha.update(base_p_cert=esc['p_cert'], lcb_ok=esc['lcb_ok'])
             for suf, lim in (('fin', ALPHA), ('finl', ALVO_CERT_LCB)):
                 ok = p_cert >= lim
                 linha[f'{suf}_aceito'] = bool(ok)
@@ -257,7 +267,7 @@ def main():
                     linha[f'{suf}_{k}'] = linha[f'ref_{k}'] if ok else linha[f'base_{k}']
             for outro in ('C-SIMC', 'C-BUF90C', 'C-BUF70C', 'C-BUF80C'):
                 o = os.path.join(RD, outro, f'{nome}__{outro}__seed{sd}_solutions.json')
-                e = escolha_decisor(o, o.replace('_solutions.json', '_oosC.json')) if os.path.exists(o) else None
+                e = escolha_decisor(o, o.replace('_solutions.json', '_oosC.json'), a.regra) if os.path.exists(o) else None
                 if e:
                     linha.update({f'{outro}_f1': e['f1'], f'{outro}_p_oos': e['p_oos'], f'{outro}_q_oos': e['q_oos'], f'{outro}_f3': e['f3']})
             linhas.append(linha)
@@ -265,8 +275,9 @@ def main():
                   f"refinado f1 {f1:.1f} P {p_oos:.3f} (cert {p_cert:.3f}) q {100*q_oos:.2f}% | "
                   f"SIM f1 {linha.get('C-SIMC_f1', float('nan')):.1f} P {linha.get('C-SIMC_p_oos', float('nan')):.3f} "
                   f"q {100*linha.get('C-SIMC_q_oos', float('nan')):.2f}% | {t_ref:.1f} s", flush=True)
-    json.dump(linhas, open(os.path.join(a.saida, f'refinamento_{a.partida}.json'), 'w', encoding='utf-8'), indent=1)
-    resumo(linhas, a.saida, a.partida)
+    suf = '_lcb' if a.regra == 'lcb' else ''
+    json.dump(linhas, open(os.path.join(a.saida, f'refinamento_{a.partida}{suf}.json'), 'w', encoding='utf-8'), indent=1)
+    resumo(linhas, a.saida, a.partida + suf)
 
 
 def resumo(L, saida, partida):

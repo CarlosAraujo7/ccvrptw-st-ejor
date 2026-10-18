@@ -1,0 +1,7 @@
+REFINAMENTO POR SIMULAÇÃO a partir da escolha do decisor de C-ACALC-B_lcb (360 execuções); avaliação em 1.000 cenários comuns
+  base (C-ACALC-B_lcb)   cumpre  99.7%  P média 0.968  custo médio   4030.7  perda 3.476%  CO2 233.1
+  refinado               cumpre  95.8%  P média 0.959  custo médio   4026.9  perda 3.315%  CO2 232.4
+  SIM+C                  cumpre   nan%  P média nan  custo médio      nan  perda nan%  CO2 nan
+  refinado vs base       Δcusto mediana +nan% média +nan%  Δperda mediana +nan p.p.  ΔCO2 mediana +nan%
+  refinado vs SIM+C      Δcusto mediana +nan% média +nan%  Δperda mediana +nan p.p.  ΔCO2 mediana +nan%
+  tempo de CPU do refinamento: média 0.0 s por execução
