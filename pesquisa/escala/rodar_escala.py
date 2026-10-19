@@ -99,7 +99,10 @@ if __name__ == '__main__':
     ap = argparse.ArgumentParser()
     ap.add_argument('--motor', action='store_true'); ap.add_argument('--pyvrp', action='store_true')
     ap.add_argument('--workers', type=int, default=10)
+    ap.add_argument('--sementes', nargs='+', type=int, default=list(SEMENTES),
+                    help='sementes (padrão 0-2; B3, Entrada 118: 3-9)')
     a = ap.parse_args()
+    SEMENTES = tuple(a.sementes)
     if a.motor:
         motor(a.workers)
     if a.pyvrp:

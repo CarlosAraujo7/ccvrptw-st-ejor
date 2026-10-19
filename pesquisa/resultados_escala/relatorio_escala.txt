@@ -1,4 +1,4 @@
-TESTE DE ESCALA — 24 instâncias (n = 200 e 400), sementes 0-2; escolha = certificada mais barata; α = 0.9; 1.000 cenários comuns
+TESTE DE ESCALA — 24 instâncias (n = 200 e 400), sementes [0, 1, 2]; escolha = certificada mais barata; α = 0.9; 1.000 cenários comuns
 
 == n = 200 ==
   SIM+C        execuções  36 sem plano  0  cumpre  77.8%  P média 0.951 (mín 0.867; falhas: P média 0.885)  custo   12023.9  perda 4.271%  CO2 676.0

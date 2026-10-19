@@ -50,6 +50,7 @@ def carregar_lcb():
 def carregar_planos():
     """{método: {(inst, seed): (f1, p_oos, q_oos, f3) ou None}}"""
     R = b.carregar(RES)
+    SEM = sorted({s for _, s in R})
     for f in glob.glob(os.path.join(BASE, RES, 'C-ACALC-B', '*_oosC.json')):
         d = json.load(open(f, encoding='utf-8')); m = d['meta']
         cert = [s for s in d['solutions'] if s['feasible'] and (s.get('p_cert') or 0) >= ALPHA]
@@ -61,7 +62,7 @@ def carregar_planos():
         P['BUF0.95+C'][k] = tup(d.get('C-BUF95C'))
         P['CAL'][k] = tup(b.melhor([d.get(a) for a in b.DEG]))
         P['ACAL'][k] = tup(d.get('C-ACALC-B'))
-        P['SIM3'][k] = tup(b.regra_sim(3)(R, k[0], k[1], [0, 1, 2])[0])          # melhor de 3 (orçamento de 3 buscas)
+        P['SIM3'][k] = tup(b.regra_sim(3)(R, k[0], k[1], SEM)[0])          # melhor de 3 (orçamento de 3 buscas)
     for k, d in carregar_lcb().items():
         P['SIM+C LCB'][k] = tup(d.get('C-SIMC'))
         P['CAL LCB'][k] = tup(b.melhor([d.get(a) for a in b.DEG]))
@@ -123,7 +124,7 @@ def tempos():
     return {k: float(np.mean(v)) for k, v in T.items()}
 
 
-def tabela_tex(resumo, T):
+def tabela_tex(resumo, T, NSEM=3):
     """Tabela do artigo: diferenças contra o SIM+C por tamanho (HL; * = p_Holm < 0,05), cumprimento e tempo por plano."""
     def tempo(m, n):
         t = {'SIM+C': T[('C-SIMC', n)], 'BUF0.95+C': T[('C-BUF95C', n)],
@@ -140,7 +141,7 @@ def tabela_tex(resumo, T):
             ('PY-CAL+R', r'PyVRP, CAL+R')]
     L = [r'\begin{table}[htbp]', r'\centering',
          r'\caption{Scale test: 24 instances with $n=200$ and $n=400$ customers (six families, medium and high uncertainty), '
-         r'three seeds. Hodges--Lehmann estimate of the paired difference per instance against \mSIM{} (mean over seeds; '
+         + {3: 'three', 10: 'ten'}.get(NSEM, str(NSEM)) + r' seeds. Hodges--Lehmann estimate of the paired difference per instance against \mSIM{} (mean over seeds; '
          r'12 instances per size); $^*$: $p_{\mathrm{Holm}}<0.05$ (Wilcoxon signed-rank test, Holm correction over the four '
          r'measures, including punctuality). Complies: \% of the chosen plans meeting $\alpha=0.90$ out of sample. '
          r'Time: mean computing time per chosen plan, $n=200$ / $n=400$.}',
@@ -163,7 +164,7 @@ def tabela_tex(resumo, T):
 
 def main():
     P = carregar_planos()
-    out = ['TESTE DE ESCALA — 24 instâncias (n = 200 e 400), sementes 0-2; escolha = certificada mais barata; '
+    out = [f'TESTE DE ESCALA — 24 instâncias (n = 200 e 400), sementes {sorted({sd for _, sd in P["SIM+C"]})}; escolha = certificada mais barata; '
            f'α = {ALPHA}; 1.000 cenários comuns']
     resumo = {'cumpre': {}, 'sem_plano': {}, 'comp': {}, 'tempo': {}}
     metodos = ['SIM+C', 'BUF0.90+C', 'BUF0.95+C', 'CAL', 'ACAL', 'SIM+C+R', 'CAL+R', 'ACAL+R', 'PY-CAL', 'PY-CAL+R',
@@ -197,7 +198,7 @@ def main():
     txt = '\n'.join(out); print(txt)
     open(os.path.join(OUT, 'relatorio_escala.txt'), 'w', encoding='utf-8').write(txt + '\n')
     json.dump(resumo, open(os.path.join(OUT, 'resumo_escala.json'), 'w', encoding='utf-8'), indent=1)
-    tabela_tex(resumo, T)
+    tabela_tex(resumo, T, len({sd for _, sd in P['SIM+C']}))
 
 
 if __name__ == '__main__':
