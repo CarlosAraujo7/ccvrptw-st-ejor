@@ -31,7 +31,7 @@ ARQUIVOS = [
     # regra LCB e figura-síntese (18/10/2026, Entrada 117)
     'pesquisa/regra_lcb.py', 'pesquisa/rodar_regra_lcb.py', 'pesquisa/figura_sintese.py',
     # B3/B4 (18/10/2026, Entrada 118)
-    'pesquisa/pyvrp_sim.py', 'pesquisa/rodar_ciclo_b3b4.ps1',
+    'pesquisa/pyvrp_sim.py', 'pesquisa/rodar_ciclo_b3b4.ps1', 'pesquisa/rodar_ciclo_b3b4.cmd',
 ]
 PASTAS = ['instances/caso_sp_td', 'instances/caso_sp_media_operacao', 'instances/caso_atenas',
           'pesquisa/resultados_caso_sp_td', 'pesquisa/resultados_caso_sp_media', 'pesquisa/resultados_caso_atenas',
