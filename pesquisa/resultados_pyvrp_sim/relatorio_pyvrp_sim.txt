@@ -41,15 +41,15 @@ PY-SIM (simheurística sobre o PyVRP) — 332 execuções; α = 0.9; 1.000 cená
   P na busca da iteração 0 (tempos nominais): mediana 0.998
   [pt] PY-SIM+R  execuções  64 cumpre  95.3%  custo   17215.6  perda 3.696%
   [pt] PY-CAL+R  execuções  72 cumpre  94.4%  custo   16967.4  perda 3.822%
-  [pt] SIM+C     execuções  72 cumpre  83.3%  custo   18624.3  perda 4.351%
-  [pt] CAL+R     execuções  72 cumpre  84.7%  custo   18166.7  perda 3.433%
+  [pt] SIM+C     execuções 238 cumpre  86.6%  custo   18460.9  perda 4.318%
+  [pt] CAL+R     execuções 239 cumpre  84.5%  custo   18053.1  perda 3.441%
   [pt] PY-SIM+R − PY-CAL+R: custo (%) +0.15 [+0.08, +0.24] p_H=0.0017 (5/17); perda (p.p.) +0.01 [-0.04, +0.05] p_H=0.52 (8/14); CO2 (%) +0.18 [+0.02, +0.33] p_H=0.099 (7/15); P_oos (p.p.) -0.62 [-1.72, +0.32] p_H=0.38 (13/8)
-  [pt] PY-SIM+R − SIM+C: custo (%) -6.54 [-10.00, -3.45] p_H=1.9e-06 (22/0); perda (p.p.) -0.62 [-1.12, -0.08] p_H=0.046 (15/7); CO2 (%) -7.76 [-10.25, -5.55] p_H=1.9e-06 (22/0); P_oos (p.p.) +0.57 [-0.53, +1.70] p_H=0.32 (9/13)
-  [pt] PY-SIM+R − CAL+R: custo (%) -4.45 [-6.06, -3.10] p_H=1.9e-06 (22/0); perda (p.p.) +0.33 [+0.03, +0.64] p_H=0.0073 (6/16); CO2 (%) -4.64 [-6.36, -3.73] p_H=1.9e-06 (22/0); P_oos (p.p.) +1.20 [+0.25, +2.28] p_H=0.014 (6/15)
+  [pt] PY-SIM+R − SIM+C: custo (%) -6.44 [-9.37, -3.51] p_H=1.9e-06 (22/0); perda (p.p.) -0.61 [-1.04, -0.12] p_H=0.042 (16/6); CO2 (%) -7.63 [-9.76, -5.64] p_H=1.9e-06 (22/0); P_oos (p.p.) +0.48 [-0.62, +1.27] p_H=0.35 (8/14)
+  [pt] PY-SIM+R − CAL+R: custo (%) -4.57 [-6.09, -3.08] p_H=1.9e-06 (22/0); perda (p.p.) +0.31 [+0.03, +0.67] p_H=0.005 (6/16); CO2 (%) -4.75 [-6.30, -3.73] p_H=1.9e-06 (22/0); P_oos (p.p.) +1.24 [+0.50, +2.00] p_H=0.005 (4/17)
   [lcb] PY-SIM+R  execuções  64 cumpre 100.0%  custo   17215.8  perda 4.063%
   [lcb] PY-CAL+R  execuções  72 cumpre 100.0%  custo   16968.4  perda 4.333%
-  [lcb] SIM+C     execuções  72 cumpre  98.6%  custo   18876.8  perda 4.319%
-  [lcb] CAL+R     execuções  72 cumpre  90.3%  custo   18987.4  perda 3.567%
+  [lcb] SIM+C     execuções 238 cumpre  97.5%  custo   18819.5  perda 4.273%
+  [lcb] CAL+R     execuções 239 cumpre  90.0%  custo   18977.5  perda 3.533%
   [lcb] PY-SIM+R − PY-CAL+R: custo (%) +0.15 [+0.07, +0.24] p_H=0.0017 (5/17); perda (p.p.) +0.01 [-0.06, +0.03] p_H=0.8 (9/13); CO2 (%) +0.11 [-0.07, +0.27] p_H=0.4 (9/13); P_oos (p.p.) -0.95 [-2.35, -0.13] p_H=0.098 (16/5)
-  [lcb] PY-SIM+R − SIM+C: custo (%) -6.90 [-12.34, -3.45] p_H=1.9e-06 (22/0); perda (p.p.) -0.04 [-1.11, +0.25] p_H=0.75 (12/10); CO2 (%) -7.72 [-10.91, -5.40] p_H=1.9e-06 (22/0); P_oos (p.p.) +0.75 [-0.43, +2.22] p_H=0.41 (9/13)
-  [lcb] PY-SIM+R − CAL+R: custo (%) -4.60 [-6.20, -3.10] p_H=1.9e-06 (22/0); perda (p.p.) +0.67 [+0.01, +0.98] p_H=0.078 (8/14); CO2 (%) -4.55 [-6.30, -3.64] p_H=1.9e-06 (22/0); P_oos (p.p.) +1.37 [+0.03, +2.85] p_H=0.078 (5/16)
+  [lcb] PY-SIM+R − SIM+C: custo (%) -7.11 [-11.17, -3.52] p_H=1.9e-06 (22/0); perda (p.p.) -0.08 [-0.96, +0.31] p_H=0.73 (12/10); CO2 (%) -7.89 [-10.65, -5.20] p_H=1.9e-06 (22/0); P_oos (p.p.) +0.76 [-0.41, +2.00] p_H=0.4 (7/15)
+  [lcb] PY-SIM+R − CAL+R: custo (%) -4.86 [-8.03, -3.09] p_H=1.9e-06 (22/0); perda (p.p.) +0.75 [+0.00, +0.96] p_H=0.046 (8/14); CO2 (%) -5.08 [-7.03, -3.69] p_H=1.9e-06 (22/0); P_oos (p.p.) +1.22 [+0.43, +2.37] p_H=0.031 (5/16)

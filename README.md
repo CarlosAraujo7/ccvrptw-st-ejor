@@ -159,10 +159,11 @@ https://github.com/TUMFTM/dt-cargo to `pesquisa/tempos_observados/dados_brutos/d
 ## Larger instances
 
 `pesquisa/escala/` runs the scale test of Section 6.14 (24 instances with 200 and 400 customers in `instances/escala/`,
-three seeds): `rodar_escala.ps1` runs SIM+C, the four buffer rungs of CAL and ACAL with our engine (432 runs), the PyVRP
-pipeline (216 solves, 4 and 8 min each) and the refinement; `python pesquisa/escala/analisar_escala.py` writes
-`pesquisa/resultados_escala/relatorio_escala.txt`, `resumo_escala.json` and Table 9 of the paper. The design and the
-hypotheses were fixed before the runs.
+ten seeds): `rodar_escala.ps1` runs seeds 0-2 and `pesquisa/rodar_ciclo_b3b4.ps1` (or `rodar_ciclo_b3b4.cmd`) seeds 3-9:
+SIM+C, the four buffer rungs of CAL and ACAL with our engine (1,440 runs), the PyVRP pipeline (720 solves, 4 and 8 min
+each) and the refinement under both certification rules; `python pesquisa/escala/analisar_escala.py` writes
+`pesquisa/resultados_escala/relatorio_escala.txt`, `resumo_escala.json` and Table 7 of the paper (the `*_3sementes*`
+files keep the first analysis with seeds 0-2). The design and the hypotheses were fixed before the runs.
 
 ## Certification against a lower confidence bound
 

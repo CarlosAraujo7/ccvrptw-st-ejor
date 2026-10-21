@@ -1,0 +1,55 @@
+PY-SIM (simheurística sobre o PyVRP) — 332 execuções; α = 0.9; 1.000 cenários comuns
+
+=== Benchmark: 180 execuções ===
+  resoluções usadas: média 1.66 (1: 111, 2: 19, 3: 50); inviáveis: 0; sem plano certificado: 19; iteração escolhida: {np.int64(0): np.int64(123), np.int64(1): np.int64(33), np.int64(2): np.int64(5)}
+  P na busca da iteração 0 (tempos nominais): mediana 1.000
+  [pt] PY-SIM+R  execuções 161 cumpre  98.8%  custo    3788.2  perda 3.576%
+  [pt] PY-CAL+R  execuções 180 cumpre  98.9%  custo    3944.0  perda 3.617%
+  [pt] SIM+C     execuções 360 cumpre  93.3%  custo    4023.7  perda 3.606%
+  [pt] CAL+R     execuções 360 cumpre  98.1%  custo    4004.4  perda 3.394%
+  [pt] PY-SIM+R − PY-CAL+R: custo (%) +0.00 [-0.06, +0.00] p_H=1 (9/8); perda (p.p.) +0.01 [-0.03, +0.10] p_H=1 (14/15); CO2 (%) +0.00 [-0.10, +0.02] p_H=1 (9/9); P_oos (p.p.) +0.00 [-0.33, +0.08] p_H=1 (11/9)
+  [pt] PY-SIM+R − SIM+C: custo (%) -0.61 [-1.22, -0.32] p_H=2.5e-05 (27/1); perda (p.p.) +0.01 [-0.11, +0.13] p_H=0.88 (14/20); CO2 (%) -0.93 [-1.63, -0.44] p_H=0.00021 (27/3); P_oos (p.p.) +0.17 [+0.00, +0.48] p_H=0.13 (6/22)
+  [pt] PY-SIM+R − CAL+R: custo (%) -0.38 [-0.92, -0.14] p_H=0.00011 (23/1); perda (p.p.) +0.20 [+0.10, +0.30] p_H=4.5e-05 (7/27); CO2 (%) -0.45 [-0.89, -0.16] p_H=0.001 (22/5); P_oos (p.p.) +0.14 [-0.13, +0.59] p_H=0.3 (8/17)
+  [lcb] PY-SIM+R  execuções 161 cumpre 100.0%  custo    3788.3  perda 3.928%
+  [lcb] PY-CAL+R  execuções 180 cumpre 100.0%  custo    3946.2  perda 4.071%
+  [lcb] SIM+C     execuções 360 cumpre  98.1%  custo    4096.3  perda 3.524%
+  [lcb] CAL+R     execuções 360 cumpre 100.0%  custo    4010.3  perda 3.425%
+  [lcb] PY-SIM+R − PY-CAL+R: custo (%) +0.00 [-0.07, +0.00] p_H=1 (9/8); perda (p.p.) -0.01 [-0.15, +0.05] p_H=1 (16/13); CO2 (%) +0.00 [-0.21, +0.02] p_H=1 (9/9); P_oos (p.p.) -0.54 [-0.83, +0.00] p_H=0.013 (15/4)
+  [lcb] PY-SIM+R − SIM+C: custo (%) -1.19 [-2.34, -0.49] p_H=2.5e-06 (30/0); perda (p.p.) +0.41 [+0.16, +0.70] p_H=0.0013 (8/26); CO2 (%) -0.84 [-1.53, -0.39] p_H=0.00046 (26/4); P_oos (p.p.) +0.25 [+0.00, +1.06] p_H=0.033 (7/21)
+  [lcb] PY-SIM+R − CAL+R: custo (%) -0.46 [-1.31, -0.21] p_H=1.5e-05 (25/0); perda (p.p.) +0.44 [+0.24, +0.82] p_H=2.7e-06 (6/28); CO2 (%) -0.38 [-0.72, -0.07] p_H=0.013 (20/7); P_oos (p.p.) +0.34 [+0.00, +0.94] p_H=0.076 (8/16)
+
+=== São Paulo: 80 execuções ===
+  resoluções usadas: média 1.07 (1: 75, 2: 4, 3: 1); inviáveis: 0; sem plano certificado: 0; iteração escolhida: {np.int64(0): np.int64(78), np.int64(1): np.int64(2)}
+  P na busca da iteração 0 (tempos nominais): mediana 1.000
+  [pt] PY-SIM+R  execuções  80 cumpre  97.5%  custo    3114.3  perda 6.019%
+  [pt] PY-CAL+R  execuções  80 cumpre 100.0%  custo    3109.2  perda 5.950%
+  [pt] SIM+C     execuções 160 cumpre  93.8%  custo    3195.4  perda 6.307%
+  [pt] CAL+R     execuções 160 cumpre  98.8%  custo    3175.6  perda 5.574%
+  [pt] PY-SIM+R − PY-CAL+R: custo (%) +0.08 [+0.02, +0.24] p_H=0.0049 (1/13); perda (p.p.) +0.04 [-0.07, +0.23] p_H=0.46 (5/9); CO2 (%) +0.39 [+0.06, +1.18] p_H=0.051 (2/12); P_oos (p.p.) -0.43 [-0.90, +0.03] p_H=0.17 (11/3)
+  [pt] PY-SIM+R − SIM+C: custo (%) -1.61 [-2.89, -0.51] p_H=0.00012 (16/0); perda (p.p.) -0.27 [-0.59, -0.02] p_H=0.05 (10/6); CO2 (%) -3.74 [-5.23, -2.53] p_H=0.00012 (16/0); P_oos (p.p.) -1.96 [-3.76, -0.27] p_H=0.05 (11/5)
+  [pt] PY-SIM+R − CAL+R: custo (%) -1.00 [-2.29, -0.27] p_H=0.00012 (16/0); perda (p.p.) +0.42 [+0.16, +0.72] p_H=0.0064 (3/13); CO2 (%) -1.11 [-1.83, +0.11] p_H=0.15 (12/4); P_oos (p.p.) -0.03 [-0.73, +0.62] p_H=0.94 (7/9)
+  [lcb] PY-SIM+R  execuções  80 cumpre 100.0%  custo    3114.3  perda 7.344%
+  [lcb] PY-CAL+R  execuções  80 cumpre 100.0%  custo    3109.2  perda 6.951%
+  [lcb] SIM+C     execuções 160 cumpre  99.4%  custo    3201.7  perda 6.185%
+  [lcb] CAL+R     execuções 160 cumpre 100.0%  custo    3177.5  perda 5.702%
+  [lcb] PY-SIM+R − PY-CAL+R: custo (%) +0.08 [+0.02, +0.24] p_H=0.0093 (2/12); perda (p.p.) +0.29 [-0.31, +1.04] p_H=0.5 (4/10); CO2 (%) +0.80 [-0.31, +2.83] p_H=0.37 (4/10); P_oos (p.p.) -0.02 [-0.81, +0.90] p_H=0.97 (8/6)
+  [lcb] PY-SIM+R − SIM+C: custo (%) -1.97 [-3.09, -0.72] p_H=0.00012 (16/0); perda (p.p.) +1.17 [+0.44, +1.86] p_H=0.003 (3/13); CO2 (%) -1.02 [-2.19, +0.48] p_H=0.13 (11/5); P_oos (p.p.) -0.78 [-1.41, +0.12] p_H=0.13 (12/4)
+  [lcb] PY-SIM+R − CAL+R: custo (%) -1.02 [-2.41, -0.28] p_H=0.00012 (16/0); perda (p.p.) +1.71 [+0.92, +2.41] p_H=0.0013 (3/13); CO2 (%) +1.84 [+0.27, +3.31] p_H=0.036 (4/12); P_oos (p.p.) +1.23 [+0.16, +2.20] p_H=0.039 (5/11)
+
+=== 200-400 customers: 72 execuções ===
+  resoluções usadas: média 1.53 (1: 50, 2: 6, 3: 16); inviáveis: 1; sem plano certificado: 8; iteração escolhida: {np.int64(0): np.int64(56), np.int64(1): np.int64(6), np.int64(2): np.int64(2)}
+  P na busca da iteração 0 (tempos nominais): mediana 0.998
+  [pt] PY-SIM+R  execuções  64 cumpre  95.3%  custo   17215.6  perda 3.696%
+  [pt] PY-CAL+R  execuções  72 cumpre  94.4%  custo   16967.4  perda 3.822%
+  [pt] SIM+C     execuções  72 cumpre  83.3%  custo   18624.3  perda 4.351%
+  [pt] CAL+R     execuções  72 cumpre  84.7%  custo   18166.7  perda 3.433%
+  [pt] PY-SIM+R − PY-CAL+R: custo (%) +0.15 [+0.08, +0.24] p_H=0.0017 (5/17); perda (p.p.) +0.01 [-0.04, +0.05] p_H=0.52 (8/14); CO2 (%) +0.18 [+0.02, +0.33] p_H=0.099 (7/15); P_oos (p.p.) -0.62 [-1.72, +0.32] p_H=0.38 (13/8)
+  [pt] PY-SIM+R − SIM+C: custo (%) -6.54 [-10.00, -3.45] p_H=1.9e-06 (22/0); perda (p.p.) -0.62 [-1.12, -0.08] p_H=0.046 (15/7); CO2 (%) -7.76 [-10.25, -5.55] p_H=1.9e-06 (22/0); P_oos (p.p.) +0.57 [-0.53, +1.70] p_H=0.32 (9/13)
+  [pt] PY-SIM+R − CAL+R: custo (%) -4.45 [-6.06, -3.10] p_H=1.9e-06 (22/0); perda (p.p.) +0.33 [+0.03, +0.64] p_H=0.0073 (6/16); CO2 (%) -4.64 [-6.36, -3.73] p_H=1.9e-06 (22/0); P_oos (p.p.) +1.20 [+0.25, +2.28] p_H=0.014 (6/15)
+  [lcb] PY-SIM+R  execuções  64 cumpre 100.0%  custo   17215.8  perda 4.063%
+  [lcb] PY-CAL+R  execuções  72 cumpre 100.0%  custo   16968.4  perda 4.333%
+  [lcb] SIM+C     execuções  72 cumpre  98.6%  custo   18876.8  perda 4.319%
+  [lcb] CAL+R     execuções  72 cumpre  90.3%  custo   18987.4  perda 3.567%
+  [lcb] PY-SIM+R − PY-CAL+R: custo (%) +0.15 [+0.07, +0.24] p_H=0.0017 (5/17); perda (p.p.) +0.01 [-0.06, +0.03] p_H=0.8 (9/13); CO2 (%) +0.11 [-0.07, +0.27] p_H=0.4 (9/13); P_oos (p.p.) -0.95 [-2.35, -0.13] p_H=0.098 (16/5)
+  [lcb] PY-SIM+R − SIM+C: custo (%) -6.90 [-12.34, -3.45] p_H=1.9e-06 (22/0); perda (p.p.) -0.04 [-1.11, +0.25] p_H=0.75 (12/10); CO2 (%) -7.72 [-10.91, -5.40] p_H=1.9e-06 (22/0); P_oos (p.p.) +0.75 [-0.43, +2.22] p_H=0.41 (9/13)
+  [lcb] PY-SIM+R − CAL+R: custo (%) -4.60 [-6.20, -3.10] p_H=1.9e-06 (22/0); perda (p.p.) +0.67 [+0.01, +0.98] p_H=0.078 (8/14); CO2 (%) -4.55 [-6.30, -3.64] p_H=1.9e-06 (22/0); P_oos (p.p.) +1.37 [+0.03, +2.85] p_H=0.078 (5/16)
